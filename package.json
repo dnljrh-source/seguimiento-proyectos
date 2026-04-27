@@ -1,0 +1,41 @@
+{
+  "name": "seguimiento-proyectos",
+  "version": "1.1.0",
+  "private": true,
+  "homepage": "/seguimiento-proyectos",
+  "dependencies": {
+    "html2canvas": "1.4.1",
+    "jszip": "3.10.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-scripts": "5.0.1",
+    "recharts": "2.12.7",
+    "xlsx": "0.18.5"
+  },
+  "scripts": {
+    "import-excel": "node scripts/import-excel.js",
+    "prestart": "node scripts/import-excel.js",
+    "start": "react-scripts start",
+    "prebuild": "node scripts/import-excel.js && node scripts/generate-build-info.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

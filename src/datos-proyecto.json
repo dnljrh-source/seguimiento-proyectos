@@ -1,0 +1,2116 @@
+{
+  "P16": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo (HU-01, HU-02)",
+        "start": "2025-11-10",
+        "end": "2025-11-12",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas",
+        "start": "2025-11-13",
+        "end": "2025-11-13",
+        "workdays": 1,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo (HU-03, HU-04)",
+        "start": "2025-11-13",
+        "end": "2025-11-24",
+        "workdays": 8,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas",
+        "start": "2025-11-25",
+        "end": "2025-11-26",
+        "workdays": 2,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo (HU-05, HU-06 y 7)",
+        "start": "2025-11-10",
+        "end": "2025-11-21",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas",
+        "start": "2025-11-22",
+        "end": "2025-11-26",
+        "workdays": 3,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo",
+        "start": "2025-11-24",
+        "end": "2025-12-19",
+        "workdays": 20,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Pruebas",
+        "start": "2025-12-20",
+        "end": "2025-12-26",
+        "workdays": 5,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "5",
+        "task": "Desarrollo",
+        "start": "2025-12-01",
+        "end": "2025-12-10",
+        "workdays": 8,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "Pruebas",
+        "start": "2025-12-11",
+        "end": "2025-12-12",
+        "workdays": 2,
+        "assigned": "QA"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo (HU-01, HU-02)",
+        "dateStart": "2025-11-10",
+        "dateEnd": "2025-11-13",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas",
+        "dateStart": "2025-11-14",
+        "dateEnd": "2025-11-18",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo (HU-03, HU-04)",
+        "dateStart": "2025-11-13",
+        "dateEnd": "2026-01-06",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo (HU-05, HU-06 y 7)",
+        "dateStart": "2025-11-10",
+        "dateEnd": "2025-11-25",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas",
+        "dateStart": "2025-11-26",
+        "dateEnd": "2025-12-04",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "Desarrollo",
+        "dateStart": "2025-12-11",
+        "dateEnd": "2025-12-19",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas",
+        "dateStart": "2026-01-08",
+        "dateEnd": "2026-01-09",
+        "pct": 40
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo",
+        "dateStart": "2025-11-26",
+        "dateEnd": "2026-01-12",
+        "pct": 100
+      },
+      {
+        "sprint": "4",
+        "task": "Pruebas",
+        "dateStart": "2026-01-12",
+        "dateEnd": "2026-01-16",
+        "pct": 30
+      },
+      {
+        "sprint": "5",
+        "task": "Pruebas",
+        "dateStart": "2026-01-12",
+        "dateEnd": "2026-01-16",
+        "pct": 30
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas",
+        "dateStart": "2026-01-19",
+        "dateEnd": "2026-03-31",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "Pruebas",
+        "dateStart": "2026-01-19",
+        "dateEnd": "2026-03-31",
+        "pct": 70
+      },
+      {
+        "sprint": "5",
+        "task": "Pruebas",
+        "dateStart": "2026-01-19",
+        "dateEnd": "2026-03-31",
+        "pct": 70
+      }
+    ],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2025-11-18",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2025-12-04",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-03-31",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-03-31",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "5",
+        "fecha": "2026-03-31",
+        "estado": "Aprobado"
+      }
+    ],
+    "validacionFinal": [
+      {
+        "fecha": "2026-03-31",
+        "validado": true
+      }
+    ]
+  },
+  "P14": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo (HU-01, HU-02, HU-03)",
+        "start": "2025-09-15",
+        "end": "2025-09-30",
+        "workdays": 7,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas de Flujo y UI vs. Mockups",
+        "start": "2025-10-01",
+        "end": "2025-10-06",
+        "workdays": 3,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo de UI y Lógica de Ofertas PPA (HU-04, 05, 06)",
+        "start": "2025-10-01",
+        "end": "2025-10-15",
+        "workdays": 9,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas de Configuración de Ofertas y Fórmulas",
+        "start": "2025-10-16",
+        "end": "2025-10-22",
+        "workdays": 4,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo del Motor de Cálculo (HU-07)",
+        "start": "2025-10-16",
+        "end": "2025-10-29",
+        "workdays": 8,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de la Vista de Análisis por Oferta (HU-08)",
+        "start": "2025-10-30",
+        "end": "2025-11-05",
+        "workdays": 4,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas de Cálculo y Verificación de Resultados",
+        "start": "2025-11-06",
+        "end": "2025-11-13",
+        "workdays": 5,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo Vistas de Análisis por Empalme y Agrupación (HU-09, 10)",
+        "start": "2025-11-06",
+        "end": "2025-11-18",
+        "workdays": 7,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Adjudicación y Descargas (HU-11)",
+        "start": "2025-11-19",
+        "end": "2025-11-21",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Pruebas de Regresión, Aceptación Final y Despliegue",
+        "start": "2025-11-22",
+        "end": "2025-11-26",
+        "workdays": 4,
+        "assigned": "QA"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo (HU-01, HU-02, HU-03)",
+        "dateStart": "2025-09-25",
+        "dateEnd": "2025-10-07",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas de Flujo y UI vs. Mockups",
+        "dateStart": "2025-10-08",
+        "dateEnd": "2025-10-23",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo de UI y Lógica de Ofertas PPA (HU-04, 05, 06)",
+        "dateStart": "2025-10-08",
+        "dateEnd": "2025-10-15",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas de Configuración de Ofertas y Fórmulas",
+        "dateStart": "2025-10-16",
+        "dateEnd": "2025-11-12",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo del Motor de Cálculo (HU-07)",
+        "dateStart": "2025-10-16",
+        "dateEnd": "2025-11-03",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de la Vista de Análisis por Oferta (HU-08)",
+        "dateStart": "2025-10-16",
+        "dateEnd": "2025-11-03",
+        "pct": 100
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo Vistas de Análisis por Empalme y Agrupación (HU-09, 10)",
+        "dateStart": "2025-11-04",
+        "dateEnd": "2025-11-12",
+        "pct": 100
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Adjudicación y Descargas (HU-11)",
+        "dateStart": "2025-11-13",
+        "dateEnd": "2025-12-03",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas de Cálculo y Verificación de Resultados",
+        "dateStart": "2026-01-01",
+        "dateEnd": "2026-03-19",
+        "pct": 100
+      },
+      {
+        "sprint": "4",
+        "task": "Pruebas de Regresión, Aceptación Final y Despliegue",
+        "dateStart": "2026-01-01",
+        "dateEnd": "2026-03-19",
+        "pct": 100
+      }
+    ],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2025-10-23",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2025-11-13",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2025-11-20",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-03-19",
+        "estado": "Aprobado"
+      }
+    ],
+    "validacionFinal": []
+  },
+  "P15": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo de UI/Lógica para Leads, Contactos y Empalmes (HU-01, 02, 03, 04)",
+        "start": "2026-01-14",
+        "end": "2026-01-27",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI y Lógica de Configuración de Coordinación (HU-05, 06, 07, 08)",
+        "start": "2026-01-28",
+        "end": "2026-02-10",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Flujo de Creación y Configuración de Estudios (HU-09, 10)",
+        "start": "2026-02-11",
+        "end": "2026-02-17",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Lógica de Generación de Payload y Conexión con Motor de Cálculo (HU-11)",
+        "start": "2026-02-18",
+        "end": "2026-03-03",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Dashboard, Gráficos y Beneficios (HU-12)",
+        "start": "2026-03-04",
+        "end": "2026-03-10",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Análisis de Remuneración y Simulación (HU-13)",
+        "start": "2026-03-11",
+        "end": "2026-03-17",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Implementación de Exportables PDF y Excel (HU-14)",
+        "start": "2026-03-18",
+        "end": "2026-03-24",
+        "workdays": 5,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo de UI/Lógica para Leads, Contactos y Empalmes (HU-01, 02, 03, 04)",
+        "dateStart": "2026-01-14",
+        "dateEnd": "2026-02-05",
+        "pct": 80
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI y Lógica de Configuración de Coordinación (HU-05, 06, 07, 08)",
+        "dateStart": "2026-02-02",
+        "dateEnd": "2026-02-09",
+        "pct": 80
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Flujo de Creación y Configuración de Estudios (HU-09, 10)",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-13",
+        "pct": 40
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Lógica de Generación de Payload y Conexión con Motor de Cálculo (HU-11)",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-13",
+        "pct": 40
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo de UI/Lógica para Leads, Contactos y Empalmes (HU-01, 02, 03, 04)",
+        "dateStart": "2026-02-06",
+        "dateEnd": "2026-03-11",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI y Lógica de Configuración de Coordinación (HU-05, 06, 07, 08)",
+        "dateStart": "2026-02-10",
+        "dateEnd": "2026-03-11",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Flujo de Creación y Configuración de Estudios (HU-09, 10)",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Lógica de Generación de Payload y Conexión con Motor de Cálculo (HU-11)",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Dashboard, Gráficos y Beneficios (HU-12)",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Análisis de Remuneración y Simulación (HU-13)",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "Implementación de Exportables PDF y Excel (HU-14)",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Dashboard, Gráficos y Beneficios (HU-12)",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-04-06",
+        "pct": 40
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de Análisis de Remuneración y Simulación (HU-13)",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-04-06",
+        "pct": 40
+      },
+      {
+        "sprint": "4",
+        "task": "Implementación de Exportables PDF y Excel (HU-14)",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-04-06",
+        "pct": 40
+      }
+    ],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2026-04-13",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2026-04-13",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-04-13",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-03-13",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-04-03",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-04-03",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-04-23",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-04-23",
+        "estado": "Devuelto a desarrollo"
+      }
+    ],
+    "validacionFinal": []
+  },
+  "P13": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo UI (HU-01, HU-02, HU-03)",
+        "start": "2026-01-23",
+        "end": "2026-02-09",
+        "workdays": 12,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas de Flujo y UI vs. Mockups",
+        "start": "2026-02-10",
+        "end": "2026-02-12",
+        "workdays": 3,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "2",
+        "task": "Integración Motor de Cálculo",
+        "start": "2026-02-09",
+        "end": "2026-02-16",
+        "workdays": 6,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas Unitarias y de Lógica de Cálculo",
+        "start": "2026-02-17",
+        "end": "2026-02-20",
+        "workdays": 4,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Reportes y Envío (HU-06, 07, 08)",
+        "start": "2026-02-17",
+        "end": "2026-02-20",
+        "workdays": 4,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Corrección de bugs y preparación de despliegue",
+        "start": "2026-02-21",
+        "end": "2026-02-26",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
+        "start": "2026-02-27",
+        "end": "2026-03-05",
+        "workdays": 5,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "3",
+        "task": "Validación Final Proyecto",
+        "start": "2026-03-05",
+        "end": "2026-03-10",
+        "workdays": 4,
+        "assigned": "QA"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo UI (HU-01, HU-02, HU-03)",
+        "dateStart": "2025-08-06",
+        "dateEnd": "2025-10-09",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "Integración Motor de Cálculo",
+        "dateStart": "2025-10-08",
+        "dateEnd": "2026-02-09",
+        "pct": 13
+      },
+      {
+        "sprint": "2",
+        "task": "Integración Motor de Cálculo",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-17",
+        "pct": 27
+      },
+      {
+        "sprint": "2",
+        "task": "Integración Motor de Cálculo",
+        "dateStart": "2026-02-18",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Reportes y Envío (HU-06, 07, 08)",
+        "dateStart": "2026-02-18",
+        "dateEnd": "2026-03-11",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo de Reportes y Envío (HU-06, 07, 08)",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas de Flujo y UI vs. Mockups",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 50
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas Unitarias y de Lógica de Cálculo",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 50
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas de Flujo y UI vs. Mockups",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas Unitarias y de Lógica de Cálculo",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "3",
+        "task": "Corrección de bugs y preparación de despliegue",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "3",
+        "task": "Validación Final Proyecto",
+        "dateStart": "2026-04-08",
+        "dateEnd": "2026-04-23",
+        "pct": 100
+      }
+    ],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2025-04-10",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2025-04-16",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2025-04-10",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2025-04-23",
+        "estado": "Devuelto a desarrollo"
+      }
+    ],
+    "validacionFinal": []
+  },
+  "P4": {
+    "tareas": [
+      {
+        "sprint": "B",
+        "task": "HU-BASE-01: Autenticación y Gestión de Roles",
+        "start": "2026-02-09",
+        "end": "2026-02-12",
+        "workdays": 4,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-02: Modelo de Datos de Licitaciones",
+        "start": "2026-02-13",
+        "end": "2026-02-16",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-03: Modelo de Datos de Instalaciones",
+        "start": "2026-02-17",
+        "end": "2026-02-19",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-04: Modelo de Datos de Ofertas",
+        "start": "2026-02-20",
+        "end": "2026-02-26",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-05: Modelo de Datos de Usuarios y Empresas",
+        "start": "2026-02-27",
+        "end": "2026-03-03",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-06: Sistema de Notificaciones Base",
+        "start": "2026-03-04",
+        "end": "2026-03-10",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-07: Arquitectura de Separación de Plataformas",
+        "start": "2026-03-11",
+        "end": "2026-03-17",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-08: Gestión de Estados y Transiciones",
+        "start": "2026-03-18",
+        "end": "2026-03-20",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-01: Crear Nueva Licitación",
+        "start": "2026-03-23",
+        "end": "2026-03-24",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-02: Asociar Instalaciones a Licitación",
+        "start": "2026-03-25",
+        "end": "2026-03-27",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-03: Configurar Fechas y Rondas de Licitación",
+        "start": "2026-03-30",
+        "end": "2026-03-31",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-04: Configurar Estructura de Precios",
+        "start": "2026-04-01",
+        "end": "2026-04-06",
+        "workdays": 4,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-05: Publicar Licitación",
+        "start": "2026-04-07",
+        "end": "2026-04-08",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-06: Listar y Filtrar Licitaciones",
+        "start": "2026-04-09",
+        "end": "2026-04-10",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-07: Ver Detalle de Licitación",
+        "start": "2026-04-13",
+        "end": "2026-04-14",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-08: Editar Licitación Pendiente",
+        "start": "2026-04-15",
+        "end": "2026-04-15",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-09: Cerrar Ronda de Licitación",
+        "start": "2026-04-16",
+        "end": "2026-04-17",
+        "workdays": 2,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "B",
+        "task": "HU-BASE-01: Autenticación y Gestión de Roles",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-13",
+        "pct": 15
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-01: Autenticación y Gestión de Roles",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 35
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-02: Modelo de Datos de Licitaciones",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-03: Modelo de Datos de Instalaciones",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-04: Modelo de Datos de Ofertas",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-05: Modelo de Datos de Usuarios y Empresas",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-06: Sistema de Notificaciones Base",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-07: Arquitectura de Separación de Plataformas",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-08: Gestión de Estados y Transiciones",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-01: Crear Nueva Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-02: Asociar Instalaciones a Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-03: Configurar Fechas y Rondas de Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-04: Configurar Estructura de Precios",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-05: Publicar Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-06: Listar y Filtrar Licitaciones",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-07: Ver Detalle de Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-08: Editar Licitación Pendiente",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-09: Cerrar Ronda de Licitación",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-02: Modelo de Datos de Licitaciones",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-03: Modelo de Datos de Instalaciones",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-04: Modelo de Datos de Ofertas",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 0
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-05: Modelo de Datos de Usuarios y Empresas",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 0
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-06: Sistema de Notificaciones Base",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 0
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-07: Arquitectura de Separación de Plataformas",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 0
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-08: Gestión de Estados y Transiciones",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 0
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-01: Crear Nueva Licitación",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-02: Asociar Instalaciones a Licitación",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-03: Configurar Fechas y Rondas de Licitación",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 40
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-01: Crear Nueva Licitación",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-03: Configurar Fechas y Rondas de Licitación",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 10
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-05: Publicar Licitación",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-04: Modelo de Datos de Ofertas",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-05: Modelo de Datos de Usuarios y Empresas",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-06: Sistema de Notificaciones Base",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-07: Arquitectura de Separación de Plataformas",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-08: Gestión de Estados y Transiciones",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-04: Configurar Estructura de Precios",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 30
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-01: Autenticación y Gestión de Roles",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-04: Modelo de Datos de Ofertas",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-05: Modelo de Datos de Usuarios y Empresas",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-06: Sistema de Notificaciones Base",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-07: Arquitectura de Separación de Plataformas",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "B",
+        "task": "HU-BASE-08: Gestión de Estados y Transiciones",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-04: Configurar Estructura de Precios",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-05: Publicar Licitación",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-06: Listar y Filtrar Licitaciones",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-07: Ver Detalle de Licitación",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-08: Editar Licitación Pendiente",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-A1-09: Cerrar Ronda de Licitación",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-23",
+        "pct": 50
+      }
+    ],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P16 V2": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Sprint 1: Segregar Interfaces de Reportes Trading y Services",
+        "start": "2026-02-02",
+        "end": "2026-02-06",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Sprint 2: Interfaces Cargo Sobreconsumo Anual y Mensual",
+        "start": "2026-02-09",
+        "end": "2026-02-13",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Sprint 3: Traspaso de Facturas de Peaje",
+        "start": "2026-02-16",
+        "end": "2026-02-25",
+        "workdays": 8,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Sprint 4: Cron de notificaciones de facturas peaje Trading",
+        "start": "2026-02-26",
+        "end": "2026-03-11",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "Sprint 5: Proyecciones de cargos de Peajes.",
+        "start": "2026-03-12",
+        "end": "2026-03-25",
+        "workdays": 10,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "6",
+        "task": "Sprint 6:  Descarga masiva de datos de reportería.",
+        "start": "2026-03-26",
+        "end": "2026-04-02",
+        "workdays": 6,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "7",
+        "task": "Sprint 7: Validaciones de Reportes Trading",
+        "start": "2026-04-03",
+        "end": "2026-04-20",
+        "workdays": 12,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "8",
+        "task": "Sprint 8. Cálculo Cargo Sobreconsumo Anual y Mensual",
+        "start": "2026-04-21",
+        "end": "2026-05-06",
+        "workdays": 12,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "9",
+        "task": "Sprint 9: Take or Pay",
+        "start": "2026-05-07",
+        "end": "2026-05-13",
+        "workdays": 5,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Sprint 1: Segregar Interfaces de Reportes Trading y Services",
+        "dateStart": "2026-02-05",
+        "dateEnd": "2026-02-13",
+        "pct": 80
+      },
+      {
+        "sprint": "2",
+        "task": "Sprint 2: Interfaces Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-13",
+        "pct": 80
+      },
+      {
+        "sprint": "1",
+        "task": "Sprint 1: Segregar Interfaces de Reportes Trading y Services",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "Sprint 2: Interfaces Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Sprint 3: Traspaso de Facturas de Peaje",
+        "dateStart": "2026-02-14",
+        "dateEnd": "2026-03-11",
+        "pct": 60
+      },
+      {
+        "sprint": "3",
+        "task": "Sprint 3: Traspaso de Facturas de Peaje",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 30
+      },
+      {
+        "sprint": "9",
+        "task": "Sprint 9: Take or Pay",
+        "dateStart": "2026-03-17",
+        "dateEnd": "2026-03-18",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "Sprint 3: Traspaso de Facturas de Peaje",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 10
+      },
+      {
+        "sprint": "9",
+        "task": "Sprint 9: Take or Pay",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "4",
+        "task": "Sprint 4: Cron de notificaciones de facturas peaje Trading",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-22",
+        "pct": 70
+      }
+    ],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2026-04-06",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2026-04-06",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-04-16",
+        "estado": "Aprobado"
+      }
+    ],
+    "validacionFinal": []
+  },
+  "P10": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo del Flujo de Usuario: Formularios y Resumen (HU-01, 02, 03)",
+        "start": "2026-02-09",
+        "end": "2026-02-13",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo Backend: Lógica de Creación de Payload y Persistencia en BD (HU-04)",
+        "start": "2026-02-14",
+        "end": "2026-02-17",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
+        "start": "2026-02-18",
+        "end": "2026-02-20",
+        "workdays": 3,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo del Sistema de Notificación y Generación de Correo (HU-05, 06)",
+        "start": "2026-02-18",
+        "end": "2026-02-25",
+        "workdays": 6,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo de Lógica de Autocompletado de Campos (HU-07)",
+        "start": "2026-02-26",
+        "end": "2026-02-27",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
+        "start": "2026-02-28",
+        "end": "2026-03-03",
+        "workdays": 3,
+        "assigned": "QA"
+      },
+      {
+        "sprint": "2",
+        "task": "Validación Final",
+        "start": "2026-03-04",
+        "end": "2026-03-06",
+        "workdays": 3,
+        "assigned": "Comercial"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo del Flujo de Usuario: Formularios y Resumen (HU-01, 02, 03)",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-17",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo Backend: Lógica de Creación de Payload y Persistencia en BD (HU-04)",
+        "dateStart": "2026-02-09",
+        "dateEnd": "2026-02-17",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo del Flujo de Usuario: Formularios y Resumen (HU-01, 02, 03)",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 35
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo Backend: Lógica de Creación de Payload y Persistencia en BD (HU-04)",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 35
+      },
+      {
+        "sprint": "1",
+        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 85
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo del Sistema de Notificación y Generación de Correo (HU-05, 06)",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 85
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo de Lógica de Autocompletado de Campos (HU-07)",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 85
+      },
+      {
+        "sprint": "2",
+        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 85
+      },
+      {
+        "sprint": "2",
+        "task": "Validación Final",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-23",
+        "pct": 85
+      }
+    ],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P17": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Acceder a la configuración de reliquidaciones desde el mantenedor de suministradoras",
+        "start": "2026-02-16",
+        "end": "2026-02-17",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Agregar conceptos sujetos a reliquidación para una suministradora",
+        "start": "2026-02-18",
+        "end": "2026-02-20",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Editar y eliminar conceptos de reliquidación configurados",
+        "start": "2026-02-23",
+        "end": "2026-02-23",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Definir automáticamente los orígenes de datos para el cálculo de reliquidación",
+        "start": "2026-02-24",
+        "end": "2026-02-25",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-05: Visualizar la configuración de reliquidaciones desde la sección Facturas SX del Reporte de Desvío",
+        "start": "2026-02-26",
+        "end": "2026-02-27",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-06: Verificar si una suministradora tiene conceptos sujetos a reliquidación al compilar el reporte de desvío",
+        "start": "2026-03-02",
+        "end": "2026-03-03",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-07: Evaluar si existe incidencia en el mes anterior para cada concepto sujeto a reliquidación",
+        "start": "2026-03-04",
+        "end": "2026-03-06",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-08: Calcular la reliquidación de cada concepto configurado",
+        "start": "2026-03-09",
+        "end": "2026-03-12",
+        "workdays": 4,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-09: Excluir cargos con reliquidación de la validación general del reporte de desvío",
+        "start": "2026-03-13",
+        "end": "2026-03-17",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-10: Identificar visualmente en el reporte de desvío cuáles cargos están sujetos a reliquidación",
+        "start": "2026-03-18",
+        "end": "2026-03-20",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-11: Enviar correo de notificación con mensajería estandarizada al compilar el reporte de desvío",
+        "start": "2026-03-23",
+        "end": "2026-03-25",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-12: Actualizar interfaces de reportes de validación según auditoría UX/UI",
+        "start": "2026-03-26",
+        "end": "2026-03-30",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-13: Generar automáticamente nuevas versiones del reporte de validación cuando cambien los datos base",
+        "start": "2026-03-31",
+        "end": "2026-04-02",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-14: Enviar correos de actualización cuando se genere una nueva versión del reporte",
+        "start": "2026-04-03",
+        "end": "2026-04-06",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-15: Navegar y descargar versiones anteriores de los reportes de validación",
+        "start": "2026-04-07",
+        "end": "2026-04-08",
+        "workdays": 2,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Acceder a la configuración de reliquidaciones desde el mantenedor de suministradoras",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Agregar conceptos sujetos a reliquidación para una suministradora",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Editar y eliminar conceptos de reliquidación configurados",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Definir automáticamente los orígenes de datos para el cálculo de reliquidación",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "HU-05: Visualizar la configuración de reliquidaciones desde la sección Facturas SX del Reporte de Desvío",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "HU-06: Verificar si una suministradora tiene conceptos sujetos a reliquidación al compilar el reporte de desvío",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "HU-07: Evaluar si existe incidencia en el mes anterior para cada concepto sujeto a reliquidación",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "HU-08: Calcular la reliquidación de cada concepto configurado",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "HU-09: Excluir cargos con reliquidación de la validación general del reporte de desvío",
+        "dateStart": "2026-02-16",
+        "dateEnd": "2026-03-11",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "HU-10: Identificar visualmente en el reporte de desvío cuáles cargos están sujetos a reliquidación",
+        "dateStart": "2026-03-12",
+        "dateEnd": "2026-03-18",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-11: Enviar correo de notificación con mensajería estandarizada al compilar el reporte de desvío",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "3",
+        "task": "HU-12: Actualizar interfaces de reportes de validación según auditoría UX/UI",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "3",
+        "task": "HU-13: Generar automáticamente nuevas versiones del reporte de validación cuando cambien los datos base",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "3",
+        "task": "HU-14: Enviar correos de actualización cuando se genere una nueva versión del reporte",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "3",
+        "task": "HU-15: Navegar y descargar versiones anteriores de los reportes de validación",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 90
+      },
+      {
+        "sprint": "3",
+        "task": "HU-10: Identificar visualmente en el reporte de desvío cuáles cargos están sujetos a reliquidación",
+        "dateStart": "2026-03-19",
+        "dateEnd": "2026-04-06",
+        "pct": 80
+      },
+      {
+        "sprint": "3",
+        "task": "HU-11: Enviar correo de notificación con mensajería estandarizada al compilar el reporte de desvío",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-16",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-13: Generar automáticamente nuevas versiones del reporte de validación cuando cambien los datos base",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-16",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-14: Enviar correos de actualización cuando se genere una nueva versión del reporte",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-16",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-15: Navegar y descargar versiones anteriores de los reportes de validación",
+        "dateStart": "2026-04-07",
+        "dateEnd": "2026-04-16",
+        "pct": 10
+      }
+    ],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P19": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Carga de Balance y Precios de Nudo del CEN",
+        "start": "2026-04-08",
+        "end": "2026-04-10",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Carga de Intereses del CEN",
+        "start": "2026-04-13",
+        "end": "2026-04-14",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Versiones de Cargas del CEN",
+        "start": "2026-04-15",
+        "end": "2026-04-15",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Administración de Atributos de Suministradoras",
+        "start": "2026-04-16",
+        "end": "2026-04-16",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-05: Listado Principal de Reliquidaciones",
+        "start": "2026-04-17",
+        "end": "2026-04-20",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-06: Crear Nueva Reliquidación por Año y Versión",
+        "start": "2026-04-21",
+        "end": "2026-04-22",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-07: Listado de Medidores en Reliquidación",
+        "start": "2026-04-23",
+        "end": "2026-04-24",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-08: Agregar Medidor Individual a Reliquidación",
+        "start": "2026-04-27",
+        "end": "2026-04-28",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-09: Compilación Masiva de Medidores",
+        "start": "2026-04-29",
+        "end": "2026-05-04",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-10: Compilación y Cálculo de Reliquidación por Medidor",
+        "start": "2026-05-05",
+        "end": "2026-05-07",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-11: Tabla de Cálculos de Suministradora en Reporte",
+        "start": "2026-05-08",
+        "end": "2026-05-12",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-12: Tabla de Intereses de Suministradora en Reporte",
+        "start": "2026-05-13",
+        "end": "2026-05-13",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-13: Cálculos de Reliquidación EVOL en Reporte",
+        "start": "2026-05-14",
+        "end": "2026-05-14",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-14: Tabla Último Reporte de Gestión en Pestaña EVOL",
+        "start": "2026-05-15",
+        "end": "2026-05-18",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-15: Pestaña Resumen con KPIs Consolidados",
+        "start": "2026-05-19",
+        "end": "2026-05-20",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-16: Validación de Pertinencia de Datos",
+        "start": "2026-05-22",
+        "end": "2026-05-25",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-17: Validación de Datos Críticos en Reporte",
+        "start": "2026-05-26",
+        "end": "2026-05-27",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-18: Descarga Masiva de Datos",
+        "start": "2026-05-28",
+        "end": "2026-05-28",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-19: Firma Digital de Reporte de Reliquidación",
+        "start": "2026-05-29",
+        "end": "2026-05-29",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-20: Envío Formal de Reporte",
+        "start": "2026-06-01",
+        "end": "2026-06-02",
+        "workdays": 2,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-21: Versionado de Reportes Ligado a Carga CEN",
+        "start": "2026-06-03",
+        "end": "2026-06-03",
+        "workdays": 1,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-22: Histórico de Auditoría de Reliquidación",
+        "start": "2026-06-04",
+        "end": "2026-06-05",
+        "workdays": 2,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Carga de Balance y Precios de Nudo del CEN",
+        "dateStart": "2026-04-08",
+        "dateEnd": "2026-04-23",
+        "pct": 95
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Carga de Intereses del CEN",
+        "dateStart": "2026-04-08",
+        "dateEnd": "2026-04-23",
+        "pct": 95
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Versiones de Cargas del CEN",
+        "dateStart": "2026-04-08",
+        "dateEnd": "2026-04-23",
+        "pct": 95
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Administración de Atributos de Suministradoras",
+        "dateStart": "2026-04-08",
+        "dateEnd": "2026-04-23",
+        "pct": 95
+      }
+    ],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P11": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "Desarrollo UI: Estructura, Filtros y Componentes del Dashboard (HU-01, 02, 03)",
+        "start": "2026-04-28",
+        "end": "2026-05-05",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo Backend: APIs de lectura para Contactos, Flujo, Empalmes y Contratos (HU-02, 03)",
+        "start": "2026-05-06",
+        "end": "2026-05-12",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
+        "start": "2026-05-13",
+        "end": "2026-05-25",
+        "workdays": 8,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
+        "start": "2026-05-26",
+        "end": "2026-06-01",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "start": "2026-06-02",
+        "end": "2026-06-08",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "start": "2026-06-09",
+        "end": "2026-06-15",
+        "workdays": 5,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de la UI y API de lectura para la sección de Notificaciones (HU-10)",
+        "start": "2026-06-16",
+        "end": "2026-06-18",
+        "workdays": 3,
+        "assigned": "Programador"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de la UI y API de lectura para la Línea de Tiempo y Resumen de Contratos (HU-11)",
+        "start": "2026-06-19",
+        "end": "2026-06-24",
+        "workdays": 4,
+        "assigned": "Programador"
+      }
+    ],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": []
+  }
+}
