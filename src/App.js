@@ -812,9 +812,9 @@ function PlanificadorView({ tema }) {
 const tema = {
   fondo: "#111111", superficie: "#1A1A1A", superficieHover: "#222222",
   borde: "#2A2A2A", bordeHover: "#383838",
-  texto: "#A1A1AA", textoMedio: "#52525B", textoClaro: "#E5E5E5",
+  texto: "#C8C8D0", textoMedio: "#8E8E98", textoClaro: "#F0F0F0",
   acento: "#E5E5E5", verde: "#0076A8", verdeExito: "#22C55E", naranja: "#FBBF24",
-  rojo: "#FB923C", morado: "#A1A1AA", turquesa: "#71717A",
+  rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3",
 };
 
 const COLORES_SPRINT = [
@@ -1008,8 +1008,6 @@ export default function App() {
     reader.readAsArrayBuffer(file);
   }, []);
 
-  const listaProyectos = useMemo(() => Object.keys(proyectos).sort(), [proyectos]);
-
   // Estado por proyecto: Finalizado / Validación final / En QA / En Proceso / Sin Iniciar
   // - "Finalizado" requiere: desarrollo 100% + QA todo aprobado + validación final con "Sí".
   // - "EN VALIDACIÓN FINAL" = QA todo aprobado, pero falta validación del área solicitante.
@@ -1066,6 +1064,18 @@ export default function App() {
     }
     return estados;
   }, [proyectos]);
+
+  // Orden de proyectos: en curso primero, finalizados al final.
+  const ORDEN_ESTADOS = { "Sin Iniciar": 0, "En Proceso": 1, "En QA": 2, "EN VALIDACIÓN FINAL": 3, "Finalizado": 4 };
+  const listaProyectos = useMemo(() => {
+    return Object.keys(proyectos).sort((a, b) => {
+      const pa = ORDEN_ESTADOS[estadosPorProyecto[a]] ?? 99;
+      const pb = ORDEN_ESTADOS[estadosPorProyecto[b]] ?? 99;
+      if (pa !== pb) return pa - pb;
+      return a.localeCompare(b);
+    });
+  }, [proyectos, estadosPorProyecto]);
+
   const proyectoActual = proyectoSeleccionado && proyectos[proyectoSeleccionado];
   const datoGrafico = useMemo(() =>
     proyectoActual ? construirDatosCurva(proyectoActual.tareas, proyectoActual.avances) : { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null, resumenSprints: [] },
@@ -1413,10 +1423,10 @@ export default function App() {
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
         <div>
-          <h1 style={{ fontSize: 26, fontWeight: 700, color: tema.textoClaro, margin: 0, letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: 30, fontWeight: 700, color: tema.textoClaro, margin: 0, letterSpacing: "-0.02em" }}>
             Seguimiento de Proyectos
           </h1>
-          <p style={{ color: tema.textoMedio, fontSize: 13, margin: "6px 0 0" }}>Curva S · Planificado vs Real vs Proyectado</p>
+          <p style={{ color: tema.textoMedio, fontSize: 14, margin: "6px 0 0" }}>Curva S · Planificado vs Real vs Proyectado</p>
           <div style={{ marginTop: 8, display: "flex", gap: 8, alignItems: "center" }}>
             <span style={{ fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace" }}>
               {"Actualizado: " + new Date(buildInfo.buildDate).toLocaleString("es-CL", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}
@@ -1493,7 +1503,7 @@ export default function App() {
       {!listaProyectos.length && (
         <div style={{ background: tema.superficie, border: `1px dashed ${tema.borde}`, borderRadius: 12, padding: "60px 40px", textAlign: "center" }}>
           <div style={{ fontSize: 48, marginBottom: 16, opacity: 0.4 }} />
-          <h3 style={{ color: tema.textoClaro, fontSize: 18, fontWeight: 600, margin: "0 0 10px" }}>Importa tu archivo Excel</h3>
+          <h3 style={{ color: tema.textoClaro, fontSize: 20, fontWeight: 600, margin: "0 0 10px" }}>Importa tu archivo Excel</h3>
           <p style={{ color: tema.textoMedio, fontSize: 13, lineHeight: 1.7, maxWidth: 480, margin: "0 auto" }}>
             Tu archivo debe tener las hojas <strong style={{ color: tema.acento }}>PLANIFICACIÓN</strong>, <strong style={{ color: tema.acento }}>AVANCE</strong> y opcionalmente <strong style={{ color: tema.acento }}>QA</strong> y <strong style={{ color: tema.acento }}>VALIDACIÓN FINAL</strong>.
           </p>
@@ -1628,7 +1638,7 @@ export default function App() {
           {vista === "chart" && (
             <div key={`chart-${versionDatos}-${proyectoSeleccionado}`} ref={refGrafico} style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, padding: "24px 16px 16px", marginBottom: 24 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, padding: "0 8px" }}>
-                <h3 style={{ fontSize: 15, fontWeight: 600, color: tema.textoClaro, margin: 0 }}>Curva S — {proyectoSeleccionado}</h3>
+                <h3 style={{ fontSize: 17, fontWeight: 600, color: tema.textoClaro, margin: 0 }}>Curva S — {proyectoSeleccionado}</h3>
                 <div style={{ display: "flex", gap: 12, alignItems: "center", fontSize: 10, color: tema.textoMedio }}>
                   <button data-download-btn onClick={() => setMostrarSombrasSprint(v => !v)} style={{
                     background: mostrarSombrasSprint ? tema.superficieHover : "transparent",
@@ -1737,7 +1747,7 @@ export default function App() {
           {vista === "planning" && proyectoActual && (
             <div style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, overflow: "hidden", marginBottom: 24 }}>
               <div style={{ padding: "14px 18px", borderBottom: `1px solid ${tema.borde}`, background: tema.fondo }}>
-                <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: tema.textoClaro }}>Planificación y Estado por Historia</h3>
+                <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600, color: tema.textoClaro }}>Planificación y Estado por Historia</h3>
                 <p style={{ margin: "4px 0 0", fontSize: 11, color: tema.textoMedio }}>Porcentaje = suma acumulada de avances registrados</p>
               </div>
               <div style={{ overflowX: "auto" }}>
@@ -1786,7 +1796,7 @@ export default function App() {
           {vista === "summary" && proyectoActual && (
             <div style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, overflow: "hidden", marginBottom: 24 }}>
               <div style={{ padding: "14px 18px", borderBottom: `1px solid ${tema.borde}`, background: tema.fondo }}>
-                <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: tema.textoClaro }}>Resumen por Sprint</h3>
+                <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600, color: tema.textoClaro }}>Resumen por Sprint</h3>
                 <p style={{ margin: "4px 0 0", fontSize: 11, color: tema.textoMedio }}>Fechas planificadas, avance real y estimación de término basada en proyección</p>
               </div>
               <div style={{ overflowX: "auto" }}>
@@ -1842,7 +1852,7 @@ export default function App() {
           {vista === "advances" && proyectoActual && (
             <div style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, overflow: "hidden", marginBottom: 24 }}>
               <div style={{ padding: "14px 18px", borderBottom: `1px solid ${tema.borde}`, background: tema.fondo }}>
-                <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: tema.textoClaro }}>Registro de Avances</h3>
+                <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600, color: tema.textoClaro }}>Registro de Avances</h3>
                 <p style={{ margin: "4px 0 0", fontSize: 11, color: tema.textoMedio }}>Cada fila es un avance individual. Los % se acumulan por historia.</p>
               </div>
               <div style={{ overflowX: "auto" }}>
