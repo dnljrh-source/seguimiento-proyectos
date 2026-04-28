@@ -552,6 +552,15 @@ function construirDatosCurva(tareas, avances, feriados = []) {
   return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints };
 }
 
+// Parsea un decimal aceptando "," o "." como separador (formato chileno o internacional).
+function parsearDecimal(v) {
+  if (v === null || v === undefined || v === "") return 0;
+  if (typeof v === "number") return isNaN(v) ? 0 : v;
+  const limpio = String(v).trim().replace(",", ".");
+  const n = parseFloat(limpio);
+  return isNaN(n) ? 0 : n;
+}
+
 // ── Planificador ───────────────────────────────────────────────────
 function PlanificadorView({ tema }) {
   const [proyecto, setProyecto] = useState("");
@@ -571,7 +580,7 @@ function PlanificadorView({ tema }) {
     if (!fechaInicioProyecto) return filas.map(f => ({ ...f, inicio: null, fin: null }));
     let cursor = primerDiaHabilDesde(fechaInicioProyecto);
     return filas.map(fila => {
-      const dias = parseInt(fila.diasHabiles) || 0;
+      const dias = parsearDecimal(fila.diasHabiles);
       if (!fila.tarea.trim() || dias <= 0) return { ...fila, inicio: null, fin: null };
       const inicio = new Date(cursor);
       const fin = agregarDiasHabiles(inicio, dias);
@@ -627,7 +636,7 @@ function PlanificadorView({ tema }) {
             sprint:      colSprint ? String(fila[colSprint]).trim() : "1",
             tarea,
             asignado:    colAsig   ? String(fila[colAsig]).trim()   : "",
-            diasHabiles: colDias   ? String(parseInt(fila[colDias]) || "") : "",
+            diasHabiles: colDias   ? (parsearDecimal(fila[colDias]) ? String(parsearDecimal(fila[colDias])) : "") : "",
           });
         }
 
@@ -656,7 +665,7 @@ function PlanificadorView({ tema }) {
         Asignado: f.asignado,
         Inicio: formatearFecha(f.inicio),
         Fin: formatearFecha(f.fin),
-        "Dias Habiles": parseInt(f.diasHabiles) || 0,
+        "Dias Habiles": parsearDecimal(f.diasHabiles),
       }));
     if (!datos.length) return;
     const wb = XLSX.utils.book_new();
@@ -680,7 +689,7 @@ function PlanificadorView({ tema }) {
     return fila?.sprint || "1";
   };
 
-  const totalDias = filasCalc.reduce((s, f) => s + (parseInt(f.diasHabiles) || 0), 0);
+  const totalDias = filasCalc.reduce((s, f) => s + parsearDecimal(f.diasHabiles), 0);
   const fechaFinal = filasCalc.filter(f => f.fin).slice(-1)[0]?.fin || null;
 
   const btnSmall = {
@@ -774,8 +783,8 @@ function PlanificadorView({ tema }) {
                   </td>
                   <td style={{ padding: "6px 8px", width: 90 }}>
                     <input
-                      type="number"
-                      min="1"
+                      type="text"
+                      inputMode="decimal"
                       value={fila.diasHabiles}
                       onChange={e => actualizarFila(fila.id, "diasHabiles", e.target.value)}
                       placeholder="0"
