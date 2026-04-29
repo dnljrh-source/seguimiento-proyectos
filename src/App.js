@@ -1541,21 +1541,33 @@ export default function App() {
                                 : estado === "En Proceso" ? tema.naranja
                                 : tema.textoMedio;
               const activo = proyectoSeleccionado === nombre;
+              const asignados = [...new Set(
+                (proyectos[nombre]?.tareas || [])
+                  .map(t => (t.assigned || "").trim())
+                  .filter(Boolean)
+              )];
               return (
                 <button key={nombre} onClick={() => setProyectoSeleccionado(nombre)} style={{
                   background: activo ? tema.superficieHover : tema.superficie,
                   color: activo ? tema.textoClaro : tema.texto,
                   border: `1px solid ${activo ? tema.bordeHover : tema.borde}`,
-                  borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 500, cursor: "pointer",
-                  display: "flex", alignItems: "center", gap: 8,
+                  borderRadius: 8, padding: "8px 18px", fontSize: 15, fontWeight: 500, cursor: "pointer",
+                  display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left",
                 }}>
-                  {nombre}
-                  <span style={{
-                    fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em",
-                    color: colorEstado,
-                    background: `${colorEstado}18`,
-                    padding: "2px 6px", borderRadius: 4, whiteSpace: "nowrap",
-                  }}>{estado}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    {nombre}
+                    <span style={{
+                      fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em",
+                      color: colorEstado,
+                      background: `${colorEstado}18`,
+                      padding: "2px 6px", borderRadius: 4, whiteSpace: "nowrap",
+                    }}>{estado}</span>
+                  </div>
+                  {asignados.length > 0 && (
+                    <div style={{ fontSize: 12, fontWeight: 400, color: tema.textoMedio, lineHeight: 1.3 }}>
+                      {asignados.join(" · ")}
+                    </div>
+                  )}
                 </button>
               );
             })}

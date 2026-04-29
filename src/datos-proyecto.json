@@ -7,15 +7,7 @@
         "start": "2025-11-10",
         "end": "2025-11-12",
         "workdays": 3,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas",
-        "start": "2025-11-13",
-        "end": "2025-11-13",
-        "workdays": 1,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "2",
@@ -23,15 +15,7 @@
         "start": "2025-11-13",
         "end": "2025-11-24",
         "workdays": 8,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas",
-        "start": "2025-11-25",
-        "end": "2025-11-26",
-        "workdays": 2,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "3",
@@ -39,15 +23,7 @@
         "start": "2025-11-10",
         "end": "2025-11-21",
         "workdays": 10,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas",
-        "start": "2025-11-22",
-        "end": "2025-11-26",
-        "workdays": 3,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "4",
@@ -55,15 +31,7 @@
         "start": "2025-11-24",
         "end": "2025-12-19",
         "workdays": 20,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "4",
-        "task": "Pruebas",
-        "start": "2025-12-20",
-        "end": "2025-12-26",
-        "workdays": 5,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "5",
@@ -71,15 +39,7 @@
         "start": "2025-12-01",
         "end": "2025-12-10",
         "workdays": 8,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "5",
-        "task": "Pruebas",
-        "start": "2025-12-11",
-        "end": "2025-12-12",
-        "workdays": 2,
-        "assigned": "QA"
+        "assigned": "Felipe"
       }
     ],
     "avances": [
@@ -88,13 +48,6 @@
         "task": "Desarrollo (HU-01, HU-02)",
         "dateStart": "2025-11-10",
         "dateEnd": "2025-11-13",
-        "pct": 100
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas",
-        "dateStart": "2025-11-14",
-        "dateEnd": "2025-11-18",
         "pct": 100
       },
       {
@@ -112,13 +65,6 @@
         "pct": 100
       },
       {
-        "sprint": "3",
-        "task": "Pruebas",
-        "dateStart": "2025-11-26",
-        "dateEnd": "2025-12-04",
-        "pct": 100
-      },
-      {
         "sprint": "5",
         "task": "Desarrollo",
         "dateStart": "2025-12-11",
@@ -126,53 +72,11 @@
         "pct": 100
       },
       {
-        "sprint": "2",
-        "task": "Pruebas",
-        "dateStart": "2026-01-08",
-        "dateEnd": "2026-01-09",
-        "pct": 40
-      },
-      {
         "sprint": "4",
         "task": "Desarrollo",
         "dateStart": "2025-11-26",
         "dateEnd": "2026-01-12",
         "pct": 100
-      },
-      {
-        "sprint": "4",
-        "task": "Pruebas",
-        "dateStart": "2026-01-12",
-        "dateEnd": "2026-01-16",
-        "pct": 30
-      },
-      {
-        "sprint": "5",
-        "task": "Pruebas",
-        "dateStart": "2026-01-12",
-        "dateEnd": "2026-01-16",
-        "pct": 30
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas",
-        "dateStart": "2026-01-19",
-        "dateEnd": "2026-03-31",
-        "pct": 60
-      },
-      {
-        "sprint": "4",
-        "task": "Pruebas",
-        "dateStart": "2026-01-19",
-        "dateEnd": "2026-03-31",
-        "pct": 70
-      },
-      {
-        "sprint": "5",
-        "task": "Pruebas",
-        "dateStart": "2026-01-19",
-        "dateEnd": "2026-03-31",
-        "pct": 70
       }
     ],
     "qa": [
@@ -217,15 +121,7 @@
         "start": "2025-09-15",
         "end": "2025-09-30",
         "workdays": 7,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas de Flujo y UI vs. Mockups",
-        "start": "2025-10-01",
-        "end": "2025-10-06",
-        "workdays": 3,
-        "assigned": "QA"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
@@ -233,15 +129,7 @@
         "start": "2025-10-01",
         "end": "2025-10-15",
         "workdays": 9,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas de Configuración de Ofertas y Fórmulas",
-        "start": "2025-10-16",
-        "end": "2025-10-22",
-        "workdays": 4,
-        "assigned": "QA"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
@@ -249,7 +137,7 @@
         "start": "2025-10-16",
         "end": "2025-10-29",
         "workdays": 8,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
@@ -257,15 +145,7 @@
         "start": "2025-10-30",
         "end": "2025-11-05",
         "workdays": 4,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas de Cálculo y Verificación de Resultados",
-        "start": "2025-11-06",
-        "end": "2025-11-13",
-        "workdays": 5,
-        "assigned": "QA"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
@@ -273,7 +153,7 @@
         "start": "2025-11-06",
         "end": "2025-11-18",
         "workdays": 7,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
@@ -281,15 +161,7 @@
         "start": "2025-11-19",
         "end": "2025-11-21",
         "workdays": 3,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "4",
-        "task": "Pruebas de Regresión, Aceptación Final y Despliegue",
-        "start": "2025-11-22",
-        "end": "2025-11-26",
-        "workdays": 4,
-        "assigned": "QA"
+        "assigned": "Paolo"
       }
     ],
     "avances": [
@@ -301,24 +173,10 @@
         "pct": 100
       },
       {
-        "sprint": "1",
-        "task": "Pruebas de Flujo y UI vs. Mockups",
-        "dateStart": "2025-10-08",
-        "dateEnd": "2025-10-23",
-        "pct": 100
-      },
-      {
         "sprint": "2",
         "task": "Desarrollo de UI y Lógica de Ofertas PPA (HU-04, 05, 06)",
         "dateStart": "2025-10-08",
         "dateEnd": "2025-10-15",
-        "pct": 100
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas de Configuración de Ofertas y Fórmulas",
-        "dateStart": "2025-10-16",
-        "dateEnd": "2025-11-12",
         "pct": 100
       },
       {
@@ -347,20 +205,6 @@
         "task": "Desarrollo de Adjudicación y Descargas (HU-11)",
         "dateStart": "2025-11-13",
         "dateEnd": "2025-12-03",
-        "pct": 100
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas de Cálculo y Verificación de Resultados",
-        "dateStart": "2026-01-01",
-        "dateEnd": "2026-03-19",
-        "pct": 100
-      },
-      {
-        "sprint": "4",
-        "task": "Pruebas de Regresión, Aceptación Final y Despliegue",
-        "dateStart": "2026-01-01",
-        "dateEnd": "2026-03-19",
         "pct": 100
       }
     ],
@@ -396,7 +240,7 @@
         "start": "2026-01-14",
         "end": "2026-01-27",
         "workdays": 10,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
@@ -404,7 +248,7 @@
         "start": "2026-01-28",
         "end": "2026-02-10",
         "workdays": 10,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
@@ -412,7 +256,7 @@
         "start": "2026-02-11",
         "end": "2026-02-17",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
@@ -420,7 +264,7 @@
         "start": "2026-02-18",
         "end": "2026-03-03",
         "workdays": 10,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
@@ -428,7 +272,7 @@
         "start": "2026-03-04",
         "end": "2026-03-10",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
@@ -436,7 +280,7 @@
         "start": "2026-03-11",
         "end": "2026-03-17",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
@@ -444,7 +288,7 @@
         "start": "2026-03-18",
         "end": "2026-03-24",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Paolo"
       }
     ],
     "avances": [
@@ -599,15 +443,7 @@
         "start": "2026-01-23",
         "end": "2026-02-09",
         "workdays": 12,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas de Flujo y UI vs. Mockups",
-        "start": "2026-02-10",
-        "end": "2026-02-12",
-        "workdays": 3,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "2",
@@ -615,15 +451,7 @@
         "start": "2026-02-09",
         "end": "2026-02-16",
         "workdays": 6,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas Unitarias y de Lógica de Cálculo",
-        "start": "2026-02-17",
-        "end": "2026-02-20",
-        "workdays": 4,
-        "assigned": "QA"
+        "assigned": "Felipe"
       },
       {
         "sprint": "3",
@@ -631,7 +459,7 @@
         "start": "2026-02-17",
         "end": "2026-02-20",
         "workdays": 4,
-        "assigned": "Programador"
+        "assigned": "Felipe"
       },
       {
         "sprint": "3",
@@ -639,23 +467,7 @@
         "start": "2026-02-21",
         "end": "2026-02-26",
         "workdays": 5,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
-        "start": "2026-02-27",
-        "end": "2026-03-05",
-        "workdays": 5,
-        "assigned": "QA"
-      },
-      {
-        "sprint": "3",
-        "task": "Validación Final Proyecto",
-        "start": "2026-03-05",
-        "end": "2026-03-10",
-        "workdays": 4,
-        "assigned": "QA"
+        "assigned": "Felipe"
       }
     ],
     "avances": [
@@ -702,58 +514,9 @@
         "pct": 30
       },
       {
-        "sprint": "1",
-        "task": "Pruebas de Flujo y UI vs. Mockups",
-        "dateStart": "2026-03-19",
-        "dateEnd": "2026-04-06",
-        "pct": 50
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas Unitarias y de Lógica de Cálculo",
-        "dateStart": "2026-03-19",
-        "dateEnd": "2026-04-06",
-        "pct": 50
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
-        "dateStart": "2026-03-19",
-        "dateEnd": "2026-04-06",
-        "pct": 50
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas de Flujo y UI vs. Mockups",
-        "dateStart": "2026-04-07",
-        "dateEnd": "2026-04-23",
-        "pct": 50
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas Unitarias y de Lógica de Cálculo",
-        "dateStart": "2026-04-07",
-        "dateEnd": "2026-04-23",
-        "pct": 50
-      },
-      {
         "sprint": "3",
         "task": "Corrección de bugs y preparación de despliegue",
         "dateStart": "2026-04-07",
-        "dateEnd": "2026-04-23",
-        "pct": 100
-      },
-      {
-        "sprint": "3",
-        "task": "Pruebas de Reportes, Regresión y Aceptación Final",
-        "dateStart": "2026-04-07",
-        "dateEnd": "2026-04-23",
-        "pct": 50
-      },
-      {
-        "sprint": "3",
-        "task": "Validación Final Proyecto",
-        "dateStart": "2026-04-08",
         "dateEnd": "2026-04-23",
         "pct": 100
       }
@@ -790,7 +553,7 @@
         "start": "2026-02-09",
         "end": "2026-02-12",
         "workdays": 4,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -798,7 +561,7 @@
         "start": "2026-02-13",
         "end": "2026-02-16",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -806,7 +569,7 @@
         "start": "2026-02-17",
         "end": "2026-02-19",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -814,7 +577,7 @@
         "start": "2026-02-20",
         "end": "2026-02-26",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -822,7 +585,7 @@
         "start": "2026-02-27",
         "end": "2026-03-03",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -830,7 +593,7 @@
         "start": "2026-03-04",
         "end": "2026-03-10",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -838,7 +601,7 @@
         "start": "2026-03-11",
         "end": "2026-03-17",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "B",
@@ -846,7 +609,7 @@
         "start": "2026-03-18",
         "end": "2026-03-20",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -854,7 +617,7 @@
         "start": "2026-03-23",
         "end": "2026-03-24",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -862,7 +625,7 @@
         "start": "2026-03-25",
         "end": "2026-03-27",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -870,7 +633,7 @@
         "start": "2026-03-30",
         "end": "2026-03-31",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -878,7 +641,7 @@
         "start": "2026-04-01",
         "end": "2026-04-06",
         "workdays": 4,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -886,7 +649,7 @@
         "start": "2026-04-07",
         "end": "2026-04-08",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -894,7 +657,7 @@
         "start": "2026-04-09",
         "end": "2026-04-10",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -902,7 +665,7 @@
         "start": "2026-04-13",
         "end": "2026-04-14",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -910,7 +673,7 @@
         "start": "2026-04-15",
         "end": "2026-04-15",
         "workdays": 1,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       },
       {
         "sprint": "1",
@@ -918,7 +681,7 @@
         "start": "2026-04-16",
         "end": "2026-04-17",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Ignacio"
       }
     ],
     "avances": [
@@ -1277,7 +1040,7 @@
         "start": "2026-02-02",
         "end": "2026-02-06",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "2",
@@ -1285,7 +1048,7 @@
         "start": "2026-02-09",
         "end": "2026-02-13",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "3",
@@ -1293,7 +1056,7 @@
         "start": "2026-02-16",
         "end": "2026-02-25",
         "workdays": 8,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "4",
@@ -1301,7 +1064,7 @@
         "start": "2026-02-26",
         "end": "2026-03-11",
         "workdays": 10,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "5",
@@ -1309,7 +1072,7 @@
         "start": "2026-03-12",
         "end": "2026-03-25",
         "workdays": 10,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "6",
@@ -1317,7 +1080,7 @@
         "start": "2026-03-26",
         "end": "2026-04-02",
         "workdays": 6,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "7",
@@ -1325,7 +1088,7 @@
         "start": "2026-04-03",
         "end": "2026-04-20",
         "workdays": 12,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "8",
@@ -1333,7 +1096,7 @@
         "start": "2026-04-21",
         "end": "2026-05-06",
         "workdays": 12,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       },
       {
         "sprint": "9",
@@ -1341,7 +1104,7 @@
         "start": "2026-05-07",
         "end": "2026-05-13",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Sebastián"
       }
     ],
     "avances": [
@@ -1443,7 +1206,7 @@
         "start": "2026-02-09",
         "end": "2026-02-13",
         "workdays": 5,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "1",
@@ -1451,15 +1214,7 @@
         "start": "2026-02-14",
         "end": "2026-02-17",
         "workdays": 3,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "1",
-        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
-        "start": "2026-02-18",
-        "end": "2026-02-20",
-        "workdays": 3,
-        "assigned": "QA"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1467,7 +1222,7 @@
         "start": "2026-02-18",
         "end": "2026-02-25",
         "workdays": 6,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1475,23 +1230,7 @@
         "start": "2026-02-26",
         "end": "2026-02-27",
         "workdays": 2,
-        "assigned": "Programador"
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
-        "start": "2026-02-28",
-        "end": "2026-03-03",
-        "workdays": 3,
-        "assigned": "QA"
-      },
-      {
-        "sprint": "2",
-        "task": "Validación Final",
-        "start": "2026-03-04",
-        "end": "2026-03-06",
-        "workdays": 3,
-        "assigned": "Comercial"
+        "assigned": "Sergio"
       }
     ],
     "avances": [
@@ -1524,13 +1263,6 @@
         "pct": 35
       },
       {
-        "sprint": "1",
-        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
-        "dateStart": "2026-04-13",
-        "dateEnd": "2026-04-23",
-        "pct": 85
-      },
-      {
         "sprint": "2",
         "task": "Desarrollo del Sistema de Notificación y Generación de Correo (HU-05, 06)",
         "dateStart": "2026-04-13",
@@ -1540,20 +1272,6 @@
       {
         "sprint": "2",
         "task": "Desarrollo de Lógica de Autocompletado de Campos (HU-07)",
-        "dateStart": "2026-04-13",
-        "dateEnd": "2026-04-23",
-        "pct": 85
-      },
-      {
-        "sprint": "2",
-        "task": "Pruebas del Flujo Completo y Verificación de la Integridad de Datos en BD",
-        "dateStart": "2026-04-13",
-        "dateEnd": "2026-04-23",
-        "pct": 85
-      },
-      {
-        "sprint": "2",
-        "task": "Validación Final",
         "dateStart": "2026-04-13",
         "dateEnd": "2026-04-23",
         "pct": 85
@@ -1570,7 +1288,7 @@
         "start": "2026-02-16",
         "end": "2026-02-17",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "1",
@@ -1578,7 +1296,7 @@
         "start": "2026-02-18",
         "end": "2026-02-20",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "1",
@@ -1586,7 +1304,7 @@
         "start": "2026-02-23",
         "end": "2026-02-23",
         "workdays": 1,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "1",
@@ -1594,7 +1312,7 @@
         "start": "2026-02-24",
         "end": "2026-02-25",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "1",
@@ -1602,7 +1320,7 @@
         "start": "2026-02-26",
         "end": "2026-02-27",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1610,7 +1328,7 @@
         "start": "2026-03-02",
         "end": "2026-03-03",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1618,7 +1336,7 @@
         "start": "2026-03-04",
         "end": "2026-03-06",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1626,7 +1344,7 @@
         "start": "2026-03-09",
         "end": "2026-03-12",
         "workdays": 4,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "2",
@@ -1634,7 +1352,7 @@
         "start": "2026-03-13",
         "end": "2026-03-17",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1642,7 +1360,7 @@
         "start": "2026-03-18",
         "end": "2026-03-20",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1650,7 +1368,7 @@
         "start": "2026-03-23",
         "end": "2026-03-25",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1658,7 +1376,7 @@
         "start": "2026-03-26",
         "end": "2026-03-30",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1666,7 +1384,7 @@
         "start": "2026-03-31",
         "end": "2026-04-02",
         "workdays": 3,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1674,7 +1392,7 @@
         "start": "2026-04-03",
         "end": "2026-04-06",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       },
       {
         "sprint": "3",
@@ -1682,7 +1400,7 @@
         "start": "2026-04-07",
         "end": "2026-04-08",
         "workdays": 2,
-        "assigned": "Programador"
+        "assigned": "Sergio"
       }
     ],
     "avances": [
@@ -2110,6 +1828,270 @@
       }
     ],
     "avances": [],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P4 Q2": {
+    "tareas": [
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Dashboard de participación y licitaciones activas",
+        "start": "2026-04-13",
+        "end": "2026-04-14",
+        "workdays": 1,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Listar licitaciones disponibles y mis licitaciones",
+        "start": "2026-04-15",
+        "end": "2026-04-16",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Gestionar perfil y usuarios de suministradora",
+        "start": "2026-04-17",
+        "end": "2026-04-21",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-04: Solicitar poder de usuario y permisos de escritura",
+        "start": "2026-04-22",
+        "end": "2026-04-24",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-05: Iniciar participación y aceptar términos",
+        "start": "2026-04-27",
+        "end": "2026-04-28",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-06: Ver resumen de licitación",
+        "start": "2026-04-29",
+        "end": "2026-04-30",
+        "workdays": 1,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-07: Consultar instalaciones de una licitación",
+        "start": "2026-05-04",
+        "end": "2026-05-05",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-08: Ver anuncios y consultas de licitación",
+        "start": "2026-05-06",
+        "end": "2026-05-08",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Iniciar oferta nueva o mejora de ronda",
+        "start": "2026-05-11",
+        "end": "2026-05-12",
+        "workdays": 1,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Cargar carta de oferta PDF y datos generales",
+        "start": "2026-05-13",
+        "end": "2026-05-14",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Seleccionar empalmes de la oferta",
+        "start": "2026-05-15",
+        "end": "2026-05-18",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Ingresar detalle por Excel rigido u omitir detalle estructurado",
+        "start": "2026-05-19",
+        "end": "2026-05-22",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-05: Configurar ingreso guiado con indexacion y periodos",
+        "start": "2026-05-25",
+        "end": "2026-05-28",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-06: Configurar estructura de precio por periodo y bloques",
+        "start": "2026-05-29",
+        "end": "2026-06-03",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-07: Registrar condiciones contractuales opcionales",
+        "start": "2026-06-04",
+        "end": "2026-06-05",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-08: Gestionar borradores y enviar oferta",
+        "start": "2026-06-08",
+        "end": "2026-06-09",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-09: Consultar Mis ofertas y detalle de seguimiento",
+        "start": "2026-06-10",
+        "end": "2026-06-11",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-10: Presentar mejora en nueva ronda",
+        "start": "2026-06-12",
+        "end": "2026-06-15",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-11: Ver resultados publicados por ronda",
+        "start": "2026-06-16",
+        "end": "2026-06-17",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-01: Listar ofertas recibidas por licitacion y ronda",
+        "start": "2026-06-18",
+        "end": "2026-06-19",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-02: Revisar detalle y documentos de oferta",
+        "start": "2026-06-22",
+        "end": "2026-06-24",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-03: Validar o rechazar oferta con comentario",
+        "start": "2026-06-25",
+        "end": "2026-06-30",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-04: Gestionar anuncios, preguntas y respuestas",
+        "start": "2026-07-01",
+        "end": "2026-07-06",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-05: Configurar parametros transversales de suministradora",
+        "start": "2026-07-07",
+        "end": "2026-07-08",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-06: Editar configuracion basica de oferta",
+        "start": "2026-07-09",
+        "end": "2026-07-10",
+        "workdays": 2,
+        "assigned": "Ignacio"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Dashboard de participación y licitaciones activas",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Listar licitaciones disponibles y mis licitaciones",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Gestionar perfil y usuarios de suministradora",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-04: Solicitar poder de usuario y permisos de escritura",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-05: Iniciar participación y aceptar términos",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-06: Ver resumen de licitación",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-07: Consultar instalaciones de una licitación",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-08: Ver anuncios y consultas de licitación",
+        "dateStart": "2026-04-13",
+        "dateEnd": "2026-04-28",
+        "pct": 60
+      }
+    ],
     "qa": [],
     "validacionFinal": []
   }
