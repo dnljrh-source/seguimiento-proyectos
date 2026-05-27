@@ -22,6 +22,7 @@ import {
   normalizarPorcentaje,
   parsearDecimal,
 } from "./lib/texto";
+import { tema, COLORES_SPRINT, ORDEN_ESTADOS } from "./ui/tema";
 
 // Devuelve { estado, pruebas, fecha } del sprint según su avance y entradas QA.
 // - Si desarrollo < 100%: estado null (no mostrar badge QA)
@@ -735,21 +736,6 @@ function PlanificadorView({ tema }) {
   );
 }
 
-// ── Theme ──────────────────────────────────────────────────────────
-const tema = {
-  fondo: "#111111", superficie: "#1A1A1A", superficieHover: "#222222",
-  borde: "#2A2A2A", bordeHover: "#383838",
-  texto: "#C8C8D0", textoMedio: "#8E8E98", textoClaro: "#F0F0F0",
-  acento: "#E5E5E5", verde: "#0076A8", verdeExito: "#22C55E", naranja: "#FBBF24",
-  rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3",
-};
-
-const COLORES_SPRINT = [
-  "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",
-  "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",
-  "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",
-];
-
 // ── Hidratar datos precargados (JSON → Date objects) ──────────────
 function hidratarDatos(raw) {
   const resultado = {};
@@ -990,8 +976,6 @@ export default function App() {
     return estados;
   }, [proyectos]);
 
-  // Orden de proyectos: en curso primero, finalizados al final.
-  const ORDEN_ESTADOS = { "Sin Iniciar": 0, "En Proceso": 1, "En QA": 2, "EN VALIDACIÓN FINAL": 3, "Finalizado": 4 };
   const listaProyectos = useMemo(() => {
     return Object.keys(proyectos).sort((a, b) => {
       const pa = ORDEN_ESTADOS[estadosPorProyecto[a]] ?? 99;
