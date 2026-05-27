@@ -1723,6 +1723,7 @@ export default function App() {
                         pctSprint += (pctTarea / 100) * (tarea.workdays / diasSprint) * 100;
                       }
                     }
+                    pctSprint = Math.min(Math.round(pctSprint * 100) / 100, 100);
                     const qa = calcularEstadoQA(pctSprint, proyectoActual.qa, nombreSprint);
                     const colorQA = qa.estado === "Aprobado" ? tema.verdeExito
                                   : qa.estado === "Devuelto a desarrollo" ? tema.rojo
