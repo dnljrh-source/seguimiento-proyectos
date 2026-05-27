@@ -15,19 +15,13 @@ import {
   primerDiaHabilDesde,
   agregarDiasHabiles,
 } from "./lib/fechas";
-
-// Normaliza porcentaje: los valores en Excel vienen siempre como decimales (0.0–1.0)
-function normalizarPorcentaje(v) {
-  const n = parseFloat(v);
-  if (isNaN(n)) return 0;
-  return Math.min(n * 100, 100);
-}
-
-// Normaliza strings para comparación: minúsculas, sin acentos, sin espacios dobles
-function normalizarTexto(s) {
-  return String(s).trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
-}
-function claveHistoria(sp, tk) { return `${normalizarTexto(sp)}|||${normalizarTexto(tk)}`; }
+import {
+  normalizarTexto,
+  normalizarClave,
+  claveHistoria,
+  normalizarPorcentaje,
+  parsearDecimal,
+} from "./lib/texto";
 
 // Devuelve { estado, pruebas, fecha } del sprint según su avance y entradas QA.
 // - Si desarrollo < 100%: estado null (no mostrar badge QA)
@@ -485,15 +479,6 @@ function construirDatosCurva(tareas, avances, feriados = []) {
   return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints };
 }
 
-// Parsea un decimal aceptando "," o "." como separador (formato chileno o internacional).
-function parsearDecimal(v) {
-  if (v === null || v === undefined || v === "") return 0;
-  if (typeof v === "number") return isNaN(v) ? 0 : v;
-  const limpio = String(v).trim().replace(",", ".");
-  const n = parseFloat(limpio);
-  return isNaN(n) ? 0 : n;
-}
-
 // ── Planificador ───────────────────────────────────────────────────
 function PlanificadorView({ tema }) {
   const [proyecto, setProyecto] = useState("");
@@ -811,8 +796,6 @@ export default function App() {
   const [mostrarSombrasSprint, setMostrarSombrasSprint] = useState(true);
   const refInput = useRef();
   const refGrafico = useRef();
-
-  const normalizarClave = (k) => k.toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim();
 
   const buscarColumna = (fila, cands) => {
     const columnas = Object.keys(fila);
