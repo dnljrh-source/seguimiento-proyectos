@@ -25,6 +25,7 @@ import VistaCurvaS from "./views/VistaCurvaS";
 import VistaPlanificacion from "./views/VistaPlanificacion";
 import VistaResumen from "./views/VistaResumen";
 import VistaAvances from "./views/VistaAvances";
+import VistaEnPlanificacion from "./views/VistaEnPlanificacion";
 
 // ── Main Component ─────────────────────────────────────────────────
 export default function App() {
@@ -60,6 +61,38 @@ export default function App() {
     return null;
   };
 
+  // Etapa de planificación (1-7) o 0 si finalizada / no aplica.
+  // Espejo de parsearEtapaPlan en scripts/import-excel.js.
+  const parsearEtapaPlan = (v) => {
+    if (v === null || v === undefined || v === "") return 0;
+    const n = parseInt(v);
+    if (!isNaN(n)) return n >= 1 && n <= 7 ? n : 0;
+    const s = normalizarTexto(v);
+    if (!s || s.includes("finaliz") || s.includes("complet")) return 0;
+    const etapas = [
+      "kick off y hallazgos", "propuesta de requerimientos funcionales",
+      "desarrollo de interfaces", "reunion de avances con contraparte",
+      "resolucion de observaciones", "creacion de planificacion de desarrollo (sprints)",
+      "firma de documentos",
+    ];
+    for (let i = 0; i < etapas.length; i++) {
+      if (s.includes(etapas[i]) || etapas[i].includes(s)) return i + 1;
+    }
+    return 0;
+  };
+
+  // Nivel de fidelidad de interfaz (0=Sin interfaz, 1=Low, 2=Mid, 3=High).
+  const parsearInterfaz = (v) => {
+    if (v === null || v === undefined || v === "") return 0;
+    const n = parseInt(v);
+    if (!isNaN(n)) return n >= 0 && n <= 3 ? n : 0;
+    const s = normalizarTexto(v);
+    if (s.includes("high")) return 3;
+    if (s.includes("mid")) return 2;
+    if (s.includes("low")) return 1;
+    return 0;
+  };
+
   const manejarArchivo = useCallback((evento) => {
     const file = evento.target.files[0];
     if (!file) return;
@@ -83,12 +116,14 @@ export default function App() {
         const hojaAvances = buscarHoja(["AVANCE"]);
         const hojaQA = buscarHoja(["QA"]);
         const hojaValid = buscarHoja(["VALIDACION FINAL", "VALIDACIONFINAL", "VALIDACION"]);
+        const hojaProyectos = buscarHoja(["PROYECTOS"]);
         if (!hojaPlantificacion) { setError('Hoja "PLANIFICACIÓN" no encontrada.'); return; }
 
         const filasPlanificacion = XLSX.utils.sheet_to_json(hojaPlantificacion, { defval: "", raw: true });
         const filasAvances = hojaAvances ? XLSX.utils.sheet_to_json(hojaAvances, { defval: "", raw: true }) : [];
         const filasQA = hojaQA ? XLSX.utils.sheet_to_json(hojaQA, { defval: "", raw: true }) : [];
         const filasValid = hojaValid ? XLSX.utils.sheet_to_json(hojaValid, { defval: "", raw: true }) : [];
+        const filasProyectos = hojaProyectos ? XLSX.utils.sheet_to_json(hojaProyectos, { defval: "", raw: true }) : [];
         const mapaProyectos = {};
 
         for (const fila of filasPlanificacion) {
@@ -167,6 +202,25 @@ export default function App() {
           mapaProyectos[nombreProyecto].validacionFinal.push({ fecha: fechaValid, validado });
         }
 
+        for (const fila of filasProyectos) {
+          const colProyecto = buscarColumna(fila, ["proyecto"]);
+          const colNombre = buscarColumna(fila, ["nombre"]);
+          const colContraparte = buscarColumna(fila, ["contraparte"]);
+          const colInterfaz = buscarColumna(fila, ["estado interfaz", "interfaz"]);
+          let colEstado = buscarColumna(fila, ["estado", "etapa"]);
+          // Evita que "Estado interfaz" sea capturada por la búsqueda de "estado".
+          if (colEstado && colEstado === colInterfaz) colEstado = null;
+          if (!colProyecto) continue;
+          const nombreProyecto = String(fila[colProyecto]).trim();
+          if (!nombreProyecto) continue;
+          const nombre = colNombre ? String(fila[colNombre]).trim() : "";
+          const contraparte = colContraparte ? String(fila[colContraparte]).trim() : "";
+          const etapa = parsearEtapaPlan(colEstado ? fila[colEstado] : "");
+          const interfaz = parsearInterfaz(colInterfaz ? fila[colInterfaz] : "");
+          if (!mapaProyectos[nombreProyecto]) mapaProyectos[nombreProyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
+          mapaProyectos[nombreProyecto].planificacion = { nombre, contraparte, etapa, interfaz };
+        }
+
         setProyectos(mapaProyectos);
         const nombres = Object.keys(mapaProyectos);
         if (nombres.length) setProyectoSeleccionado(nombres[0]);
@@ -193,6 +247,7 @@ export default function App() {
   }, [proyectos, estadosPorProyecto]);
 
   const proyectoActual = proyectoSeleccionado && proyectos[proyectoSeleccionado];
+  const enPlanificacion = estadosPorProyecto[proyectoSeleccionado] === "En Planificación";
   const datoGrafico = useMemo(() =>
     proyectoActual ? construirDatosCurva(proyectoActual.tareas, proyectoActual.avances) : { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null, resumenSprints: [] },
     [proyectoActual]
@@ -607,6 +662,8 @@ export default function App() {
             <div>Proyecto | Sprint | Fecha | Estado (Aprobado / Devuelto a desarrollo)</div>
             <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>VALIDACIÓN FINAL (opcional):</div>
             <div>Proyecto | Fecha | Validado (Sí / No)</div>
+            <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>PROYECTOS (opcional · fase de planificación):</div>
+            <div>Proyecto | Nombre | Contraparte | Estado (etapa 1-7 · "Finalizada" al terminar) | Estado interfaz (0=Sin interfaz · 1-3)</div>
           </div>
         </div>
       )}
@@ -620,7 +677,8 @@ export default function App() {
               const colorEstado = estado === "Finalizado" ? tema.verdeExito
                                 : estado === "EN VALIDACIÓN FINAL" ? tema.acento
                                 : estado === "En QA" ? tema.verde
-                                : estado === "En Proceso" ? tema.naranja
+                                : estado === "En Desarrollo" ? tema.naranja
+                                : estado === "En Planificación" ? tema.lila
                                 : tema.textoMedio;
               const activo = proyectoSeleccionado === nombre;
               const asignados = [...new Set(
@@ -655,6 +713,14 @@ export default function App() {
             })}
           </div>
 
+          {/* ───── Proyecto en fase de planificación ────────────────── */}
+          {enPlanificacion && proyectoActual && (
+            <VistaEnPlanificacion proyecto={proyectoSeleccionado} planificacion={proyectoActual.planificacion} tema={tema} />
+          )}
+
+          {/* ───── Proyecto en desarrollo (KPIs + Curva S + vistas) ──── */}
+          {!enPlanificacion && (
+          <>
           {/* KPIs */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 12, marginBottom: 24 }}>
             {[
@@ -663,7 +729,7 @@ export default function App() {
                 if (estadoProy === "Finalizado") return { l: "Estado", v: "Finalizado", c: tema.verdeExito };
                 if (estadoProy === "EN VALIDACIÓN FINAL") return { l: "Estado", v: "En Val. Final", c: tema.acento };
                 if (estadoProy === "En QA") return { l: "Estado", v: "En QA", c: tema.verde };
-                if (estadoProy === "En Proceso") return { l: "Estado", v: "En Proceso", c: desviacion >= 0 ? tema.verde : tema.naranja };
+                if (estadoProy === "En Desarrollo") return { l: "Estado", v: "En Desarrollo", c: desviacion >= 0 ? tema.verde : tema.naranja };
                 return { l: "Estado", v: "Sin Iniciar", c: tema.textoMedio };
               })(),
               { l: "Avance Real", v: `${pctAvanceReal.toFixed(1)}%`, c: tema.verde },
@@ -763,10 +829,11 @@ export default function App() {
           {vista === "summary" && proyectoActual && (
             <VistaResumen proyectoSeleccionado={proyectoSeleccionado} datoGrafico={datoGrafico} tema={tema} />
           )}
-          )}
 
           {vista === "advances" && proyectoActual && (
             <VistaAvances proyectoActual={proyectoActual} tema={tema} />
+          )}
+          </>
           )}
 
 

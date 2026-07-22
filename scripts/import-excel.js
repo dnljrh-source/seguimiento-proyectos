@@ -90,6 +90,44 @@ function normalizarClave(k) {
   return k.toString().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, " ").trim();
 }
 
+// Etapas de planificación normalizadas (deben coincidir en orden con
+// ETAPAS_PLANIFICACION de src/lib/estadoProyecto.js).
+const ETAPAS_PLAN_NORM = [
+  "kick off y hallazgos",
+  "propuesta de requerimientos funcionales",
+  "desarrollo de interfaces",
+  "reunion de avances con contraparte",
+  "resolucion de observaciones",
+  "creacion de planificacion de desarrollo (sprints)",
+  "firma de documentos",
+];
+
+// Devuelve el número de etapa (1-7) si el proyecto sigue en planificación,
+// o 0 si la planificación está finalizada / no aplica.
+function parsearEtapaPlan(v) {
+  if (v === null || v === undefined || v === "") return 0;
+  const n = parseInt(v);
+  if (!isNaN(n)) return n >= 1 && n <= 7 ? n : 0;
+  const s = normalizarTexto(v);
+  if (!s || s.includes("finaliz") || s.includes("complet")) return 0;
+  for (let i = 0; i < ETAPAS_PLAN_NORM.length; i++) {
+    if (s.includes(ETAPAS_PLAN_NORM[i]) || ETAPAS_PLAN_NORM[i].includes(s)) return i + 1;
+  }
+  return 0;
+}
+
+// Nivel de fidelidad de interfaz: 0=Sin interfaz, 1=Low, 2=Mid, 3=High.
+function parsearInterfaz(v) {
+  if (v === null || v === undefined || v === "") return 0;
+  const n = parseInt(v);
+  if (!isNaN(n)) return n >= 0 && n <= 3 ? n : 0;
+  const s = normalizarTexto(v);
+  if (s.includes("high")) return 3;
+  if (s.includes("mid")) return 2;
+  if (s.includes("low")) return 1;
+  return 0;
+}
+
 function buscarColumna(fila, cands) {
   const columnas = Object.keys(fila);
   for (const columna of columnas) {
@@ -122,6 +160,7 @@ const hojaPlan = buscarHoja(libro, ["PLANIF"]);
 const hojaAvances = buscarHoja(libro, ["AVANCE"]);
 const hojaQA = buscarHoja(libro, ["QA"]);
 const hojaValid = buscarHoja(libro, ["VALIDACION FINAL", "VALIDACIONFINAL", "VALIDACION"]);
+const hojaProyectos = buscarHoja(libro, ["PROYECTOS"]);
 
 if (!hojaPlan) {
   console.error("[import-excel] Hoja 'PLANIFICACIÓN' no encontrada en el Excel.");
@@ -132,6 +171,7 @@ const filasPlan = XLSX.utils.sheet_to_json(hojaPlan, { defval: "", raw: true });
 const filasAv = hojaAvances ? XLSX.utils.sheet_to_json(hojaAvances, { defval: "", raw: true }) : [];
 const filasQA = hojaQA ? XLSX.utils.sheet_to_json(hojaQA, { defval: "", raw: true }) : [];
 const filasValid = hojaValid ? XLSX.utils.sheet_to_json(hojaValid, { defval: "", raw: true }) : [];
+const filasProyectos = hojaProyectos ? XLSX.utils.sheet_to_json(hojaProyectos, { defval: "", raw: true }) : [];
 
 const mapa = {};
 
@@ -211,6 +251,25 @@ for (const fila of filasValid) {
   if (!proyecto) continue;
   if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
   mapa[proyecto].validacionFinal.push({ fecha: fechaAJSON(fecha), validado });
+}
+
+for (const fila of filasProyectos) {
+  const colProyecto = buscarColumna(fila, ["proyecto"]);
+  const colNombre = buscarColumna(fila, ["nombre"]);
+  const colContraparte = buscarColumna(fila, ["contraparte"]);
+  const colInterfaz = buscarColumna(fila, ["estado interfaz", "interfaz"]);
+  let colEstado = buscarColumna(fila, ["estado", "etapa"]);
+  // Evita que "Estado interfaz" sea capturada por la búsqueda de "estado".
+  if (colEstado && colEstado === colInterfaz) colEstado = null;
+  if (!colProyecto) continue;
+  const proyecto = String(fila[colProyecto]).trim();
+  if (!proyecto) continue;
+  const nombre = colNombre ? String(fila[colNombre]).trim() : "";
+  const contraparte = colContraparte ? String(fila[colContraparte]).trim() : "";
+  const etapa = parsearEtapaPlan(colEstado ? fila[colEstado] : "");
+  const interfaz = parsearInterfaz(colInterfaz ? fila[colInterfaz] : "");
+  if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
+  mapa[proyecto].planificacion = { nombre, contraparte, etapa, interfaz };
 }
 
 fs.writeFileSync(outputPath, JSON.stringify(mapa, null, 2) + "\n");

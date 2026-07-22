@@ -8,7 +8,7 @@ export const tema = {
   borde: "#2A2A2A", bordeHover: "#383838",
   texto: "#C8C8D0", textoMedio: "#8E8E98", textoClaro: "#F0F0F0",
   acento: "#E5E5E5", verde: "#0076A8", verdeExito: "#22C55E", naranja: "#FBBF24",
-  rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3",
+  rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3", lila: "#8E7CC3",
 };
 
 export const COLORES_SPRINT = [
@@ -17,11 +17,12 @@ export const COLORES_SPRINT = [
   "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",
 ];
 
-// Orden de proyectos: en curso primero, finalizados al final.
+// Orden de proyectos: planificación primero, luego en curso, finalizados al final.
 export const ORDEN_ESTADOS = {
-  "Sin Iniciar": 0,
-  "En Proceso": 1,
-  "En QA": 2,
-  "EN VALIDACIÓN FINAL": 3,
-  "Finalizado": 4,
+  "En Planificación": 0,
+  "Sin Iniciar": 1,
+  "En Desarrollo": 2,
+  "En QA": 3,
+  "EN VALIDACIÓN FINAL": 4,
+  "Finalizado": 5,
 };
