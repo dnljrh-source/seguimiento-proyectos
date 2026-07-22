@@ -544,7 +544,7 @@
       },
       {
         "sprint": "3",
-        "fecha": "2025-05-06",
+        "fecha": "2026-05-06",
         "estado": "Devuelto a desarrollo"
       }
     ],
@@ -1365,9 +1365,461 @@
         "dateStart": "2026-05-13",
         "dateEnd": "2026-05-20",
         "pct": 25
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Dashboard de participación y licitaciones activas",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-21",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Listar licitaciones disponibles y mis licitaciones",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-21",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Gestionar perfil y usuarios de suministradora",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-21",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-04: Solicitar poder de usuario y permisos de escritura",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-25",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-05: Iniciar participación y aceptar términos",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-25",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-06: Ver resumen de licitación",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-27",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-07: Consultar instalaciones de una licitación",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-29",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-08: Ver anuncios y consultas de licitación",
+        "dateStart": "2026-04-28",
+        "dateEnd": "2026-05-21",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Iniciar oferta nueva o mejora de ronda",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Cargar carta de oferta PDF y datos generales",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Seleccionar empalmes de la oferta",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Ingresar detalle por Excel rigido u omitir detalle estructurado",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-05: Configurar ingreso guiado con indexacion y periodos",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-06: Configurar estructura de precio por periodo y bloques",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-07: Registrar condiciones contractuales opcionales",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-08: Gestionar borradores y enviar oferta",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-09: Consultar Mis ofertas y detalle de seguimiento",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-10: Presentar mejora en nueva ronda",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-11: Ver resultados publicados por ronda",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 15
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Dashboard de participación y licitaciones activas",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Listar licitaciones disponibles y mis licitaciones",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Gestionar perfil y usuarios de suministradora",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-04: Solicitar poder de usuario y permisos de escritura",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-05: Iniciar participación y aceptar términos",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-06: Ver resumen de licitación",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-07: Consultar instalaciones de una licitación",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-08: Ver anuncios y consultas de licitación",
+        "dateStart": "2026-05-21",
+        "dateEnd": "2026-06-01",
+        "pct": 10
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Dashboard de participación y licitaciones activas",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Listar licitaciones disponibles y mis licitaciones",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Gestionar perfil y usuarios de suministradora",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-04: Solicitar poder de usuario y permisos de escritura",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-05: Iniciar participación y aceptar términos",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-06: Ver resumen de licitación",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-07: Consultar instalaciones de una licitación",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-08: Ver anuncios y consultas de licitación",
+        "dateStart": "2026-06-01",
+        "dateEnd": "2026-06-04",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Iniciar oferta nueva o mejora de ronda",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Cargar carta de oferta PDF y datos generales",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Seleccionar empalmes de la oferta",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Ingresar detalle por Excel rigido u omitir detalle estructurado",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-05: Configurar ingreso guiado con indexacion y periodos",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-06: Configurar estructura de precio por periodo y bloques",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-07: Registrar condiciones contractuales opcionales",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-08: Gestionar borradores y enviar oferta",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-09: Consultar Mis ofertas y detalle de seguimiento",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-10: Presentar mejora en nueva ronda",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-11: Ver resultados publicados por ronda",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Iniciar oferta nueva o mejora de ronda",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Cargar carta de oferta PDF y datos generales",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Seleccionar empalmes de la oferta",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Ingresar detalle por Excel rigido u omitir detalle estructurado",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-05: Configurar ingreso guiado con indexacion y periodos",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-06: Configurar estructura de precio por periodo y bloques",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-07: Registrar condiciones contractuales opcionales",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-08: Gestionar borradores y enviar oferta",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-09: Consultar Mis ofertas y detalle de seguimiento",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-10: Presentar mejora en nueva ronda",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-11: Ver resultados publicados por ronda",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-01: Listar ofertas recibidas por licitacion y ronda",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 80
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-02: Revisar detalle y documentos de oferta",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 80
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-03: Validar o rechazar oferta con comentario",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 80
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-04: Gestionar anuncios, preguntas y respuestas",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-15",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-05: Configurar parametros transversales de suministradora",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-15",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-06: Editar configuracion basica de oferta",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-15",
+        "pct": 20
       }
     ],
-    "qa": [],
+    "qa": [
+      {
+        "sprint": "B",
+        "fecha": "2026-05-29",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "1",
+        "fecha": "2026-05-29",
+        "estado": "Aprobado"
+      }
+    ],
     "validacionFinal": []
   },
   "P16 V2": {
@@ -1550,6 +2002,62 @@
         "dateStart": "2026-05-15",
         "dateEnd": "2026-05-20",
         "pct": 10
+      },
+      {
+        "sprint": "6",
+        "task": "Sprint 6:  Descarga masiva de datos de reportería.",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-25",
+        "pct": 10
+      },
+      {
+        "sprint": "6",
+        "task": "Sprint 6:  Descarga masiva de datos de reportería.",
+        "dateStart": "2026-05-25",
+        "dateEnd": "2026-05-27",
+        "pct": 20
+      },
+      {
+        "sprint": "7",
+        "task": "Sprint 7: Validaciones de Reportes Trading",
+        "dateStart": "2026-05-25",
+        "dateEnd": "2026-05-28",
+        "pct": 40
+      },
+      {
+        "sprint": "7",
+        "task": "Sprint 7: Validaciones de Reportes Trading",
+        "dateStart": "2026-05-28",
+        "dateEnd": "2026-06-05",
+        "pct": 40
+      },
+      {
+        "sprint": "8",
+        "task": "Sprint 8. Cálculo Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-06-08",
+        "dateEnd": "2026-06-10",
+        "pct": 10
+      },
+      {
+        "sprint": "7",
+        "task": "Sprint 7: Validaciones de Reportes Trading",
+        "dateStart": "2026-06-05",
+        "dateEnd": "2026-06-24",
+        "pct": 20
+      },
+      {
+        "sprint": "8",
+        "task": "Sprint 8. Cálculo Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-06-10",
+        "dateEnd": "2026-06-24",
+        "pct": 30
+      },
+      {
+        "sprint": "8",
+        "task": "Sprint 8. Cálculo Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-06-24",
+        "dateEnd": "2026-07-02",
+        "pct": 40
       }
     ],
     "qa": [
@@ -1566,6 +2074,16 @@
       {
         "sprint": "3",
         "fecha": "2026-04-16",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-06-12",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "9",
+        "fecha": "2026-05-27",
         "estado": "Aprobado"
       }
     ],
@@ -1678,7 +2196,13 @@
         "pct": 15
       }
     ],
-    "qa": [],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2026-06-11",
+        "estado": "Aprobado"
+      }
+    ],
     "validacionFinal": []
   },
   "P17": {
@@ -1956,17 +2480,17 @@
     "qa": [
       {
         "sprint": "1",
-        "fecha": "2025-05-13",
+        "fecha": "2026-05-13",
         "estado": "Aprobado"
       },
       {
         "sprint": "2",
-        "fecha": "2025-05-13",
+        "fecha": "2026-05-13",
         "estado": "Aprobado"
       },
       {
         "sprint": "3",
-        "fecha": "2025-05-13",
+        "fecha": "2026-05-13",
         "estado": "Aprobado"
       }
     ],
@@ -2316,29 +2840,29 @@
       {
         "sprint": "3",
         "task": "HU-10: Compilación y Cálculo de Reliquidación por Medidor",
-        "dateStart": "2026-05-08",
-        "dateEnd": "2026-05-13",
+        "dateStart": "2026-05-13",
+        "dateEnd": "2026-05-25",
         "pct": 60
       },
       {
         "sprint": "3",
         "task": "HU-11: Tabla de Cálculos de Suministradora en Reporte",
-        "dateStart": "2026-05-08",
-        "dateEnd": "2026-05-13",
+        "dateStart": "2026-05-13",
+        "dateEnd": "2026-05-25",
         "pct": 60
       },
       {
         "sprint": "3",
         "task": "HU-12: Tabla de Intereses de Suministradora en Reporte",
-        "dateStart": "2026-05-08",
-        "dateEnd": "2026-05-13",
+        "dateStart": "2026-05-13",
+        "dateEnd": "2026-05-25",
         "pct": 60
       },
       {
         "sprint": "3",
         "task": "HU-13: Cálculos de Reliquidación EVOL en Reporte",
-        "dateStart": "2026-05-08",
-        "dateEnd": "2026-05-13",
+        "dateStart": "2026-05-13",
+        "dateEnd": "2026-05-25",
         "pct": 60
       },
       {
@@ -2375,9 +2899,101 @@
         "dateStart": "2026-05-25",
         "dateEnd": "2026-05-27",
         "pct": 40
+      },
+      {
+        "sprint": "4",
+        "task": "HU-15: Pestaña Resumen con KPIs Consolidados",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-02",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "HU-16: Validación de Pertinencia de Datos",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-02",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "HU-17: Validación de Datos Críticos en Reporte",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-02",
+        "pct": 60
+      },
+      {
+        "sprint": "4",
+        "task": "HU-18: Descarga Masiva de Datos",
+        "dateStart": "2026-05-27",
+        "dateEnd": "2026-06-02",
+        "pct": 60
+      },
+      {
+        "sprint": "5",
+        "task": "HU-19: Firma Digital de Reporte de Reliquidación",
+        "dateStart": "2026-06-02",
+        "dateEnd": "2026-06-10",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-20: Envío Formal de Reporte",
+        "dateStart": "2026-06-02",
+        "dateEnd": "2026-06-10",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-21: Versionado de Reportes Ligado a Carga CEN",
+        "dateStart": "2026-06-02",
+        "dateEnd": "2026-06-10",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-22: Histórico de Auditoría de Reliquidación",
+        "dateStart": "2026-06-02",
+        "dateEnd": "2026-06-10",
+        "pct": 100
       }
     ],
-    "qa": [],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2026-06-04",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "1",
+        "fecha": "2026-06-18",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2026-06-09",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2026-06-15",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "3",
+        "fecha": "2026-06-11",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "4",
+        "fecha": "2026-06-11",
+        "estado": "Devuelto a desarrollo"
+      },
+      {
+        "sprint": "5",
+        "fecha": "2026-06-11",
+        "estado": "Devuelto a desarrollo"
+      }
+    ],
     "validacionFinal": []
   },
   "P11": {
@@ -2453,14 +3069,14 @@
         "task": "Desarrollo UI: Estructura, Filtros y Componentes del Dashboard (HU-01, 02, 03)",
         "dateStart": "2026-04-28",
         "dateEnd": "2026-05-06",
-        "pct": 36.66666666666667
+        "pct": 37
       },
       {
         "sprint": "1",
         "task": "Desarrollo Backend: APIs de lectura para Contactos, Flujo, Empalmes y Contratos (HU-02, 03)",
         "dateStart": "2026-04-28",
         "dateEnd": "2026-05-06",
-        "pct": 36.66666666666667
+        "pct": 37
       },
       {
         "sprint": "1",
@@ -2481,45 +3097,135 @@
         "task": "Desarrollo UI: Estructura, Filtros y Componentes del Dashboard (HU-01, 02, 03)",
         "dateStart": "2026-05-15",
         "dateEnd": "2026-05-20",
-        "pct": 10
+        "pct": 20
       },
       {
         "sprint": "1",
         "task": "Desarrollo Backend: APIs de lectura para Contactos, Flujo, Empalmes y Contratos (HU-02, 03)",
         "dateStart": "2026-05-15",
         "dateEnd": "2026-05-20",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
+        "dateStart": "2026-05-15",
+        "dateEnd": "2026-05-18",
+        "pct": 50
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
+        "dateStart": "2026-05-15",
+        "dateEnd": "2026-05-18",
+        "pct": 40
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
+        "dateStart": "2026-05-19",
+        "dateEnd": "2026-05-20",
+        "pct": 30
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
+        "dateStart": "2026-05-19",
+        "dateEnd": "2026-05-20",
+        "pct": 40
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo UI: Estructura, Filtros y Componentes del Dashboard (HU-01, 02, 03)",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "Desarrollo Backend: APIs de lectura para Contactos, Flujo, Empalmes y Contratos (HU-02, 03)",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 20
+      },
+      {
+        "sprint": "2",
+        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
+        "dateStart": "2026-05-20",
+        "dateEnd": "2026-05-27",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-05-28",
+        "dateEnd": "2026-06-11",
+        "pct": 50
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-05-28",
+        "dateEnd": "2026-06-11",
+        "pct": 50
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-06-11",
+        "dateEnd": "2026-06-18",
         "pct": 10
       },
       {
-        "sprint": "2",
-        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
-        "dateStart": "2026-05-15",
-        "dateEnd": "2026-05-18",
-        "pct": 50
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-06-11",
+        "dateEnd": "2026-06-18",
+        "pct": 10
       },
       {
-        "sprint": "2",
-        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
-        "dateStart": "2026-05-15",
-        "dateEnd": "2026-05-18",
-        "pct": 40
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-07-02",
+        "pct": 0
       },
       {
-        "sprint": "2",
-        "task": "Desarrollo UI: Componente de Gráfico Drill-Down y Panel de Filtros (HU-04, 05, 06)",
-        "dateStart": "2026-05-19",
-        "dateEnd": "2026-05-20",
-        "pct": 50
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-07-02",
+        "pct": 0
       },
       {
-        "sprint": "2",
-        "task": "Desarrollo Backend: API para obtener mediciones en diferentes resoluciones y agregaciones",
-        "dateStart": "2026-05-19",
-        "dateEnd": "2026-05-20",
-        "pct": 40
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-07-02",
+        "pct": 0
       }
     ],
-    "qa": [],
+    "qa": [
+      {
+        "sprint": "1",
+        "fecha": "2026-05-28",
+        "estado": "Devuelto a desarrollo"
+      }
+    ],
     "validacionFinal": []
   },
   "P21": {
@@ -2527,142 +3233,594 @@
       {
         "sprint": "1",
         "task": "S1-HU-01: Administrar perfiles de usuario",
-        "start": "2026-05-18",
-        "end": "2026-05-19",
+        "start": "2026-06-18",
+        "end": "2026-06-19",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "1",
         "task": "S1-HU-02: Seleccionar secciones y módulos con acceso",
-        "start": "2026-05-20",
-        "end": "2026-05-22",
+        "start": "2026-06-22",
+        "end": "2026-06-23",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "1",
         "task": "S1-HU-03: Configurar permisos por módulo en un perfil",
-        "start": "2026-05-25",
-        "end": "2026-05-27",
+        "start": "2026-06-24",
+        "end": "2026-06-26",
         "workdays": 3,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "1",
         "task": "S1-HU-04: Copiar perfiles existentes",
-        "start": "2026-05-28",
-        "end": "2026-05-29",
+        "start": "2026-06-30",
+        "end": "2026-07-01",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
         "task": "S2-HU-01: Administrar acciones por módulo",
-        "start": "2026-06-01",
-        "end": "2026-06-02",
+        "start": "2026-07-02",
+        "end": "2026-07-03",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
         "task": "S2-HU-02: Agrupar sub-acciones por categoría funcional",
-        "start": "2026-06-03",
-        "end": "2026-06-04",
+        "start": "2026-07-06",
+        "end": "2026-07-07",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
         "task": "S2-HU-03: Configurar selección masiva de permisos",
-        "start": "2026-06-05",
-        "end": "2026-06-08",
+        "start": "2026-07-08",
+        "end": "2026-07-09",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "2",
         "task": "S2-HU-04: Mantener coherencia entre acciones y perfiles",
-        "start": "2026-06-09",
-        "end": "2026-06-11",
+        "start": "2026-07-10",
+        "end": "2026-07-14",
         "workdays": 3,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
         "task": "S3-HU-01: Asignar perfiles a usuarios",
-        "start": "2026-06-12",
-        "end": "2026-06-15",
+        "start": "2026-07-15",
+        "end": "2026-07-17",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
         "task": "S3-HU-02: Mostrar resumen de permisos efectivos por usuario",
-        "start": "2026-06-16",
-        "end": "2026-06-17",
+        "start": "2026-07-20",
+        "end": "2026-07-21",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
         "task": "S3-HU-03: Conservar restricción por menú y ruta",
-        "start": "2026-06-18",
-        "end": "2026-06-19",
+        "start": "2026-07-22",
+        "end": "2026-07-23",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
         "task": "S3-HU-04: Aplicar permisos granulares por acción",
-        "start": "2026-06-22",
-        "end": "2026-06-24",
+        "start": "2026-07-24",
+        "end": "2026-07-28",
         "workdays": 3,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "3",
         "task": "S3-HU-05: Informar acciones sin permiso",
-        "start": "2026-06-25",
-        "end": "2026-06-25",
+        "start": "2026-07-29",
+        "end": "2026-07-29",
         "workdays": 1,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
-        "sprint": "4",
-        "task": "S4-HU-01: Ejecutar pruebas integrales QA",
-        "start": "2026-06-26",
-        "end": "2026-07-03",
+        "sprint": "3",
+        "task": "S3-HU-06: Ejecutar pruebas integrales QA",
+        "start": "2026-07-30",
+        "end": "2026-08-05",
         "workdays": 5,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
-        "task": "S4-HU-02: Corregir defectos reportados",
-        "start": "2026-07-06",
-        "end": "2026-07-08",
+        "task": "S4-HU-01: Corregir defectos reportados",
+        "start": "2026-08-06",
+        "end": "2026-08-10",
         "workdays": 3,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
-        "task": "S4-HU-03: Validar aceptación de usuario",
-        "start": "2026-07-09",
-        "end": "2026-07-10",
+        "task": "S4-HU-02: Validar aceptación de usuario",
+        "start": "2026-08-11",
+        "end": "2026-08-12",
         "workdays": 2,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       },
       {
         "sprint": "4",
-        "task": "S4-HU-04: Desplegar a producción",
-        "start": "2026-07-13",
-        "end": "2026-07-13",
+        "task": "S4-HU-03: Entrega para QA",
+        "start": "2026-08-13",
+        "end": "2026-08-13",
         "workdays": 1,
-        "assigned": "Edison"
+        "assigned": "Paolo"
       }
     ],
-    "avances": [],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "S1-HU-01: Administrar perfiles de usuario",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-06-25",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-02: Seleccionar secciones y módulos con acceso",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-06-25",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-03: Configurar permisos por módulo en un perfil",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-06-25",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-04: Copiar perfiles existentes",
+        "dateStart": "2026-06-18",
+        "dateEnd": "2026-06-25",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-01: Administrar perfiles de usuario",
+        "dateStart": "2026-06-25",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-02: Seleccionar secciones y módulos con acceso",
+        "dateStart": "2026-06-25",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-03: Configurar permisos por módulo en un perfil",
+        "dateStart": "2026-06-25",
+        "dateEnd": "2026-07-01",
+        "pct": 30
+      },
+      {
+        "sprint": "1",
+        "task": "S1-HU-04: Copiar perfiles existentes",
+        "dateStart": "2026-06-25",
+        "dateEnd": "2026-07-01",
+        "pct": 70
+      },
+      {
+        "sprint": "2",
+        "task": "S2-HU-01: Administrar acciones por módulo",
+        "dateStart": "2026-06-30",
+        "dateEnd": "2026-07-01",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "S2-HU-02: Agrupar sub-acciones por categoría funcional",
+        "dateStart": "2026-06-30",
+        "dateEnd": "2026-07-01",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "S2-HU-03: Configurar selección masiva de permisos",
+        "dateStart": "2026-06-30",
+        "dateEnd": "2026-07-01",
+        "pct": 100
+      },
+      {
+        "sprint": "2",
+        "task": "S2-HU-04: Mantener coherencia entre acciones y perfiles",
+        "dateStart": "2026-06-30",
+        "dateEnd": "2026-07-01",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-01: Asignar perfiles a usuarios",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-02: Mostrar resumen de permisos efectivos por usuario",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-03: Conservar restricción por menú y ruta",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 0
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-04: Aplicar permisos granulares por acción",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 0
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-05: Informar acciones sin permiso",
+        "dateStart": "2026-07-01",
+        "dateEnd": "2026-07-08",
+        "pct": 0
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-04: Aplicar permisos granulares por acción",
+        "dateStart": "2026-07-13",
+        "dateEnd": "2026-07-15",
+        "pct": 5
+      }
+    ],
     "qa": [],
     "validacionFinal": []
+  },
+  "P23": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Listado de clientes en módulo de Facturaciones",
+        "start": "2026-06-16",
+        "end": "2026-06-17",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Línea de tiempo de facturación por empalme",
+        "start": "2026-06-18",
+        "end": "2026-06-22",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Filtros de la línea de tiempo de facturación",
+        "start": "2026-06-23",
+        "end": "2026-06-23",
+        "workdays": 1,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Descarga masiva de reportes por período",
+        "start": "2026-06-24",
+        "end": "2026-06-25",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-01: Cálculo del Saldo Para Facturar en el Reporte de Gestión",
+        "start": "2026-06-26",
+        "end": "2026-06-30",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-02: Sección de Agregaciones en el Reporte de Gestión",
+        "start": "2026-07-01",
+        "end": "2026-07-02",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-03: Gestión automática de saldo a favor del cliente",
+        "start": "2026-07-03",
+        "end": "2026-07-07",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-04: Repactar saldo a favor en múltiples períodos",
+        "start": "2026-07-08",
+        "end": "2026-07-10",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-01: Reliquidación del Reporte de Gestión al emitir nueva versión",
+        "start": "2026-07-13",
+        "end": "2026-07-15",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-02: Integración del Reporte de Reliquidación de Potencia versión inicial al Saldo a Facturar",
+        "start": "2026-07-17",
+        "end": "2026-07-20",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-03: Reliquidación del Reporte de Reliquidación de Potencia al emitir nueva versión",
+        "start": "2026-07-21",
+        "end": "2026-07-23",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-04: Carga de Reliquidación de Potencia CEN con balance e intereses",
+        "start": "2026-07-24",
+        "end": "2026-07-28",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-05: Visualización de la pestaña Facturación en el detalle del reporte",
+        "start": "2026-07-29",
+        "end": "2026-07-30",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-01: Envío de Reporte de Gestión en versión 2 o superior con memoria de cálculo",
+        "start": "2026-07-31",
+        "end": "2026-08-03",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-02: Envío de Reporte de Reliquidación de Potencia en versión 2 o superior",
+        "start": "2026-08-04",
+        "end": "2026-08-05",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-03: Edición del Reporte de Gestión físico con filas de reliquidación",
+        "start": "2026-08-06",
+        "end": "2026-08-07",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-04: Generación de memoria de cálculo descargable",
+        "start": "2026-08-10",
+        "end": "2026-08-13",
+        "workdays": 4,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-01: Pruebas integrales QA sobre funcionalidades de reliquidación",
+        "start": "2026-08-14",
+        "end": "2026-08-20",
+        "workdays": 5,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-02: Corrección de defectos reportados por QA",
+        "start": "2026-08-21",
+        "end": "2026-08-25",
+        "workdays": 3,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-03: Pruebas de aceptación de usuario (UAT) del módulo de Reliquidación",
+        "start": "2026-08-26",
+        "end": "2026-08-27",
+        "workdays": 2,
+        "assigned": "Felipe"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-04: Despliegue a producción del módulo de Reliquidación",
+        "start": "2026-08-28",
+        "end": "2026-08-28",
+        "workdays": 1,
+        "assigned": "Felipe"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Listado de clientes en módulo de Facturaciones",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Línea de tiempo de facturación por empalme",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Filtros de la línea de tiempo de facturación",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Descarga masiva de reportes por período",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "2",
+        "task": "HU-01: Cálculo del Saldo Para Facturar en el Reporte de Gestión",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "2",
+        "task": "HU-02: Sección de Agregaciones en el Reporte de Gestión",
+        "dateStart": "2026-06-16",
+        "dateEnd": "2026-07-02",
+        "pct": 0
+      },
+      {
+        "sprint": "1",
+        "task": "HU-01: Listado de clientes en módulo de Facturaciones",
+        "dateStart": "2026-06-22",
+        "dateEnd": "2026-07-02",
+        "pct": 80
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Línea de tiempo de facturación por empalme",
+        "dateStart": "2026-06-22",
+        "dateEnd": "2026-07-02",
+        "pct": 80
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Filtros de la línea de tiempo de facturación",
+        "dateStart": "2026-06-22",
+        "dateEnd": "2026-07-02",
+        "pct": 80
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Descarga masiva de reportes por período",
+        "dateStart": "2026-06-22",
+        "dateEnd": "2026-07-02",
+        "pct": 80
+      },
+      {
+        "sprint": "2",
+        "task": "HU-02: Sección de Agregaciones en el Reporte de Gestión",
+        "dateStart": "2026-06-22",
+        "dateEnd": "2026-07-02",
+        "pct": 20
+      }
+    ],
+    "qa": [],
+    "validacionFinal": []
+  },
+  "P20": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Automatización cuadros de pago EVOL trading",
+      "contraparte": "Trading",
+      "etapa": 5,
+      "interfaz": 3
+    }
+  },
+  "P22": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Creación de fichas de consumo y vectores proyectados",
+      "contraparte": "GCP y Licitaciones",
+      "etapa": 5,
+      "interfaz": 3
+    }
+  },
+  "P24": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Módulo de gestión e incorporación de notificaciones de portal EVOL en EMER",
+      "contraparte": "GDCO y Comercial",
+      "etapa": 5,
+      "interfaz": 1
+    }
+  },
+  "P27": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Automatización de reportes V2 ante cambio de base de datos",
+      "contraparte": "GCP",
+      "etapa": 1,
+      "interfaz": 1
+    }
+  },
+  "P30": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Mejora de crosselling mediante análisis de consumos de clientes y automatización de notificaciones",
+      "contraparte": "Comercial",
+      "etapa": 1,
+      "interfaz": 1
+    }
+  },
+  "P32": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Descarga y lectura automatica de correspondencia de coordinador",
+      "contraparte": "Trading",
+      "etapa": 1,
+      "interfaz": 1
+    }
   }
 }

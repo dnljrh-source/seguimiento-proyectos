@@ -25,6 +25,7 @@ export function hidratarDatos(raw) {
         ...v,
         fecha: v.fecha ? parsearFecha(v.fecha) : null,
       })),
+      planificacion: datos.planificacion || null,
     };
   }
   return resultado;
