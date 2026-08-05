@@ -20,7 +20,7 @@ export const COLORES_SPRINT = [
 // Orden de proyectos: planificación primero, luego en curso, finalizados al final.
 export const ORDEN_ESTADOS = {
   "En Planificación": 0,
-  "Sin Iniciar": 1,
+  "Sin Iniciar desarrollo": 1,
   "En Desarrollo": 2,
   "En QA": 3,
   "EN VALIDACIÓN FINAL": 4,

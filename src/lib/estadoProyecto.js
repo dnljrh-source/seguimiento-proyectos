@@ -34,7 +34,7 @@ export function calcularEstadoQA(pctDesarrollo, entradasQA, nombreSprint) {
   return { estado: ordenadas[0].estado, pruebas: entradas.length, fecha: ordenadas[0].fecha };
 }
 
-// Estado por proyecto: Finalizado / EN VALIDACIÓN FINAL / En QA / En Desarrollo / Sin Iniciar.
+// Estado por proyecto: Finalizado / EN VALIDACIÓN FINAL / En QA / En Desarrollo / Sin Iniciar desarrollo.
 // - "Finalizado" requiere: desarrollo 100% + QA todo aprobado + validación final con "Sí".
 // - "EN VALIDACIÓN FINAL" = QA todo aprobado, pero falta validación del área solicitante.
 // - "En QA" = desarrollo 100% pero al menos un sprint sin aprobación vigente.
@@ -49,7 +49,7 @@ export function calcularEstadosProyectos(proyectos) {
     if (etapaPlan >= 1 && etapaPlan <= 7) { estados[nombre] = "En Planificación"; continue; }
 
     const totalDH = datos.tareas.reduce((s, t) => s + (t.workdays || 0), 0);
-    if (totalDH === 0 || datos.avances.length === 0) { estados[nombre] = "Sin Iniciar"; continue; }
+    if (totalDH === 0 || datos.avances.length === 0) { estados[nombre] = "Sin Iniciar desarrollo"; continue; }
     const mapaAv = {};
     for (const av of datos.avances) {
       const clave = claveHistoria(av.sprint, av.task);
@@ -63,7 +63,7 @@ export function calcularEstadosProyectos(proyectos) {
     }
     const pct = Math.min(Math.round(total * 100) / 100, 100);
 
-    if (pct <= 0) { estados[nombre] = "Sin Iniciar"; continue; }
+    if (pct <= 0) { estados[nombre] = "Sin Iniciar desarrollo"; continue; }
     if (pct < 99.99) { estados[nombre] = "En Desarrollo"; continue; }
 
     // Desarrollo al 100%: chequear QA por sprint

@@ -109,7 +109,8 @@
     "validacionFinal": [
       {
         "fecha": "2026-03-31",
-        "validado": true
+        "validado": true,
+        "ocultar": true
       }
     ]
   },
@@ -230,7 +231,13 @@
         "estado": "Aprobado"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Análisis de propuestas de energía PPA",
+      "contraparte": "Licitaciones",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P15": {
     "tareas": [
@@ -433,7 +440,13 @@
         "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Estudio comercial nuevos clientes",
+      "contraparte": "Comercial",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P13": {
     "tareas": [
@@ -548,7 +561,13 @@
         "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Generación automática de budgets",
+      "contraparte": "GDCO",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P4": {
     "tareas": [
@@ -887,6 +906,230 @@
         "end": "2026-07-10",
         "workdays": 2,
         "assigned": "Ignacio"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-01: Investigación técnica de sub-períodos (spike)",
+        "start": "2026-07-28",
+        "end": "2026-07-30",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-02: Derivar fecha real de inicio de suministro por instalación",
+        "start": "2026-08-03",
+        "end": "2026-08-07",
+        "workdays": 4,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-03: Homologar la indexación con los tipos de EMER",
+        "start": "2026-08-10",
+        "end": "2026-08-11",
+        "workdays": 2,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-04: Calcular desacople por instalación",
+        "start": "2026-07-31",
+        "end": "2026-08-05",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-05: Generar sub-períodos por grupo de instalaciones",
+        "start": "2026-08-12",
+        "end": "2026-08-19",
+        "workdays": 5,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-06: Compilar ofertas desde el modelo normalizado",
+        "start": "2026-08-06",
+        "end": "2026-08-12",
+        "workdays": 5,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S5-07: Editar oferta de suministradora de forma completa",
+        "start": "2026-08-13",
+        "end": "2026-08-20",
+        "workdays": 5,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S5-08: Completar acciones de gestión de ofertas",
+        "start": "2026-08-20",
+        "end": "2026-08-26",
+        "workdays": 4,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S5-09: Recuperar la gestión de rondas",
+        "start": "2026-08-27",
+        "end": "2026-08-31",
+        "workdays": 3,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S5-10: Restringir el envío de ofertas según el cronograma",
+        "start": "2026-09-01",
+        "end": "2026-09-02",
+        "workdays": 1,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-01: Crear empresa suministradora desde el catálogo EMER",
+        "start": "2026-09-03",
+        "end": "2026-09-09",
+        "workdays": 4,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-02: Ajustar la gestión de usuarios al diseño actualizado",
+        "start": "2026-09-10",
+        "end": "2026-09-16",
+        "workdays": 4,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-03: Administrar estados y accesos de usuario",
+        "start": "2026-09-17",
+        "end": "2026-09-21",
+        "workdays": 2,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-04: Reconciliar los permisos efectivos de los usuarios",
+        "start": "2026-09-22",
+        "end": "2026-09-24",
+        "workdays": 3,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-05: Definir el catálogo de notificaciones a suministradoras",
+        "start": "2026-09-25",
+        "end": "2026-09-28",
+        "workdays": 1,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-06: Integrar el envío de correos a usuarios de suministradoras",
+        "start": "2026-09-29",
+        "end": "2026-10-05",
+        "workdays": 4,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-01: Preparar resultados del motor para análisis por instalación",
+        "start": "2026-08-21",
+        "end": "2026-08-27",
+        "workdays": 5,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-02: Vista de análisis de la licitación",
+        "start": "2026-10-06",
+        "end": "2026-10-09",
+        "workdays": 3,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-03: Gráfico de precios de energía",
+        "start": "2026-08-28",
+        "end": "2026-09-02",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-04: Gráfico de costos",
+        "start": "2026-09-03",
+        "end": "2026-09-07",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-05: Gráfico de ahorros y descarga de gráficos",
+        "start": "2026-10-13",
+        "end": "2026-10-14",
+        "workdays": 2,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "8",
+        "task": "HU-S7-06: Panel de control de licitaciones",
+        "start": "2026-10-15",
+        "end": "2026-10-20",
+        "workdays": 3,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-01: Configurar visibilidad de información para el cliente",
+        "start": "2026-09-08",
+        "end": "2026-09-11",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-02: Dashboard del producto Licitación de Contratos",
+        "start": "2026-10-21",
+        "end": "2026-10-27",
+        "workdays": 5,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-03: Consultar estado e histórico de procesos de licitación",
+        "start": "2026-10-28",
+        "end": "2026-11-02",
+        "workdays": 3,
+        "assigned": "Junior"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-04: Ver suministradoras y ofertas recibidas",
+        "start": "2026-09-14",
+        "end": "2026-09-21",
+        "workdays": 4,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-05: Reportes y análisis del cliente",
+        "start": "2026-09-22",
+        "end": "2026-09-25",
+        "workdays": 3,
+        "assigned": "Ignacio"
+      },
+      {
+        "sprint": "9",
+        "task": "HU-S8-06: Enlace a reuniones con el analista",
+        "start": "2026-11-03",
+        "end": "2026-11-04",
+        "workdays": 1,
+        "assigned": "Junior"
       }
     ],
     "avances": [
@@ -1806,6 +2049,27 @@
         "dateStart": "2026-07-08",
         "dateEnd": "2026-07-15",
         "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-04: Gestionar anuncios, preguntas y respuestas",
+        "dateStart": "2026-07-16",
+        "dateEnd": "2026-07-31",
+        "pct": 30
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-05: Configurar parametros transversales de suministradora",
+        "dateStart": "2026-07-16",
+        "dateEnd": "2026-07-31",
+        "pct": 30
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-06: Editar configuracion basica de oferta",
+        "dateStart": "2026-07-16",
+        "dateEnd": "2026-07-31",
+        "pct": 100
       }
     ],
     "qa": [
@@ -1820,7 +2084,13 @@
         "estado": "Aprobado"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Plataforma de Licitaciones",
+      "contraparte": "Licitaciones",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P16 V2": {
     "tareas": [
@@ -2058,6 +2328,13 @@
         "dateStart": "2026-06-24",
         "dateEnd": "2026-07-02",
         "pct": 40
+      },
+      {
+        "sprint": "8",
+        "task": "Sprint 8. Cálculo Cargo Sobreconsumo Anual y Mensual",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-07-20",
+        "pct": 20
       }
     ],
     "qa": [
@@ -2085,9 +2362,30 @@
         "sprint": "9",
         "fecha": "2026-05-27",
         "estado": "Aprobado"
+      },
+      {
+        "sprint": "5",
+        "fecha": "2026-07-30",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "6",
+        "fecha": "2026-07-30",
+        "estado": "Aprobado"
+      },
+      {
+        "sprint": "7",
+        "fecha": "2026-07-30",
+        "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Automatización de Proformas Trading",
+      "contraparte": "GDCO",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P10": {
     "tareas": [
@@ -2201,9 +2499,20 @@
         "sprint": "1",
         "fecha": "2026-06-11",
         "estado": "Aprobado"
+      },
+      {
+        "sprint": "2",
+        "fecha": "2026-07-22",
+        "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Creación de clientes desde ventas",
+      "contraparte": "Comercial",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P17": {
     "tareas": [
@@ -2494,7 +2803,13 @@
         "estado": "Aprobado"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Reliquidaciones en Reportes de desvíos",
+      "contraparte": "GDCO",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P19": {
     "tareas": [
@@ -2994,7 +3309,13 @@
         "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Mejora Módulo Reliquidación de Potencia",
+      "contraparte": "GCP",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P11": {
     "tareas": [
@@ -3226,7 +3547,13 @@
         "estado": "Devuelto a desarrollo"
       }
     ],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "UI Análisis de Cliente",
+      "contraparte": "Gerencias",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P21": {
     "tareas": [
@@ -3496,7 +3823,13 @@
       }
     ],
     "qa": [],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Creación de perfiles de usuario EMER",
+      "contraparte": "GCP",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P23": {
     "tareas": [
@@ -3749,7 +4082,122 @@
       }
     ],
     "qa": [],
-    "validacionFinal": []
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Proceso de Reliquidación EVOL nuevas versiones de reportes",
+      "contraparte": "GCP",
+      "etapa": 0,
+      "interfaz": 0
+    }
+  },
+  "P26": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Organizar el motor de extracción en módulos funcionales",
+        "start": "2026-08-03",
+        "end": "2026-08-04",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Adaptar el servicio de extracción a Lambdas EMER",
+        "start": "2026-08-05",
+        "end": "2026-08-07",
+        "workdays": 3,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Configurar ambientes y parámetros operativos",
+        "start": "2026-08-10",
+        "end": "2026-08-11",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Preparar el contrato funcional de extracción para EMER",
+        "start": "2026-08-12",
+        "end": "2026-08-13",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-01: Mantener compatibilidad del payload con EMER",
+        "start": "2026-08-14",
+        "end": "2026-08-17",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-02: Integrar extracción IA al cron automático",
+        "start": "2026-08-18",
+        "end": "2026-08-19",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-03: Gestionar facturas no procesables y errores de extracción",
+        "start": "2026-08-20",
+        "end": "2026-08-21",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-04: Comparar resultados contra extractores Python actuales",
+        "start": "2026-08-24",
+        "end": "2026-08-25",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-01: Activar o desactivar extractor IA mediante flag",
+        "start": "2026-08-26",
+        "end": "2026-08-27",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-02: Parametrizar el modelo de IA utilizado",
+        "start": "2026-08-28",
+        "end": "2026-08-28",
+        "workdays": 1,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-03: Registrar trazabilidad de cada extracción",
+        "start": "2026-08-31",
+        "end": "2026-09-01",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-04: Preparar paquete de entrega funcional a QA",
+        "start": "2026-09-02",
+        "end": "2026-09-03",
+        "workdays": 2,
+        "assigned": "Sebastián"
+      }
+    ],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Reemplazo de extractores Python por servicio de extracción con IA",
+      "contraparte": "GCP",
+      "etapa": 0,
+      "interfaz": 0
+    }
   },
   "P20": {
     "tareas": [],
@@ -3787,6 +4235,18 @@
       "interfaz": 1
     }
   },
+  "P25": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Creación de contratos recurrentes y no recurrentes en EMER",
+      "contraparte": "Gerencias",
+      "etapa": 5,
+      "interfaz": 3
+    }
+  },
   "P27": {
     "tareas": [],
     "avances": [],
@@ -3796,7 +4256,7 @@
       "nombre": "Automatización de reportes V2 ante cambio de base de datos",
       "contraparte": "GCP",
       "etapa": 1,
-      "interfaz": 1
+      "interfaz": 0
     }
   },
   "P30": {
@@ -3808,7 +4268,7 @@
       "nombre": "Mejora de crosselling mediante análisis de consumos de clientes y automatización de notificaciones",
       "contraparte": "Comercial",
       "etapa": 1,
-      "interfaz": 1
+      "interfaz": 0
     }
   },
   "P32": {
@@ -3820,7 +4280,19 @@
       "nombre": "Descarga y lectura automatica de correspondencia de coordinador",
       "contraparte": "Trading",
       "etapa": 1,
-      "interfaz": 1
+      "interfaz": 0
+    }
+  },
+  "P18": {
+    "tareas": [],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Disponibilizar Modelo de Riesgo a Trading",
+      "contraparte": "Trading",
+      "etapa": 0,
+      "interfaz": 0
     }
   }
 }

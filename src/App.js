@@ -36,6 +36,8 @@ export default function App() {
   });
   const [error, setError] = useState(null);
   const [vista, setVista] = useState("chart");
+  const [filtroEstado, setFiltroEstado] = useState(null); // null = Todos
+  const [filtroDesarrollador, setFiltroDesarrollador] = useState(null); // null = Todos
   const [versionDatos, setVersionDatos] = useState(0);
   const [verCalculadora, setVerCalculadora] = useState(false);
   const [verMenu, setVerMenu] = useState(false);
@@ -101,6 +103,8 @@ export default function App() {
     setProyectos({});
     setProyectoSeleccionado(null);
     setVista("chart");
+    setFiltroEstado(null);
+    setFiltroDesarrollador(null);
     const reader = new FileReader();
     reader.onload = (evt) => {
       try {
@@ -191,15 +195,18 @@ export default function App() {
           const colProyecto = buscarColumna(fila, ["proyecto"]);
           const colFecha = buscarColumna(fila, ["fecha"]);
           const colValidado = buscarColumna(fila, ["validado", "validacion", "aprobado"]);
+          const colOcultar = buscarColumna(fila, ["ocultar"]);
           if (!colProyecto) continue;
           const nombreProyecto = String(fila[colProyecto]).trim();
           const fechaValid = parsearFecha(fila[colFecha]);
           const valRaw = colValidado ? String(fila[colValidado]).trim() : "";
           const validado = /^(si|sí|yes|y|true|1|x)$/i.test(valRaw);
+          const ocultRaw = colOcultar ? String(fila[colOcultar]).trim() : "";
+          const ocultar = /^(si|sí|yes|y|true|1|x)$/i.test(ocultRaw);
           if (!nombreProyecto) continue;
           if (!mapaProyectos[nombreProyecto]) mapaProyectos[nombreProyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
           if (!mapaProyectos[nombreProyecto].validacionFinal) mapaProyectos[nombreProyecto].validacionFinal = [];
-          mapaProyectos[nombreProyecto].validacionFinal.push({ fecha: fechaValid, validado });
+          mapaProyectos[nombreProyecto].validacionFinal.push({ fecha: fechaValid, validado, ocultar });
         }
 
         for (const fila of filasProyectos) {
@@ -237,14 +244,105 @@ export default function App() {
 
   const estadosPorProyecto = useMemo(() => calcularEstadosProyectos(proyectos), [proyectos]);
 
+  // Proyectos ocultos: la entrada de validación final vigente (más reciente)
+  // tiene "Ocultar" = Sí. Se excluyen del seguimiento y de los conteos.
+  const proyectosOcultos = useMemo(() => {
+    const ocultos = new Set();
+    for (const [nombre, datos] of Object.entries(proyectos)) {
+      const vf = (datos.validacionFinal || []).slice().sort((a, b) => {
+        const fa = a.fecha ? a.fecha.getTime() : 0;
+        const fb = b.fecha ? b.fecha.getTime() : 0;
+        return fb - fa;
+      });
+      if (vf[0]?.ocultar) ocultos.add(nombre);
+    }
+    return ocultos;
+  }, [proyectos]);
+
   const listaProyectos = useMemo(() => {
-    return Object.keys(proyectos).sort((a, b) => {
+    return Object.keys(proyectos).filter(n => !proyectosOcultos.has(n)).sort((a, b) => {
       const pa = ORDEN_ESTADOS[estadosPorProyecto[a]] ?? 99;
       const pb = ORDEN_ESTADOS[estadosPorProyecto[b]] ?? 99;
       if (pa !== pb) return pa - pb;
       return a.localeCompare(b);
     });
-  }, [proyectos, estadosPorProyecto]);
+  }, [proyectos, estadosPorProyecto, proyectosOcultos]);
+
+  // Color asociado a cada estado general (reutilizado en filtro y selector).
+  const colorDeEstado = (estado) =>
+      estado === "Finalizado" ? tema.verdeExito
+    : estado === "EN VALIDACIÓN FINAL" ? tema.acento
+    : estado === "En QA" ? tema.verde
+    : estado === "En Desarrollo" ? tema.naranja
+    : estado === "En Planificación" ? tema.lila
+    : tema.textoMedio;
+
+  // Conteo de proyectos por estado y estados presentes (en orden lógico).
+  const conteosPorEstado = useMemo(() => {
+    const conteo = {};
+    for (const nombre of listaProyectos) {
+      const estado = estadosPorProyecto[nombre];
+      conteo[estado] = (conteo[estado] || 0) + 1;
+    }
+    return conteo;
+  }, [listaProyectos, estadosPorProyecto]);
+
+  const estadosDisponibles = useMemo(
+    () => Object.keys(ORDEN_ESTADOS).filter(estado => conteosPorEstado[estado]),
+    [conteosPorEstado]
+  );
+
+  // Conteo de proyectos por desarrollador asignado (según tareas).
+  const conteosPorDesarrollador = useMemo(() => {
+    const conteo = {};
+    for (const nombre of listaProyectos) {
+      const devs = new Set((proyectos[nombre]?.tareas || []).map(t => (t.assigned || "").trim()).filter(Boolean));
+      for (const dev of devs) conteo[dev] = (conteo[dev] || 0) + 1;
+    }
+    return conteo;
+  }, [listaProyectos, proyectos]);
+
+  const desarrolladoresDisponibles = useMemo(
+    () => Object.keys(conteosPorDesarrollador).sort((a, b) => a.localeCompare(b)),
+    [conteosPorDesarrollador]
+  );
+
+  const proyectoTieneDev = (nombre, dev) =>
+    (proyectos[nombre]?.tareas || []).some(t => (t.assigned || "").trim() === dev);
+
+  // Lista visible según los filtros de estado y desarrollador activos.
+  const filtrarProyectos = (estado, dev) => listaProyectos.filter(n =>
+    (!estado || estadosPorProyecto[n] === estado) &&
+    (!dev || proyectoTieneDev(n, dev))
+  );
+
+  const listaProyectosVisible = useMemo(
+    () => filtrarProyectos(filtroEstado, filtroDesarrollador),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [listaProyectos, estadosPorProyecto, proyectos, filtroEstado, filtroDesarrollador]
+  );
+
+  // Al cambiar un filtro, si el proyecto activo quedó fuera, selecciona el primero visible.
+  const aplicarFiltro = (estado) => {
+    const nuevo = estado === filtroEstado ? null : estado;
+    setFiltroEstado(nuevo);
+    const visibles = filtrarProyectos(nuevo, filtroDesarrollador);
+    if (!visibles.includes(proyectoSeleccionado)) setProyectoSeleccionado(visibles[0] || null);
+  };
+
+  const aplicarFiltroDev = (dev) => {
+    const nuevo = dev === filtroDesarrollador ? null : dev;
+    setFiltroDesarrollador(nuevo);
+    const visibles = filtrarProyectos(filtroEstado, nuevo);
+    if (!visibles.includes(proyectoSeleccionado)) setProyectoSeleccionado(visibles[0] || null);
+  };
+
+  // Si el proyecto seleccionado quedó oculto o fuera de la lista, selecciona el primero visible.
+  useEffect(() => {
+    if (listaProyectos.length && !listaProyectos.includes(proyectoSeleccionado)) {
+      setProyectoSeleccionado(listaProyectos[0]);
+    }
+  }, [listaProyectos, proyectoSeleccionado]);
 
   const proyectoActual = proyectoSeleccionado && proyectos[proyectoSeleccionado];
   const enPlanificacion = estadosPorProyecto[proyectoSeleccionado] === "En Planificación";
@@ -255,6 +353,9 @@ export default function App() {
 
   const totalDiasHabiles = proyectoActual ? proyectoActual.tareas.reduce((s, tarea) => s + (tarea.workdays || 0), 0) : 0;
   const listaSprints = proyectoActual ? [...new Set(proyectoActual.tareas.map(tarea => tarea.sprint))] : [];
+  const asignadosActual = proyectoActual
+    ? [...new Set(proyectoActual.tareas.map(t => (t.assigned || "").trim()).filter(Boolean))]
+    : [];
   const tieneAvances = Boolean(proyectoActual?.avances?.some(a => a.dateEnd));
 
   // % por tarea usando suma acumulada de avances
@@ -572,7 +673,6 @@ export default function App() {
           <h1 style={{ fontSize: 30, fontWeight: 700, color: tema.textoClaro, margin: 0, letterSpacing: "-0.02em" }}>
             Seguimiento de Proyectos
           </h1>
-          <p style={{ color: tema.textoMedio, fontSize: 14, margin: "6px 0 0" }}>Curva S · Planificado vs Real vs Proyectado</p>
           <div style={{ marginTop: 8, display: "flex", gap: 8, alignItems: "center" }}>
             <span style={{ fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace" }}>
               {"Actualizado: " + new Date(buildInfo.buildDate).toLocaleString("es-CL", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}
@@ -661,7 +761,7 @@ export default function App() {
             <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>QA (opcional):</div>
             <div>Proyecto | Sprint | Fecha | Estado (Aprobado / Devuelto a desarrollo)</div>
             <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>VALIDACIÓN FINAL (opcional):</div>
-            <div>Proyecto | Fecha | Validado (Sí / No)</div>
+            <div>Proyecto | Fecha | Validado (Sí / No) | Ocultar (Sí = ocultar del seguimiento)</div>
             <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>PROYECTOS (opcional · fase de planificación):</div>
             <div>Proyecto | Nombre | Contraparte | Estado (etapa 1-7 · "Finalizada" al terminar) | Estado interfaz (0=Sin interfaz · 1-3)</div>
           </div>
@@ -670,29 +770,88 @@ export default function App() {
 
       {listaProyectos.length > 0 && (
         <>
-          {/* Selector proyecto */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
-            {listaProyectos.map(nombre => {
+          {/* Filtro por estado general */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14, alignItems: "center" }}>
+            <span style={{ fontSize: 11, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em", marginRight: 4 }}>Filtrar:</span>
+            {(() => {
+              const activo = filtroEstado === null;
+              return (
+                <button onClick={() => aplicarFiltro(null)} style={{
+                  background: activo ? tema.superficieHover : "transparent",
+                  color: activo ? tema.textoClaro : tema.textoMedio,
+                  border: `1px solid ${activo ? tema.bordeHover : tema.borde}`,
+                  borderRadius: 20, padding: "5px 12px", fontSize: 12, fontWeight: 500, cursor: "pointer",
+                }}>Todos <span style={{ opacity: 0.7 }}>({listaProyectos.length})</span></button>
+              );
+            })()}
+            {estadosDisponibles.map(estado => {
+              const activo = filtroEstado === estado;
+              const color = colorDeEstado(estado);
+              return (
+                <button key={estado} onClick={() => aplicarFiltro(estado)} style={{
+                  background: activo ? `${color}22` : "transparent",
+                  color: activo ? color : tema.textoMedio,
+                  border: `1px solid ${activo ? color : tema.borde}`,
+                  borderRadius: 20, padding: "5px 12px", fontSize: 12, fontWeight: activo ? 600 : 500, cursor: "pointer",
+                  display: "flex", alignItems: "center", gap: 6,
+                }}>
+                  <span style={{ width: 7, height: 7, borderRadius: "50%", background: color, display: "inline-block" }} />
+                  {estado} <span style={{ opacity: 0.7 }}>({conteosPorEstado[estado]})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Filtro por desarrollador */}
+          {desarrolladoresDisponibles.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14, alignItems: "center" }}>
+              <span style={{ fontSize: 11, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em", marginRight: 4 }}>Desarrollador:</span>
+              {(() => {
+                const activo = filtroDesarrollador === null;
+                return (
+                  <button onClick={() => aplicarFiltroDev(null)} style={{
+                    background: activo ? tema.superficieHover : "transparent",
+                    color: activo ? tema.textoClaro : tema.textoMedio,
+                    border: `1px solid ${activo ? tema.bordeHover : tema.borde}`,
+                    borderRadius: 20, padding: "5px 12px", fontSize: 12, fontWeight: 500, cursor: "pointer",
+                  }}>Todos</button>
+                );
+              })()}
+              {desarrolladoresDisponibles.map(dev => {
+                const activo = filtroDesarrollador === dev;
+                return (
+                  <button key={dev} onClick={() => aplicarFiltroDev(dev)} style={{
+                    background: activo ? `${tema.verde}22` : "transparent",
+                    color: activo ? tema.verde : tema.textoMedio,
+                    border: `1px solid ${activo ? tema.verde : tema.borde}`,
+                    borderRadius: 20, padding: "5px 12px", fontSize: 12, fontWeight: activo ? 600 : 500, cursor: "pointer",
+                    display: "flex", alignItems: "center", gap: 6,
+                  }}>
+                    {dev} <span style={{ opacity: 0.7 }}>({conteosPorDesarrollador[dev]})</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Layout: lista lateral de proyectos + vista */}
+          <div style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
+          {/* Lista lateral de proyectos */}
+          <div style={{ width: 240, flexShrink: 0, display: "flex", flexDirection: "column", gap: 6, position: "sticky", top: 20, maxHeight: "calc(100vh - 170px)", overflowY: "auto", paddingRight: 4 }}>
+            {listaProyectosVisible.map(nombre => {
               const estado = estadosPorProyecto[nombre];
-              const colorEstado = estado === "Finalizado" ? tema.verdeExito
-                                : estado === "EN VALIDACIÓN FINAL" ? tema.acento
-                                : estado === "En QA" ? tema.verde
-                                : estado === "En Desarrollo" ? tema.naranja
-                                : estado === "En Planificación" ? tema.lila
-                                : tema.textoMedio;
+              const colorEstado = colorDeEstado(estado);
               const activo = proyectoSeleccionado === nombre;
-              const asignados = [...new Set(
-                (proyectos[nombre]?.tareas || [])
-                  .map(t => (t.assigned || "").trim())
-                  .filter(Boolean)
-              )];
+              const nombreProyecto = (proyectos[nombre]?.planificacion?.nombre || "").trim();
               return (
                 <button key={nombre} onClick={() => setProyectoSeleccionado(nombre)} style={{
                   background: activo ? tema.superficieHover : tema.superficie,
                   color: activo ? tema.textoClaro : tema.texto,
                   border: `1px solid ${activo ? tema.bordeHover : tema.borde}`,
-                  borderRadius: 8, padding: "8px 18px", fontSize: 15, fontWeight: 500, cursor: "pointer",
-                  display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left",
+                  borderLeft: `3px solid ${activo ? colorEstado : "transparent"}`,
+                  borderRadius: 8, padding: "8px 12px", fontSize: 15, fontWeight: 500, cursor: "pointer",
+                  display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 3, textAlign: "left",
+                  width: "100%",
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                     {nombre}
@@ -703,15 +862,18 @@ export default function App() {
                       padding: "2px 6px", borderRadius: 4, whiteSpace: "nowrap",
                     }}>{estado}</span>
                   </div>
-                  {asignados.length > 0 && (
-                    <div style={{ fontSize: 12, fontWeight: 400, color: tema.textoMedio, lineHeight: 1.3 }}>
-                      {asignados.join(" · ")}
+                  {nombreProyecto && (
+                    <div style={{ fontSize: 11, fontWeight: 400, color: tema.textoMedio, lineHeight: 1.3 }}>
+                      {nombreProyecto}
                     </div>
                   )}
                 </button>
               );
             })}
           </div>
+
+          {/* Columna de la vista del proyecto seleccionado */}
+          <div style={{ flex: 1, minWidth: 0 }}>
 
           {/* ───── Proyecto en fase de planificación ────────────────── */}
           {enPlanificacion && proyectoActual && (
@@ -721,6 +883,22 @@ export default function App() {
           {/* ───── Proyecto en desarrollo (KPIs + Curva S + vistas) ──── */}
           {!enPlanificacion && (
           <>
+          {/* Info: desarrollador asignado y contraparte */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 24px", alignItems: "center", marginBottom: 16 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+              <span style={{ fontSize: 10, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em" }}>Desarrollador asignado</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: tema.textoClaro }}>
+                {asignadosActual.length ? asignadosActual.join(" · ") : "—"}
+              </span>
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+              <span style={{ fontSize: 10, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em" }}>Contraparte</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: tema.textoClaro }}>
+                {(proyectoActual?.planificacion?.contraparte || "").trim() || "—"}
+              </span>
+            </div>
+          </div>
+
           {/* KPIs */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 12, marginBottom: 24 }}>
             {[
@@ -730,7 +908,7 @@ export default function App() {
                 if (estadoProy === "EN VALIDACIÓN FINAL") return { l: "Estado", v: "En Val. Final", c: tema.acento };
                 if (estadoProy === "En QA") return { l: "Estado", v: "En QA", c: tema.verde };
                 if (estadoProy === "En Desarrollo") return { l: "Estado", v: "En Desarrollo", c: desviacion >= 0 ? tema.verde : tema.naranja };
-                return { l: "Estado", v: "Sin Iniciar", c: tema.textoMedio };
+                return { l: "Estado", v: "Sin Iniciar Dev", c: tema.textoMedio };
               })(),
               { l: "Avance Real", v: `${pctAvanceReal.toFixed(1)}%`, c: tema.verde },
               { l: "Planificado Hoy", v: `${pctPlanificadoHoy.toFixed(1)}%`, c: tema.acento },
@@ -835,6 +1013,8 @@ export default function App() {
           )}
           </>
           )}
+          </div>
+          </div>
 
 
         </>

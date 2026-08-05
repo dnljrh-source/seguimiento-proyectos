@@ -243,14 +243,17 @@ for (const fila of filasValid) {
   const colProyecto = buscarColumna(fila, ["proyecto"]);
   const colFecha = buscarColumna(fila, ["fecha"]);
   const colValidado = buscarColumna(fila, ["validado", "validacion", "aprobado"]);
+  const colOcultar = buscarColumna(fila, ["ocultar"]);
   if (!colProyecto) continue;
   const proyecto = String(fila[colProyecto]).trim();
   const fecha = parsearFecha(fila[colFecha]);
   const valRaw = colValidado ? String(fila[colValidado]).trim() : "";
   const validado = /^(si|sí|yes|y|true|1|x)$/i.test(valRaw);
+  const ocultRaw = colOcultar ? String(fila[colOcultar]).trim() : "";
+  const ocultar = /^(si|sí|yes|y|true|1|x)$/i.test(ocultRaw);
   if (!proyecto) continue;
   if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
-  mapa[proyecto].validacionFinal.push({ fecha: fechaAJSON(fecha), validado });
+  mapa[proyecto].validacionFinal.push({ fecha: fechaAJSON(fecha), validado, ocultar });
 }
 
 for (const fila of filasProyectos) {

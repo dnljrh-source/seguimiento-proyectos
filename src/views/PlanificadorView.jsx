@@ -15,6 +15,7 @@ import { parsearDecimal } from "../lib/texto";
 export default function PlanificadorView({ tema }) {
   const [proyecto, setProyecto] = useState("");
   const [fechaInicioStr, setFechaInicioStr] = useState("");
+  const [fechasResp, setFechasResp] = useState({}); // responsable -> fecha inicio (str)
   const [filas, setFilas] = useState([
     { id: 1, sprint: "1", tarea: "", asignado: "", diasHabiles: "" },
   ]);
@@ -25,19 +26,49 @@ export default function PlanificadorView({ tema }) {
 
   const fechaInicioProyecto = useMemo(() => parsearFecha(fechaInicioStr), [fechaInicioStr]);
 
-  // Calcula fechas acumulando secuencialmente fila a fila
+  // Responsables distintos (en orden de aparición). Con más de uno, cada uno
+  // planifica con su propia fecha de inicio y línea de tiempo independiente.
+  const responsables = useMemo(() => {
+    const lista = [];
+    for (const f of filas) {
+      const a = (f.asignado || "").trim();
+      if (a && !lista.includes(a)) lista.push(a);
+    }
+    return lista;
+  }, [filas]);
+  const hayMultiples = responsables.length > 1;
+
+  const setFechaResp = (nombre, valor) => setFechasResp(prev => ({ ...prev, [nombre]: valor }));
+
+  // Calcula fechas secuencialmente. Con un solo responsable (o ninguno) todas
+  // las tareas comparten una línea de tiempo global. Con varios responsables,
+  // cada responsable acumula sus tareas por separado desde su propia fecha.
   const filasCalc = useMemo(() => {
-    if (!fechaInicioProyecto) return filas.map(f => ({ ...f, inicio: null, fin: null }));
-    let cursor = primerDiaHabilDesde(fechaInicioProyecto);
+    const cursores = {}; // bucket -> Date cursor
+    const inicioBucket = (asig) => {
+      if (hayMultiples) {
+        const propia = parsearFecha(fechasResp[asig]);
+        if (propia) return primerDiaHabilDesde(propia);
+      }
+      return fechaInicioProyecto ? primerDiaHabilDesde(fechaInicioProyecto) : null;
+    };
     return filas.map(fila => {
       const dias = parsearDecimal(fila.diasHabiles);
+      const asig = (fila.asignado || "").trim();
       if (!fila.tarea.trim() || dias <= 0) return { ...fila, inicio: null, fin: null };
+      const bucket = hayMultiples ? asig : "__global__";
+      if (!(bucket in cursores)) {
+        const inicio = inicioBucket(asig);
+        cursores[bucket] = inicio ? new Date(inicio) : null;
+      }
+      const cursor = cursores[bucket];
+      if (!cursor) return { ...fila, inicio: null, fin: null };
       const inicio = new Date(cursor);
       const fin = agregarDiasHabiles(inicio, dias);
-      cursor = primerDiaHabilDesde(sumarDias(fin, 1));
+      cursores[bucket] = primerDiaHabilDesde(sumarDias(fin, 1));
       return { ...fila, inicio, fin };
     });
-  }, [filas, fechaInicioProyecto]);
+  }, [filas, fechaInicioProyecto, fechasResp, hayMultiples]);
 
   const agregarFila = () => {
     const ultima = filas[filas.length - 1];
@@ -135,7 +166,9 @@ export default function PlanificadorView({ tema }) {
   };
 
   const totalDias = filasCalc.reduce((s, f) => s + parsearDecimal(f.diasHabiles), 0);
-  const fechaFinal = filasCalc.filter(f => f.fin).slice(-1)[0]?.fin || null;
+  // Fecha final = la más tardía entre todas las tareas (las líneas de tiempo
+  // por responsable pueden correr en paralelo, así que no es la última fila).
+  const fechaFinal = filasCalc.reduce((max, f) => (f.fin && (!max || f.fin > max) ? f.fin : max), null);
 
   const btnSmall = {
     background: "transparent", color: tema.textoMedio, border: `1px solid ${tema.borde}`,
@@ -159,6 +192,7 @@ export default function PlanificadorView({ tema }) {
               type="date"
               value={fechaInicioStr}
               onChange={e => setFechaInicioStr(e.target.value)}
+              title={hayMultiples ? "Fecha de inicio por defecto (para responsables sin fecha propia)" : "Fecha de inicio"}
               style={{ ...inputStyle, width: 150, colorScheme: "dark" }}
             />
             {fechaInicioProyecto && totalDias > 0 && (
@@ -182,6 +216,32 @@ export default function PlanificadorView({ tema }) {
           </div>
         </div>
       </div>
+
+      {/* Fechas de inicio por responsable (solo con más de uno) */}
+      {hayMultiples && (
+        <div style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, padding: "12px 18px", marginBottom: 12 }}>
+          <div style={{ fontSize: 10, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>
+            Fecha de inicio por responsable
+          </div>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+            {responsables.map(nombre => (
+              <label key={nombre} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                <span style={{ fontSize: 11, color: tema.textoClaro, fontWeight: 500 }}>{nombre}</span>
+                <input
+                  type="date"
+                  value={fechasResp[nombre] || ""}
+                  onChange={e => setFechaResp(nombre, e.target.value)}
+                  placeholder="(por defecto)"
+                  style={{ ...inputStyle, width: 150, colorScheme: "dark" }}
+                />
+              </label>
+            ))}
+          </div>
+          <div style={{ fontSize: 10, color: tema.textoMedio, marginTop: 8 }}>
+            Cada responsable secuencia sus tareas de forma independiente. Si no defines una fecha, se usa la fecha de inicio por defecto de arriba.
+          </div>
+        </div>
+      )}
 
       {/* Tabla de tareas */}
       <div style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, overflow: "hidden" }}>

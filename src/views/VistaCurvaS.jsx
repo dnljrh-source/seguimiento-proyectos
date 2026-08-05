@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, ReferenceArea } from "recharts";
 import { parsearFecha, formatearFecha } from "../lib/fechas";
 import { claveHistoria } from "../lib/texto";
@@ -46,6 +47,7 @@ export default function VistaCurvaS({
   listaSprints,
   mapaAvancePorTarea,
 }) {
+  const [sprintDetalle, setSprintDetalle] = useState(null);
   return (
     <div key={`chart-${versionDatos}-${proyectoSeleccionado}`} ref={refGrafico} style={{ background: tema.superficie, border: `1px solid ${tema.borde}`, borderRadius: 12, padding: "24px 16px 16px", marginBottom: 24 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, padding: "0 8px" }}>
@@ -120,7 +122,9 @@ export default function VistaCurvaS({
                           : qa.estado === "En revisión QA" ? tema.naranja
                           : tema.textoMedio;
             return (
-              <div data-export-card key={nombreSprint} style={{ background: tema.fondo, border: `1px solid ${tema.borde}`, borderRadius: 10, padding: 16 }}>
+              <div data-export-card key={nombreSprint} onClick={() => setSprintDetalle(nombreSprint)}
+                title="Ver detalle del sprint"
+                style={{ background: tema.fondo, border: `1px solid ${tema.borde}`, borderRadius: 10, padding: 16, cursor: "pointer" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
                   <span style={{ fontSize: 13, fontWeight: 600, color: tema.morado }}>Sprint {nombreSprint}</span>
                   <span style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
@@ -147,11 +151,101 @@ export default function VistaCurvaS({
                     )}
                   </div>
                 )}
+                <div data-download-btn style={{ marginTop: 10, fontSize: 10, fontWeight: 600, color: tema.verde, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  Ver detalle →
+                </div>
               </div>
             );
           })}
         </div>
       )}
+
+      {/* Modal: detalle del sprint */}
+      {sprintDetalle && proyectoActual && (() => {
+        const tareas = proyectoActual.tareas.filter(t => t.sprint === sprintDetalle);
+        const diasSprint = tareas.reduce((s, t) => s + (t.workdays || 0), 0);
+        let pctSprint = 0;
+        if (diasSprint > 0) {
+          for (const t of tareas) {
+            const pctT = mapaAvancePorTarea[claveHistoria(t.sprint, t.task)] || 0;
+            pctSprint += (pctT / 100) * (t.workdays / diasSprint) * 100;
+          }
+        }
+        pctSprint = Math.min(Math.round(pctSprint * 100) / 100, 100);
+        const qa = calcularEstadoQA(pctSprint, proyectoActual.qa, sprintDetalle);
+        const colorQA = qa.estado === "Aprobado" ? tema.verdeExito
+                      : qa.estado === "Devuelto a desarrollo" ? tema.rojo
+                      : qa.estado === "En revisión QA" ? tema.naranja
+                      : tema.textoMedio;
+        return (
+          <div onClick={() => setSprintDetalle(null)} style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 1000,
+            display: "flex", alignItems: "center", justifyContent: "center", padding: 20,
+          }}>
+            <div onClick={e => e.stopPropagation()} style={{
+              background: tema.superficie, border: `1px solid ${tema.bordeHover}`, borderRadius: 14,
+              width: "min(760px, 100%)", maxHeight: "85vh", display: "flex", flexDirection: "column",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+            }}>
+              {/* Encabezado */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, padding: "18px 22px", borderBottom: `1px solid ${tema.borde}` }}>
+                <div>
+                  <div style={{ fontSize: 12, color: tema.textoMedio }}>{proyectoSeleccionado}</div>
+                  <h3 style={{ margin: "2px 0 0", fontSize: 19, fontWeight: 700, color: tema.textoClaro }}>Sprint {sprintDetalle}</h3>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8, flexWrap: "wrap" }}>
+                    <span style={{ fontSize: 12, color: tema.textoMedio }}>
+                      Avance: <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: pctSprint >= 100 ? tema.verdeExito : tema.textoClaro }}>{pctSprint.toFixed(1)}%</span>
+                    </span>
+                    <span style={{ fontSize: 12, color: tema.textoMedio }}>{tareas.length} historias · {diasSprint} días hábiles</span>
+                    {qa.estado && (
+                      <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: colorQA, background: `${colorQA}18`, padding: "3px 8px", borderRadius: 4 }}>{qa.estado}</span>
+                    )}
+                  </div>
+                </div>
+                <button onClick={() => setSprintDetalle(null)} style={{
+                  background: "transparent", border: `1px solid ${tema.borde}`, borderRadius: 8,
+                  width: 32, height: 32, cursor: "pointer", color: tema.textoMedio, fontSize: 18, lineHeight: 1, flexShrink: 0,
+                }} title="Cerrar">×</button>
+              </div>
+
+              {/* Tabla de historias */}
+              <div style={{ overflowY: "auto", padding: "8px 22px 20px" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <thead>
+                    <tr>
+                      {["Historia", "Asignado", "Inicio", "Fin", "Días", "% Avance"].map((h, i) => (
+                        <th key={i} style={{ position: "sticky", top: 0, background: tema.superficie, textAlign: i >= 4 ? "right" : "left", color: tema.textoMedio, fontWeight: 600, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.06em", padding: "10px 8px", borderBottom: `1px solid ${tema.borde}`, whiteSpace: "nowrap" }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tareas.map((t, i) => {
+                      const pctT = Math.round((mapaAvancePorTarea[claveHistoria(t.sprint, t.task)] || 0) * 10) / 10;
+                      return (
+                        <tr key={i} style={{ borderBottom: `1px solid ${tema.borde}` }}>
+                          <td style={{ padding: "9px 8px", fontSize: 12, color: tema.textoClaro, minWidth: 220 }}>{t.task}</td>
+                          <td style={{ padding: "9px 8px", fontSize: 12, color: tema.texto, whiteSpace: "nowrap" }}>{t.assigned || "—"}</td>
+                          <td style={{ padding: "9px 8px", fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace", whiteSpace: "nowrap" }}>{t.start ? formatearFecha(t.start) : "—"}</td>
+                          <td style={{ padding: "9px 8px", fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace", whiteSpace: "nowrap" }}>{t.end ? formatearFecha(t.end) : "—"}</td>
+                          <td style={{ padding: "9px 8px", fontSize: 12, color: tema.texto, fontFamily: "'JetBrains Mono',monospace", textAlign: "right" }}>{t.workdays || 0}</td>
+                          <td style={{ padding: "9px 8px", textAlign: "right", minWidth: 120 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
+                              <div style={{ width: 60, height: 5, background: tema.borde, borderRadius: 3, overflow: "hidden" }}>
+                                <div style={{ width: `${pctT}%`, height: "100%", borderRadius: 3, background: pctT >= 100 ? tema.verdeExito : tema.verde }} />
+                              </div>
+                              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: pctT >= 100 ? tema.verdeExito : tema.textoClaro, minWidth: 40, textAlign: "right" }}>{pctT.toFixed(0)}%</span>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
