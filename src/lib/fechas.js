@@ -14,12 +14,16 @@ export const CHILE_HOLIDAYS = [
   "2027-10-31","2027-11-01","2027-12-08","2027-12-25"
 ];
 
+// Todas las fechas se anclan al MEDIODÍA (12:00) en vez de medianoche. Así, un
+// desfase de ±1h por el cambio de horario de verano (Chile adelanta/atrasa el
+// reloj) nunca cruza el límite del día, y las comparaciones `fecha <= fin` entre
+// una fecha iterada con sumarDias y una fecha parseada siguen siendo correctas.
 export function parsearFecha(v) {
   if (v === null || v === undefined || v === "") return null;
-  if (v instanceof Date) { const d = new Date(v); return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  if (v instanceof Date) { const d = new Date(v); return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12); }
   if (typeof v === "number") {
     const d = new Date(Math.round((v - 25569) * 86400000));
-    return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 12);
   }
   const s = String(v).trim();
   // DD-MM-YY o DD-MM-YYYY (también con /)
@@ -27,13 +31,13 @@ export function parsearFecha(v) {
   if (m1) {
     let y = +m1[3];
     if (y < 100) y += y >= 50 ? 1900 : 2000; // 25 → 2025, 99 → 1999
-    return new Date(y, +m1[2] - 1, +m1[1]);
+    return new Date(y, +m1[2] - 1, +m1[1], 12);
   }
   // YYYY-MM-DD
   const m2 = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-  if (m2) return new Date(+m2[1], +m2[2] - 1, +m2[3]);
+  if (m2) return new Date(+m2[1], +m2[2] - 1, +m2[3], 12);
   const d = new Date(s);
-  return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12);
 }
 
 export function formatearFecha(d) {
@@ -45,7 +49,7 @@ export function claveFecha(d) {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 }
 
-export function sumarDias(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+export function sumarDias(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); r.setHours(12, 0, 0, 0); return r; }
 
 export function esDiaHabil(d, holidays = []) {
   const dow = d.getDay();

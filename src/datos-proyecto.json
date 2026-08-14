@@ -82,28 +82,48 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2025-11-18",
         "fecha": "2025-11-18",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2025-12-04",
         "fecha": "2025-12-04",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-03-31",
         "fecha": "2026-03-31",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 1,
+        "fechaEntrega": "2026-03-31",
         "fecha": "2026-03-31",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "5",
+        "ciclo": 1,
+        "fechaEntrega": "2026-03-31",
         "fecha": "2026-03-31",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [
@@ -212,23 +232,39 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2025-10-23",
         "fecha": "2025-10-23",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2025-11-13",
         "fecha": "2025-11-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2025-11-20",
         "fecha": "2025-11-20",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 1,
+        "fechaEntrega": "2026-03-19",
         "fecha": "2026-03-19",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -401,43 +437,75 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-13",
         "fecha": "2026-04-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-13",
         "fecha": "2026-04-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-13",
         "fecha": "2026-04-13",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 1,
+        "fechaEntrega": "2026-03-13",
         "fecha": "2026-03-13",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-04-03",
         "fecha": "2026-04-03",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 2,
+        "fechaEntrega": "2026-04-03",
         "fecha": "2026-04-03",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 3,
+        "fechaEntrega": "2026-04-23",
         "fecha": "2026-04-23",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 3,
+        "fechaEntrega": "2026-04-23",
         "fecha": "2026-04-23",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -537,28 +605,48 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2025-04-10",
         "fecha": "2025-04-10",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2025-04-16",
         "fecha": "2025-04-16",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2025-04-10",
         "fecha": "2025-04-10",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2025-04-23",
         "fecha": "2025-04-23",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 3,
+        "fechaEntrega": "2026-05-06",
         "fecha": "2026-05-06",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -2069,19 +2157,146 @@
         "task": "HU-S4-06: Editar configuracion basica de oferta",
         "dateStart": "2026-07-16",
         "dateEnd": "2026-07-31",
-        "pct": 100
+        "pct": 80
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Iniciar oferta nueva o mejora de ronda",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Cargar carta de oferta PDF y datos generales",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Seleccionar empalmes de la oferta",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Ingresar detalle por Excel rigido u omitir detalle estructurado",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-05: Configurar ingreso guiado con indexacion y periodos",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-06: Configurar estructura de precio por periodo y bloques",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-07: Registrar condiciones contractuales opcionales",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-08: Gestionar borradores y enviar oferta",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-09: Consultar Mis ofertas y detalle de seguimiento",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-10: Presentar mejora en nueva ronda",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-11: Ver resultados publicados por ronda",
+        "dateStart": "2026-07-02",
+        "dateEnd": "2026-08-05",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-01: Listar ofertas recibidas por licitacion y ronda",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-08-06",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-02: Revisar detalle y documentos de oferta",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-08-06",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-03: Validar o rechazar oferta con comentario",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-08-06",
+        "pct": 20
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-04: Gestionar anuncios, preguntas y respuestas",
+        "dateStart": "2026-07-31",
+        "dateEnd": "2026-08-11",
+        "pct": 50
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-05: Configurar parametros transversales de suministradora",
+        "dateStart": "2026-07-31",
+        "dateEnd": "2026-08-11",
+        "pct": 50
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-06: Editar configuracion basica de oferta",
+        "dateStart": "2026-07-31",
+        "dateEnd": "2026-08-11",
+        "pct": 0
       }
     ],
     "qa": [
       {
         "sprint": "B",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-29",
         "fecha": "2026-05-29",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-29",
         "fecha": "2026-05-29",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -2340,43 +2555,84 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-06",
         "fecha": "2026-04-06",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-06",
         "fecha": "2026-04-06",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-04-16",
         "fecha": "2026-04-16",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-12",
         "fecha": "2026-06-12",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "9",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-27",
         "fecha": "2026-05-27",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "5",
+        "ciclo": 1,
+        "fechaEntrega": "2026-07-30",
         "fecha": "2026-07-30",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "6",
+        "ciclo": 1,
+        "fechaEntrega": "2026-07-30",
         "fecha": "2026-07-30",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "7",
+        "ciclo": 1,
+        "fechaEntrega": "2026-07-30",
         "fecha": "2026-07-30",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "9",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-04",
+        "fecha": "2026-08-07",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Aprobado los últimos ajustes que se debían realizar con tema de precios en take or pay y arreglo de fórmula de cálculo de excesos, pero el cálculo no es correcto."
       }
     ],
     "validacionFinal": [],
@@ -2497,13 +2753,39 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-11",
         "fecha": "2026-06-11",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-07-22",
         "fecha": "2026-07-22",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "2",
+        "ciclo": 2,
+        "fechaEntrega": "2026-07-24",
+        "fecha": "2026-08-03",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Aún no se aprueba ya que faltan unos ajustes del sprint 1"
+      },
+      {
+        "sprint": "2",
+        "ciclo": 2,
+        "fechaEntrega": "2026-07-27",
+        "fecha": "2026-07-27",
+        "estado": "Rechazado",
+        "defectos": 2,
+        "observaciones": "Renombres de servicios y quitar la selección de analista y comercial al momento de pasar a cliente."
       }
     ],
     "validacionFinal": [],
@@ -2789,18 +3071,30 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-13",
         "fecha": "2026-05-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-13",
         "fecha": "2026-05-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-13",
         "fecha": "2026-05-13",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -3275,38 +3569,66 @@
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-04",
         "fecha": "2026-06-04",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "1",
+        "ciclo": 2,
+        "fechaEntrega": "2026-06-18",
         "fecha": "2026-06-18",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-09",
         "fecha": "2026-06-09",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "2",
+        "ciclo": 2,
+        "fechaEntrega": "2026-06-15",
         "fecha": "2026-06-15",
-        "estado": "Aprobado"
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-11",
         "fecha": "2026-06-11",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "4",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-11",
         "fecha": "2026-06-11",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "5",
+        "ciclo": 1,
+        "fechaEntrega": "2026-06-11",
         "fecha": "2026-06-11",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -3538,13 +3860,31 @@
         "dateStart": "2026-06-18",
         "dateEnd": "2026-07-02",
         "pct": 0
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-07-27",
+        "dateEnd": "2026-08-10",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-07-27",
+        "dateEnd": "2026-08-10",
+        "pct": 20
       }
     ],
     "qa": [
       {
         "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-05-28",
         "fecha": "2026-05-28",
-        "estado": "Devuelto a desarrollo"
+        "estado": "Rechazado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -3667,30 +4007,6 @@
         "start": "2026-07-30",
         "end": "2026-08-05",
         "workdays": 5,
-        "assigned": "Paolo"
-      },
-      {
-        "sprint": "4",
-        "task": "S4-HU-01: Corregir defectos reportados",
-        "start": "2026-08-06",
-        "end": "2026-08-10",
-        "workdays": 3,
-        "assigned": "Paolo"
-      },
-      {
-        "sprint": "4",
-        "task": "S4-HU-02: Validar aceptación de usuario",
-        "start": "2026-08-11",
-        "end": "2026-08-12",
-        "workdays": 2,
-        "assigned": "Paolo"
-      },
-      {
-        "sprint": "4",
-        "task": "S4-HU-03: Entrega para QA",
-        "start": "2026-08-13",
-        "end": "2026-08-13",
-        "workdays": 1,
         "assigned": "Paolo"
       }
     ],
@@ -3820,9 +4136,97 @@
         "dateStart": "2026-07-13",
         "dateEnd": "2026-07-15",
         "pct": 5
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-01: Asignar perfiles a usuarios",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-25",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-02: Mostrar resumen de permisos efectivos por usuario",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-25",
+        "pct": 30
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-03: Conservar restricción por menú y ruta",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-25",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-04: Aplicar permisos granulares por acción",
+        "dateStart": "2026-07-13",
+        "dateEnd": "2026-07-25",
+        "pct": 95
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-05: Informar acciones sin permiso",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-25",
+        "pct": 100
+      },
+      {
+        "sprint": "3",
+        "task": "S3-HU-06: Ejecutar pruebas integrales QA",
+        "dateStart": "2026-07-08",
+        "dateEnd": "2026-07-25",
+        "pct": 100
       }
     ],
-    "qa": [],
+    "qa": [
+      {
+        "sprint": "1",
+        "ciclo": 1,
+        "fechaEntrega": "2026-08-06",
+        "fecha": "2026-08-12",
+        "estado": "Rechazado",
+        "defectos": 2,
+        "observaciones": "Errores encontrados en copia de perfiles, también al eliminar perfiles los usuarios siguen con los permisos (error de la mano con sprint 3)"
+      },
+      {
+        "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-08-06",
+        "fecha": "2026-08-12",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": ""
+      },
+      {
+        "sprint": "3",
+        "ciclo": 1,
+        "fechaEntrega": "2026-08-10",
+        "fecha": "2026-08-13",
+        "estado": "Rechazado",
+        "defectos": 2,
+        "observaciones": "A parte del error de sprint 1, también se encuentra que al cambiar de perfiles a un usuario, este aún sigue teniendo accesos a ciertos modulos del perfil anterior"
+      },
+      {
+        "sprint": "1",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-13",
+        "fecha": "2026-08-13",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": ""
+      },
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-13",
+        "fecha": "2026-08-14",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Queda pendiente el arreglo de modulos que no tienen acciones definidas, se solicita que se asignen acciones predeterminadas para estos: Ver, Editar y Eliminar. Falta probrar modulo por modulo, ya que algunos presentan fallas en los permisos"
+      }
+    ],
     "validacionFinal": [],
     "planificacion": {
       "nombre": "Creación de perfiles de usuario EMER",
@@ -4189,12 +4593,175 @@
         "assigned": "Sebastián"
       }
     ],
-    "avances": [],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Organizar el motor de extracción en módulos funcionales",
+        "dateStart": "2026-08-10",
+        "dateEnd": "2026-08-13",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Adaptar el servicio de extracción a Lambdas EMER",
+        "dateStart": "2026-08-10",
+        "dateEnd": "2026-08-13",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Configurar ambientes y parámetros operativos",
+        "dateStart": "2026-08-10",
+        "dateEnd": "2026-08-13",
+        "pct": 25
+      }
+    ],
     "qa": [],
     "validacionFinal": [],
     "planificacion": {
       "nombre": "Reemplazo de extractores Python por servicio de extracción con IA",
       "contraparte": "GCP",
+      "etapa": 0,
+      "interfaz": 0
+    }
+  },
+  "P18": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-01: Carga y versionado de factores de penalización",
+        "start": "2026-08-12",
+        "end": "2026-08-14",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Consulta de versiones de CMg y factores por barra",
+        "start": "2026-08-17",
+        "end": "2026-08-18",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Administración manual de asociaciones de barras",
+        "start": "2026-08-19",
+        "end": "2026-08-20",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Importación masiva de asociaciones de barras",
+        "start": "2026-08-21",
+        "end": "2026-08-25",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-05: Identificador único de contrato en Venta Trading",
+        "start": "2026-08-26",
+        "end": "2026-08-27",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-06: Identificador único de bloque en Venta Trading",
+        "start": "2026-08-28",
+        "end": "2026-09-01",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-07: Mantenedor base de Compra Trading",
+        "start": "2026-09-02",
+        "end": "2026-09-04",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-08: Compra Trading tipo Cliente",
+        "start": "2026-09-07",
+        "end": "2026-09-08",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-09: Compra Trading tipo Flat",
+        "start": "2026-09-09",
+        "end": "2026-09-10",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-10: Compra Trading Enel Evol",
+        "start": "2026-09-11",
+        "end": "2026-09-14",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-11: Compra Trading Enel Lipigas con nominación y perfil mensual",
+        "start": "2026-09-15",
+        "end": "2026-09-17",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-12: Matriz anual de energía para Enel Lipigas",
+        "start": "2026-09-21",
+        "end": "2026-09-23",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-13: Spike técnico de perfiles desde mediciones EMER",
+        "start": "2026-09-24",
+        "end": "2026-09-25",
+        "workdays": 2,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-14: Administración y carga Excel de perfiles de consumo",
+        "start": "2026-09-28",
+        "end": "2026-09-30",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-15: Generación de perfiles desde mediciones EMER",
+        "start": "2026-10-01",
+        "end": "2026-10-05",
+        "workdays": 3,
+        "assigned": "Javier"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-16: Asociación de perfiles a períodos de Venta Trading",
+        "start": "2026-10-06",
+        "end": "2026-10-07",
+        "workdays": 2,
+        "assigned": "Javier"
+      }
+    ],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Disponibilizar Modelo de Riesgo a Trading",
+      "contraparte": "Trading",
       "etapa": 0,
       "interfaz": 0
     }
@@ -4208,7 +4775,7 @@
       "nombre": "Automatización cuadros de pago EVOL trading",
       "contraparte": "Trading",
       "etapa": 5,
-      "interfaz": 3
+      "interfaz": 0
     }
   },
   "P22": {
@@ -4255,7 +4822,7 @@
     "planificacion": {
       "nombre": "Automatización de reportes V2 ante cambio de base de datos",
       "contraparte": "GCP",
-      "etapa": 1,
+      "etapa": 2,
       "interfaz": 0
     }
   },
@@ -4280,18 +4847,6 @@
       "nombre": "Descarga y lectura automatica de correspondencia de coordinador",
       "contraparte": "Trading",
       "etapa": 1,
-      "interfaz": 0
-    }
-  },
-  "P18": {
-    "tareas": [],
-    "avances": [],
-    "qa": [],
-    "validacionFinal": [],
-    "planificacion": {
-      "nombre": "Disponibilizar Modelo de Riesgo a Trading",
-      "contraparte": "Trading",
-      "etapa": 0,
       "interfaz": 0
     }
   }

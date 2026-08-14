@@ -21,17 +21,28 @@ export const ETAPAS_INTERFAZ = ["Sin interfaz", "Low Fid", "Mid Fid", "High Fid"
 // - Si desarrollo < 100%: estado null (no mostrar badge QA)
 // - Si desarrollo = 100% y no hay pruebas: "En revisión QA"
 // - Si desarrollo = 100% y hay pruebas: estado = la entrada QA más reciente
-export function calcularEstadoQA(pctDesarrollo, entradasQA, nombreSprint) {
-  // Tolerancia para precisión de punto flotante: 99.99 cuenta como 100%
-  if (pctDesarrollo < 99.99) return { estado: null, pruebas: 0, fecha: null };
-  const entradas = (entradasQA || []).filter(q => normalizarTexto(q.sprint) === normalizarTexto(nombreSprint));
-  if (!entradas.length) return { estado: "En revisión QA", pruebas: 0, fecha: null };
-  const ordenadas = [...entradas].sort((a, b) => {
+// Ordena entradas QA de un sprint por ciclo descendente (ciclo mayor = más
+// reciente); si faltan ciclos, desempata por fecha de resultado descendente.
+export function ordenarCiclosQA(entradas) {
+  return [...entradas].sort((a, b) => {
+    const ca = a.ciclo || 0, cb = b.ciclo || 0;
+    if (ca !== cb) return cb - ca;
     const fa = a.fecha ? a.fecha.getTime() : 0;
     const fb = b.fecha ? b.fecha.getTime() : 0;
     return fb - fa;
   });
-  return { estado: ordenadas[0].estado, pruebas: entradas.length, fecha: ordenadas[0].fecha };
+}
+
+export function calcularEstadoQA(pctDesarrollo, entradasQA, nombreSprint) {
+  // Tolerancia para precisión de punto flotante: 99.99 cuenta como 100%
+  if (pctDesarrollo < 99.99) return { estado: null, pruebas: 0, fecha: null, defectos: null, ciclo: null };
+  const entradas = (entradasQA || []).filter(q => normalizarTexto(q.sprint) === normalizarTexto(nombreSprint));
+  if (!entradas.length) return { estado: "En revisión QA", pruebas: 0, fecha: null, defectos: null, ciclo: null };
+  const vigente = ordenarCiclosQA(entradas)[0];
+  return {
+    estado: vigente.estado, pruebas: entradas.length, fecha: vigente.fecha,
+    defectos: vigente.defectos, ciclo: vigente.ciclo,
+  };
 }
 
 // Estado por proyecto: Finalizado / EN VALIDACIÓN FINAL / En QA / En Desarrollo / Sin Iniciar desarrollo.

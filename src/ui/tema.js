@@ -11,6 +11,14 @@ export const tema = {
   rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3", lila: "#8E7CC3",
 };
 
+// Color asociado a un veredicto de QA. Acepta "Rechazado" (nuevo) y
+// "Devuelto a desarrollo" (datos antiguos) como el mismo estado negativo.
+export const colorEstadoQA = (estado, t) =>
+    estado === "Aprobado" ? t.verdeExito
+  : (estado === "Rechazado" || estado === "Devuelto a desarrollo") ? t.rojo
+  : estado === "En revisión QA" ? t.naranja
+  : t.textoMedio;
+
 export const COLORES_SPRINT = [
   "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",
   "rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)",

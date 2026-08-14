@@ -27,27 +27,29 @@ const CHILE_HOLIDAYS = new Set([
   "2027-10-31","2027-11-01","2027-12-08","2027-12-25",
 ]);
 
+// Fechas ancladas al MEDIODÍA (12:00) para que el cambio de horario de verano
+// (±1h) no cruce el límite del día. Debe mantenerse en sync con src/lib/fechas.js.
 function parsearFecha(v) {
   if (v === null || v === undefined || v === "") return null;
   if (v instanceof Date) {
     if (isNaN(v)) return null;
-    return new Date(v.getFullYear(), v.getMonth(), v.getDate());
+    return new Date(v.getFullYear(), v.getMonth(), v.getDate(), 12);
   }
   if (typeof v === "number") {
     const d = new Date(Math.round((v - 25569) * 86400000));
-    return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 12);
   }
   const s = String(v).trim();
   const m1 = s.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})$/);
   if (m1) {
     let y = +m1[3];
     if (y < 100) y += y >= 50 ? 1900 : 2000;
-    return new Date(y, +m1[2] - 1, +m1[1]);
+    return new Date(y, +m1[2] - 1, +m1[1], 12);
   }
   const m2 = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-  if (m2) return new Date(+m2[1], +m2[2] - 1, +m2[3]);
+  if (m2) return new Date(+m2[1], +m2[2] - 1, +m2[3], 12);
   const d = new Date(s);
-  return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12);
 }
 
 function claveFecha(d) {
@@ -57,6 +59,7 @@ function claveFecha(d) {
 function sumarDias(d, n) {
   const r = new Date(d);
   r.setDate(r.getDate() + n);
+  r.setHours(12, 0, 0, 0);
   return r;
 }
 
@@ -222,21 +225,36 @@ for (const fila of filasAv) {
 for (const fila of filasQA) {
   const colProyecto = buscarColumna(fila, ["proyecto"]);
   const colSprint = buscarColumna(fila, ["sprint"]);
-  const colFecha = buscarColumna(fila, ["fecha"]);
-  const colEstado = buscarColumna(fila, ["estado", "resultado"]);
+  const colCiclo = buscarColumna(fila, ["ciclo"]);
+  const colFEntrega = buscarColumna(fila, ["fecha entrega", "entrega a qa", "entrega"]);
+  const colFResultado = buscarColumna(fila, ["fecha resultado", "fecha de resultado", "fecha veredicto"]);
+  let colEstado = buscarColumna(fila, ["resultado", "veredicto", "estado"]);
+  const colDefectos = buscarColumna(fila, ["defectos", "n defectos", "nro defectos", "numero de defectos"]);
+  const colObs = buscarColumna(fila, ["observaciones", "observacion", "comentarios", "comentario"]);
+  const colFecha = buscarColumna(fila, ["fecha"]); // fallback hojas antiguas
+  // "RESULTADO" (veredicto) vs "FECHA RESULTADO" (fecha): evitar que se pisen.
+  if (colEstado && (colEstado === colFResultado || colEstado === colFEntrega)) colEstado = null;
   if (!colProyecto || !colSprint || !colEstado) continue;
   const proyecto = String(fila[colProyecto]).trim();
   const sprint = String(fila[colSprint]).trim();
-  const fecha = parsearFecha(fila[colFecha]);
   const estadoRaw = String(fila[colEstado]).trim();
   if (!proyecto || !sprint || !estadoRaw) continue;
   const estadoNorm = normalizarTexto(estadoRaw);
   let estado;
   if (estadoNorm.includes("aprob")) estado = "Aprobado";
-  else if (estadoNorm.includes("devuelt") || estadoNorm.includes("rechaz")) estado = "Devuelto a desarrollo";
+  else if (estadoNorm.includes("rechaz") || estadoNorm.includes("devuelt")) estado = "Rechazado";
   else estado = estadoRaw;
+  const ciclo = colCiclo ? (parseInt(fila[colCiclo]) || null) : null;
+  const fechaEntrega = colFEntrega ? parsearFecha(fila[colFEntrega]) : null;
+  const fechaResultado = colFResultado ? parsearFecha(fila[colFResultado])
+    : (colFecha && colFecha !== colFEntrega ? parsearFecha(fila[colFecha]) : null);
+  const defectos = colDefectos ? (parseInt(fila[colDefectos]) || 0) : null;
+  const observaciones = colObs ? String(fila[colObs]).trim() : "";
   if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
-  mapa[proyecto].qa.push({ sprint, fecha: fechaAJSON(fecha), estado });
+  mapa[proyecto].qa.push({
+    sprint, ciclo, fechaEntrega: fechaAJSON(fechaEntrega), fecha: fechaAJSON(fechaResultado),
+    estado, defectos, observaciones,
+  });
 }
 
 for (const fila of filasValid) {

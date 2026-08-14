@@ -20,6 +20,7 @@ export function hidratarDatos(raw) {
       qa: (datos.qa || []).map(q => ({
         ...q,
         fecha: q.fecha ? parsearFecha(q.fecha) : null,
+        fechaEntrega: q.fechaEntrega ? parsearFecha(q.fechaEntrega) : null,
       })),
       validacionFinal: (datos.validacionFinal || []).map(v => ({
         ...v,

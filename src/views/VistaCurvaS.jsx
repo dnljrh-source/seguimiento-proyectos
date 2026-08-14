@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, ReferenceArea } from "recharts";
 import { parsearFecha, formatearFecha } from "../lib/fechas";
 import { claveHistoria } from "../lib/texto";
-import { calcularEstadoQA } from "../lib/estadoProyecto";
-import { COLORES_SPRINT } from "../ui/tema";
+import { calcularEstadoQA, ordenarCiclosQA } from "../lib/estadoProyecto";
+import { COLORES_SPRINT, colorEstadoQA } from "../ui/tema";
 
 // Tooltip inline: Recharts solo lo invoca durante hover. No vale la pena
 // memoizarlo. Se mantiene dentro del archivo de la vista por proximidad.
@@ -117,10 +117,7 @@ export default function VistaCurvaS({
             }
             pctSprint = Math.min(Math.round(pctSprint * 100) / 100, 100);
             const qa = calcularEstadoQA(pctSprint, proyectoActual.qa, nombreSprint);
-            const colorQA = qa.estado === "Aprobado" ? tema.verdeExito
-                          : qa.estado === "Devuelto a desarrollo" ? tema.rojo
-                          : qa.estado === "En revisión QA" ? tema.naranja
-                          : tema.textoMedio;
+            const colorQA = colorEstadoQA(qa.estado, tema);
             return (
               <div data-export-card key={nombreSprint} onClick={() => setSprintDetalle(nombreSprint)}
                 title="Ver detalle del sprint"
@@ -145,7 +142,8 @@ export default function VistaCurvaS({
                     }}>{qa.estado}</span>
                     {qa.pruebas > 0 && (
                       <span style={{ fontSize: 10, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace" }}>
-                        {qa.pruebas} prueba{qa.pruebas !== 1 ? "s" : ""}
+                        {qa.ciclo ? `Ciclo ${qa.ciclo}` : `${qa.pruebas} ciclo${qa.pruebas !== 1 ? "s" : ""}`}
+                        {qa.defectos != null && <> · {qa.defectos} def</>}
                         {qa.fecha && <> · {formatearFecha(qa.fecha)}</>}
                       </span>
                     )}
@@ -173,10 +171,10 @@ export default function VistaCurvaS({
         }
         pctSprint = Math.min(Math.round(pctSprint * 100) / 100, 100);
         const qa = calcularEstadoQA(pctSprint, proyectoActual.qa, sprintDetalle);
-        const colorQA = qa.estado === "Aprobado" ? tema.verdeExito
-                      : qa.estado === "Devuelto a desarrollo" ? tema.rojo
-                      : qa.estado === "En revisión QA" ? tema.naranja
-                      : tema.textoMedio;
+        const colorQA = colorEstadoQA(qa.estado, tema);
+        const ciclosQA = ordenarCiclosQA(
+          (proyectoActual.qa || []).filter(q => String(q.sprint).trim() === String(sprintDetalle).trim())
+        );
         return (
           <div onClick={() => setSprintDetalle(null)} style={{
             position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 1000,
@@ -241,6 +239,41 @@ export default function VistaCurvaS({
                     })}
                   </tbody>
                 </table>
+
+                {/* Historial de ciclos de QA */}
+                {ciclosQA.length > 0 && (
+                  <div style={{ marginTop: 22 }}>
+                    <div style={{ fontSize: 11, color: tema.textoMedio, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
+                      Historial de QA · {ciclosQA.length} ciclo{ciclosQA.length !== 1 ? "s" : ""}
+                    </div>
+                    <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                      <thead>
+                        <tr>
+                          {["Ciclo", "Entrega a QA", "Resultado", "Veredicto", "Defectos", "Observaciones"].map((h, i) => (
+                            <th key={i} style={{ textAlign: i === 4 ? "right" : "left", color: tema.textoMedio, fontWeight: 600, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.06em", padding: "8px", borderBottom: `1px solid ${tema.borde}`, whiteSpace: "nowrap" }}>{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {ciclosQA.map((c, i) => {
+                          const cColor = colorEstadoQA(c.estado, tema);
+                          return (
+                            <tr key={i} style={{ borderBottom: `1px solid ${tema.borde}` }}>
+                              <td style={{ padding: "9px 8px", fontSize: 12, color: tema.textoClaro, fontFamily: "'JetBrains Mono',monospace" }}>{c.ciclo ?? "—"}</td>
+                              <td style={{ padding: "9px 8px", fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace", whiteSpace: "nowrap" }}>{c.fechaEntrega ? formatearFecha(c.fechaEntrega) : "—"}</td>
+                              <td style={{ padding: "9px 8px", fontSize: 11, color: tema.textoMedio, fontFamily: "'JetBrains Mono',monospace", whiteSpace: "nowrap" }}>{c.fecha ? formatearFecha(c.fecha) : "—"}</td>
+                              <td style={{ padding: "9px 8px", whiteSpace: "nowrap" }}>
+                                <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: cColor, background: `${cColor}18`, padding: "3px 8px", borderRadius: 4 }}>{c.estado}</span>
+                              </td>
+                              <td style={{ padding: "9px 8px", fontSize: 12, color: (c.defectos > 0 ? tema.rojo : tema.texto), fontFamily: "'JetBrains Mono',monospace", textAlign: "right" }}>{c.defectos != null ? c.defectos : "—"}</td>
+                              <td style={{ padding: "9px 8px", fontSize: 12, color: tema.texto, minWidth: 180 }}>{c.observaciones || "—"}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
             </div>
           </div>
