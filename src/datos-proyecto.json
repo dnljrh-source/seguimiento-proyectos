@@ -506,6 +506,24 @@
         "estado": "Rechazado",
         "defectos": 0,
         "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "4",
+        "ciclo": 3,
+        "fechaEntrega": "2026-08-17",
+        "fecha": "2026-08-19",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 3,
+        "fechaEntrega": "2026-08-17",
+        "fecha": "2026-08-19",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -647,6 +665,24 @@
         "estado": "Rechazado",
         "defectos": 0,
         "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 4,
+        "fechaEntrega": "2026-08-19",
+        "fecha": "2026-08-19",
+        "estado": "Rechazado",
+        "defectos": 2,
+        "observaciones": "Errores en los valores de los balances. Hace falta ajuste en valores de potencia (tienen desfase de 1 mes)."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 5,
+        "fechaEntrega": "2026-08-25",
+        "fecha": "2026-08-27",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Se arreglan potencias y balances junto con los precios, falta solucionar vista principal de budget que muestre correctamente las remuneraciones y solucionar problema de remuneraciones con UF"
       }
     ],
     "validacionFinal": [],
@@ -2277,6 +2313,55 @@
         "dateStart": "2026-07-31",
         "dateEnd": "2026-08-11",
         "pct": 0
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-01: Investigación técnica de sub-períodos (spike)",
+        "dateStart": "2026-08-03",
+        "dateEnd": "2026-08-12",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-02: Derivar fecha real de inicio de suministro por instalación",
+        "dateStart": "2026-08-10",
+        "dateEnd": "2026-08-20",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-03: Homologar la indexación con los tipos de EMER",
+        "dateStart": "2026-08-20",
+        "dateEnd": "2026-09-01",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-04: Calcular desacople por instalación",
+        "dateStart": "2026-08-12",
+        "dateEnd": "2026-09-03",
+        "pct": 80
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-05: Generar sub-períodos por grupo de instalaciones",
+        "dateStart": "2026-08-20",
+        "dateEnd": "2026-08-25",
+        "pct": 100
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-06: Compilar ofertas desde el modelo normalizado",
+        "dateStart": "2026-08-25",
+        "dateEnd": "2026-09-03",
+        "pct": 10
+      },
+      {
+        "sprint": "7",
+        "task": "HU-S6-01: Crear empresa suministradora desde el catálogo EMER",
+        "dateStart": "2026-09-02",
+        "dateEnd": "2026-09-03",
+        "pct": 70
       }
     ],
     "qa": [
@@ -2633,6 +2718,24 @@
         "estado": "Rechazado",
         "defectos": 1,
         "observaciones": "Aprobado los últimos ajustes que se debían realizar con tema de precios en take or pay y arreglo de fórmula de cálculo de excesos, pero el cálculo no es correcto."
+      },
+      {
+        "sprint": "9",
+        "ciclo": 3,
+        "fechaEntrega": "2026-08-14",
+        "fecha": "2026-08-19",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "7",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-21",
+        "fecha": "2026-08-21",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Proyecto puede pasar a Producción."
       }
     ],
     "validacionFinal": [],
@@ -2786,6 +2889,15 @@
         "estado": "Rechazado",
         "defectos": 2,
         "observaciones": "Renombres de servicios y quitar la selección de analista y comercial al momento de pasar a cliente."
+      },
+      {
+        "sprint": "2",
+        "ciclo": 3,
+        "fechaEntrega": "2026-08-19",
+        "fecha": "2026-08-20",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -3629,6 +3741,33 @@
         "estado": "Rechazado",
         "defectos": 0,
         "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-07-30",
+        "fecha": "2026-08-06",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "4",
+        "ciclo": 2,
+        "fechaEntrega": "2026-07-30",
+        "fecha": "2026-08-06",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "5",
+        "ciclo": 2,
+        "fechaEntrega": "2026-07-30",
+        "fecha": "2026-08-06",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -3688,22 +3827,6 @@
         "end": "2026-06-15",
         "workdays": 5,
         "assigned": "Sergio"
-      },
-      {
-        "sprint": "4",
-        "task": "Desarrollo de la UI y API de lectura para la sección de Notificaciones (HU-10)",
-        "start": "2026-06-02",
-        "end": "2026-06-04",
-        "workdays": 3,
-        "assigned": "Javier"
-      },
-      {
-        "sprint": "4",
-        "task": "Desarrollo de la UI y API de lectura para la Línea de Tiempo y Resumen de Contratos (HU-11)",
-        "start": "2026-06-05",
-        "end": "2026-06-10",
-        "workdays": 4,
-        "assigned": "Javier"
       }
     ],
     "avances": [
@@ -3874,6 +3997,20 @@
         "dateStart": "2026-07-27",
         "dateEnd": "2026-08-10",
         "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para Gráficos de Precios, Retiros y Costos (HU-07)",
+        "dateStart": "2026-08-11",
+        "dateEnd": "2026-08-13",
+        "pct": 20
+      },
+      {
+        "sprint": "3",
+        "task": "Desarrollo UI y APIs de lectura para el Repositorio de Documentos (HU-08, 09)",
+        "dateStart": "2026-08-11",
+        "dateEnd": "2026-08-13",
+        "pct": 20
       }
     ],
     "qa": [
@@ -3885,6 +4022,42 @@
         "estado": "Rechazado",
         "defectos": 0,
         "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-13",
+        "fecha": "2026-08-20",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "1",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-05",
+        "fecha": "2026-08-05",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "2",
+        "ciclo": 1,
+        "fechaEntrega": "2026-08-06",
+        "fecha": "2026-08-06",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-25",
+        "fecha": "2026-09-02",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Faltan filtros por rubro, todo lo demás está ok"
       }
     ],
     "validacionFinal": [],
@@ -3894,6 +4067,29 @@
       "etapa": 0,
       "interfaz": 0
     }
+  },
+  "P11 pendiente": {
+    "tareas": [
+      {
+        "sprint": "4",
+        "task": "Desarrollo de la UI y API de lectura para la sección de Notificaciones (HU-10)",
+        "start": "2026-06-02",
+        "end": "2026-06-04",
+        "workdays": 3,
+        "assigned": "Sergio"
+      },
+      {
+        "sprint": "4",
+        "task": "Desarrollo de la UI y API de lectura para la Línea de Tiempo y Resumen de Contratos (HU-11)",
+        "start": "2026-06-05",
+        "end": "2026-06-10",
+        "workdays": 4,
+        "assigned": "Sergio"
+      }
+    ],
+    "avances": [],
+    "qa": [],
+    "validacionFinal": []
   },
   "P21": {
     "tareas": [
@@ -4197,7 +4393,7 @@
         "fecha": "2026-08-12",
         "estado": "Aprobado",
         "defectos": 0,
-        "observaciones": ""
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
@@ -4215,7 +4411,7 @@
         "fecha": "2026-08-13",
         "estado": "Aprobado",
         "defectos": 0,
-        "observaciones": ""
+        "observaciones": "Sin comentarios."
       },
       {
         "sprint": "3",
@@ -4225,6 +4421,15 @@
         "estado": "Rechazado",
         "defectos": 1,
         "observaciones": "Queda pendiente el arreglo de modulos que no tienen acciones definidas, se solicita que se asignen acciones predeterminadas para estos: Ver, Editar y Eliminar. Falta probrar modulo por modulo, ya que algunos presentan fallas en los permisos"
+      },
+      {
+        "sprint": "3",
+        "ciclo": 3,
+        "fechaEntrega": "2026-08-31",
+        "fecha": "2026-09-04",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Varios defectos más encontrados respecto a las configuraciones granuladas, principalmente se encuentran defectos en los modulos de analisis (p14 yp15) también en modulo de contratos en las ediciones de bloques, periodos, formulas de estos, se sigue haciendo analisis detallado de cada condición por lo que se pueden hallar más defectos en otros modulos"
       }
     ],
     "validacionFinal": [],
@@ -4614,6 +4819,48 @@
         "dateStart": "2026-08-10",
         "dateEnd": "2026-08-13",
         "pct": 25
+      },
+      {
+        "sprint": "1",
+        "task": "HU-02: Adaptar el servicio de extracción a Lambdas EMER",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 10
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Configurar ambientes y parámetros operativos",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 55.00000000000001
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Preparar el contrato funcional de extracción para EMER",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 80
+      },
+      {
+        "sprint": "2",
+        "task": "HU-02: Integrar extracción IA al cron automático",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 60
+      },
+      {
+        "sprint": "2",
+        "task": "HU-01: Mantener compatibilidad del payload con EMER",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 40
+      },
+      {
+        "sprint": "3",
+        "task": "HU-01: Activar o desactivar extractor IA mediante flag",
+        "dateStart": "2026-08-14",
+        "dateEnd": "2026-08-19",
+        "pct": 60
       }
     ],
     "qa": [],
@@ -4756,7 +5003,36 @@
         "assigned": "Javier"
       }
     ],
-    "avances": [],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-03: Administración manual de asociaciones de barras",
+        "dateStart": "2026-08-19",
+        "dateEnd": "2026-08-20",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Importación masiva de asociaciones de barras",
+        "dateStart": "2026-08-19",
+        "dateEnd": "2026-08-20",
+        "pct": 50
+      },
+      {
+        "sprint": "1",
+        "task": "HU-03: Administración manual de asociaciones de barras",
+        "dateStart": "2026-08-19",
+        "dateEnd": "2026-08-20",
+        "pct": 20
+      },
+      {
+        "sprint": "1",
+        "task": "HU-04: Importación masiva de asociaciones de barras",
+        "dateStart": "2026-08-19",
+        "dateEnd": "2026-08-20",
+        "pct": 20
+      }
+    ],
     "qa": [],
     "validacionFinal": [],
     "planificacion": {
@@ -4767,16 +5043,422 @@
     }
   },
   "P20": {
-    "tareas": [],
-    "avances": [],
+    "tareas": [
+      {
+        "sprint": "0",
+        "task": "HU-S0-01: Validar la integración CEN existente y sus modos de falla",
+        "start": "2026-08-17",
+        "end": "2026-08-17",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-02: Validar el acceso a GoSocket entregado por Lipigas",
+        "start": "2026-08-18",
+        "end": "2026-08-19",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-03: Auditar el servicio vigente en EC2",
+        "start": "2026-08-20",
+        "end": "2026-08-20",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-04: Acordar el contrato operativo y los límites de migración",
+        "start": "2026-08-21",
+        "end": "2026-08-21",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-01: Gestionar el ciclo de vida de instrucciones y ejecuciones",
+        "start": "2026-08-24",
+        "end": "2026-08-25",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-02: Programar y parametrizar los procesos operativos",
+        "start": "2026-08-26",
+        "end": "2026-08-27",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-03: Ejecutar con idempotencia, recuperación y correlación",
+        "start": "2026-08-28",
+        "end": "2026-09-01",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Consultar instrucciones para ambos coordinados y roles",
+        "start": "2026-09-02",
+        "end": "2026-09-04",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Detectar novedades sin duplicar instrucciones",
+        "start": "2026-09-07",
+        "end": "2026-09-08",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Recuperar consultas incompletas o fallidas",
+        "start": "2026-09-09",
+        "end": "2026-09-10",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Validar instrucciones contra los maestros vigentes",
+        "start": "2026-09-11",
+        "end": "2026-09-14",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Construir el batch de instrucciones",
+        "start": "2026-09-15",
+        "end": "2026-09-17",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Entregar y conservar el batch generado",
+        "start": "2026-09-21",
+        "end": "2026-09-21",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Validar equivalencia con la ejecución vigente",
+        "start": "2026-09-22",
+        "end": "2026-09-22",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-01: Buscar DTE pendientes con reglas configurables",
+        "start": "2026-09-23",
+        "end": "2026-09-25",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-02: Asociar y custodiar el XML del DTE",
+        "start": "2026-09-28",
+        "end": "2026-09-29",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "4",
+        "task": "HU-S4-03: Gestionar ausencia, ambigüedad y vencimiento",
+        "start": "2026-09-30",
+        "end": "2026-10-01",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-01: Validar los datos de emisión antes del registro",
+        "start": "2026-10-02",
+        "end": "2026-10-05",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-02: Registrar individualmente la emisión en el Portal de Pagos",
+        "start": "2026-10-06",
+        "end": "2026-10-08",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "5",
+        "task": "HU-S5-03: Recuperar y conciliar registros inciertos",
+        "start": "2026-10-09",
+        "end": "2026-10-13",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S6-01: Consultar el resumen de facturación y pago",
+        "start": "2026-10-14",
+        "end": "2026-10-15",
+        "workdays": 2,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S6-02: Consultar y exportar instrucciones de pago",
+        "start": "2026-10-16",
+        "end": "2026-10-20",
+        "workdays": 3,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S6-03: Consultar el glosario de conceptos",
+        "start": "2026-10-21",
+        "end": "2026-10-21",
+        "workdays": 1,
+        "assigned": "Paolo"
+      },
+      {
+        "sprint": "6",
+        "task": "HU-S6-04: Mantener los maestros del proceso",
+        "start": "2026-10-22",
+        "end": "2026-10-22",
+        "workdays": 1,
+        "assigned": "Paolo"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "0",
+        "task": "HU-S0-01: Validar la integración CEN existente y sus modos de falla",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 100
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-02: Validar el acceso a GoSocket entregado por Lipigas",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 100
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-03: Auditar el servicio vigente en EC2",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 100
+      },
+      {
+        "sprint": "0",
+        "task": "HU-S0-04: Acordar el contrato operativo y los límites de migración",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 100
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-01: Gestionar el ciclo de vida de instrucciones y ejecuciones",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 40
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-02: Programar y parametrizar los procesos operativos",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 40
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-03: Ejecutar con idempotencia, recuperación y correlación",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 40
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-01: Consultar instrucciones para ambos coordinados y roles",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-02: Detectar novedades sin duplicar instrucciones",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "2",
+        "task": "HU-S2-03: Recuperar consultas incompletas o fallidas",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-01: Validar instrucciones contra los maestros vigentes",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-02: Construir el batch de instrucciones",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-03: Entregar y conservar el batch generado",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "3",
+        "task": "HU-S3-04: Validar equivalencia con la ejecución vigente",
+        "dateStart": "2026-08-17",
+        "dateEnd": "2026-09-02",
+        "pct": 40
+      }
+    ],
     "qa": [],
     "validacionFinal": [],
     "planificacion": {
       "nombre": "Automatización cuadros de pago EVOL trading",
       "contraparte": "Trading",
-      "etapa": 5,
-      "interfaz": 0
+      "etapa": 0,
+      "interfaz": 3
     }
+  },
+  "P25": {
+    "tareas": [
+      {
+        "sprint": "1",
+        "task": "HU-S1-01: Administrar líneas de negocio del catálogo",
+        "start": "2026-08-27",
+        "end": "2026-08-28",
+        "workdays": 2,
+        "assigned": "Sergio"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-02: Consultar y descargar el catálogo de servicios",
+        "start": "2026-08-31",
+        "end": "2026-09-01",
+        "workdays": 2,
+        "assigned": "Sergio"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-03: Crear y mantener servicios del catálogo",
+        "start": "2026-09-02",
+        "end": "2026-09-03",
+        "workdays": 2,
+        "assigned": "Sergio"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-04: Configurar los alcances de un servicio",
+        "start": "2026-09-04",
+        "end": "2026-09-08",
+        "workdays": 3,
+        "assigned": "Sergio"
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-05: Versionar y consultar el historial de alcances",
+        "start": "2026-09-09",
+        "end": "2026-09-10",
+        "workdays": 2,
+        "assigned": "Sergio"
+      }
+    ],
+    "avances": [
+      {
+        "sprint": "1",
+        "task": "HU-S1-01: Administrar líneas de negocio del catálogo",
+        "dateStart": "2026-08-27",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-02: Consultar y descargar el catálogo de servicios",
+        "dateStart": "2026-08-27",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-03: Crear y mantener servicios del catálogo",
+        "dateStart": "2026-08-27",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-04: Configurar los alcances de un servicio",
+        "dateStart": "2026-08-27",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      },
+      {
+        "sprint": "1",
+        "task": "HU-S1-05: Versionar y consultar el historial de alcances",
+        "dateStart": "2026-08-27",
+        "dateEnd": "2026-09-02",
+        "pct": 70
+      }
+    ],
+    "qa": [],
+    "validacionFinal": [],
+    "planificacion": {
+      "nombre": "Creación de contratos recurrentes y no recurrentes en EMER",
+      "contraparte": "Gerencias",
+      "etapa": 0,
+      "interfaz": 3
+    }
+  },
+  "P04": {
+    "tareas": [],
+    "avances": [],
+    "qa": [
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-03",
+        "fecha": "2026-09-04",
+        "estado": "Rechazado",
+        "defectos": 4,
+        "observaciones": "Durante la ronda de pruebas se detectaron cuatro defectos principales. El más relevante afecta el registro de ronda de envío, ya que las ofertas no se asocian a la ronda real en que fueron enviadas, sino a la última ronda agregada por el analista en EMER, afectando la trazabilidad de la información. Asimismo, se identificó un problema de persistencia en el campo \"Indexación (CPI)\", cuyo valor se pierde al guardar borradores, y falencias de validación en los campos de condiciones contractuales (Take or Pay, I-REC y Porcentaje de Sobreconsumo), que no permiten decimales y, en el caso de los porcentajes, tampoco tienen límite superior definido. Por último, los casos de prueba de fechas y cambios de ronda no pudieron ejecutarse por corresponder a funcionalidades del sprint 6, aún no disponibles."
+      },
+      {
+        "sprint": "4",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-03",
+        "fecha": "2026-09-04",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Más problemas de testeo por configuración de rondas."
+      }
+    ],
+    "validacionFinal": []
   },
   "P22": {
     "tareas": [],
@@ -4800,18 +5482,6 @@
       "contraparte": "GDCO y Comercial",
       "etapa": 5,
       "interfaz": 1
-    }
-  },
-  "P25": {
-    "tareas": [],
-    "avances": [],
-    "qa": [],
-    "validacionFinal": [],
-    "planificacion": {
-      "nombre": "Creación de contratos recurrentes y no recurrentes en EMER",
-      "contraparte": "Gerencias",
-      "etapa": 5,
-      "interfaz": 3
     }
   },
   "P27": {
