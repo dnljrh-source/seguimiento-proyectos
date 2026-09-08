@@ -20,6 +20,8 @@ import { tema, ORDEN_ESTADOS } from "./ui/tema";
 import { hidratarDatos } from "./lib/hidratar";
 import { calcularEstadosProyectos } from "./lib/estadoProyecto";
 import { construirDatosCurva } from "./lib/curvaS";
+import { construirResumenProyectos } from "./lib/resumenProyectos";
+import VistaDashboard from "./views/VistaDashboard";
 import PlanificadorView from "./views/PlanificadorView";
 import VistaCurvaS from "./views/VistaCurvaS";
 import VistaPlanificacion from "./views/VistaPlanificacion";
@@ -34,6 +36,7 @@ export default function App() {
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
   const [error, setError] = useState(null);
   const [vista, setVista] = useState("chart");
+  const [modoGeneral, setModoGeneral] = useState(true); // vista general (dashboard) vs detalle por proyecto
   const [filtroEstado, setFiltroEstado] = useState(null); // null = Todos
   const [filtroDesarrollador, setFiltroDesarrollador] = useState(null); // null = Todos
   const [filtroContraparte, setFiltroContraparte] = useState(null); // null = Todas
@@ -43,7 +46,7 @@ export default function App() {
   const refMenu = useRef();
   const [exportandoZip, setExportandoZip] = useState(false);
   const [progresoZip, setProgresoZip] = useState({ actual: 0, total: 0 });
-  const [mostrarSombrasSprint, setMostrarSombrasSprint] = useState(true);
+  const [mostrarSombrasSprint, setMostrarSombrasSprint] = useState(false);
   const refInput = useRef();
   const refGrafico = useRef();
 
@@ -377,9 +380,16 @@ export default function App() {
   // Si venías en QA y el nuevo proyecto no está En QA, vuelve a la Curva S.
   const seleccionarProyecto = (nombre) => {
     setProyectoSeleccionado(nombre);
+    setModoGeneral(false); // al elegir un proyecto se pasa al detalle
     if (estadosPorProyecto[nombre] === "En QA") setVista("qa");
     else if (vista === "qa") setVista("chart");
   };
+
+  // Resumen de cada proyecto visible (para la vista general / dashboard).
+  const resumenesVisibles = useMemo(
+    () => construirResumenProyectos(proyectos, estadosPorProyecto, listaProyectosVisible),
+    [proyectos, estadosPorProyecto, listaProyectosVisible]
+  );
 
   // Si el proyecto seleccionado quedó oculto o fuera de la lista, se deselecciona
   // (vuelve al estado "sin selección"). No se fuerza selección en el arranque.
@@ -608,6 +618,130 @@ export default function App() {
     XLSX.writeFile(wb, `${proyectoSeleccionado}.xlsx`);
   }, [proyectoActual, mapaAvancePorTarea, datoGrafico, proyectoSeleccionado]);
 
+  // Exporta TODA la base (todos los proyectos, incluidos ocultos) en el mismo
+  // formato de las hojas de carga, de modo que el archivo pueda re-importarse.
+  // Las fechas van como texto DD-MM-YYYY y los avances como decimal (0-1),
+  // tal como los espera manejarArchivo / scripts/import-excel.js.
+  const descargarBaseCompleta = useCallback(() => {
+    const nombres = Object.keys(proyectos);
+    if (!nombres.length) return;
+
+    const filasPlan = [];
+    const filasAv = [];
+    const filasQA = [];
+    const filasVF = [];
+    const filasProy = [];
+
+    for (const nombre of nombres) {
+      const datos = proyectos[nombre];
+      for (const t of datos.tareas || []) {
+        filasPlan.push({
+          Proyecto: nombre,
+          Sprint: t.sprint,
+          Tarea: t.task,
+          Inicio: t.start || "",
+          Fin: t.end || "",
+          "Días Hábiles": t.workdays || 0,
+          Asignado: t.assigned || "",
+        });
+      }
+      for (const a of datos.avances || []) {
+        filasAv.push({
+          Proyecto: nombre,
+          Sprint: a.sprint,
+          Tarea: a.task,
+          "Fecha Inicio": a.dateStart || "",
+          "Fecha Fin": a.dateEnd || "",
+          Porcentaje: Number(((a.pct || 0) / 100).toFixed(4)), // decimal 0-1
+        });
+      }
+      for (const q of datos.qa || []) {
+        filasQA.push({
+          Proyecto: nombre,
+          Sprint: q.sprint,
+          Ciclo: q.ciclo ?? "",
+          "Fecha Entrega a QA": q.fechaEntrega || "",
+          "Fecha Resultado": q.fecha || "",
+          Resultado: q.estado || "",
+          "N° Defectos": q.defectos ?? "",
+          Observaciones: q.observaciones || "",
+        });
+      }
+      for (const v of datos.validacionFinal || []) {
+        filasVF.push({
+          Proyecto: nombre,
+          Fecha: v.fecha || "",
+          Validado: v.validado ? "Sí" : "No",
+          Ocultar: v.ocultar ? "Sí" : "No",
+        });
+      }
+      if (datos.planificacion) {
+        const etapa = datos.planificacion.etapa || 0;
+        filasProy.push({
+          Proyecto: nombre,
+          Nombre: datos.planificacion.nombre || "",
+          Contraparte: datos.planificacion.contraparte || "",
+          Estado: etapa >= 1 && etapa <= 7 ? etapa : "Finalizada",
+          "Estado interfaz": datos.planificacion.interfaz || 0,
+        });
+      }
+    }
+
+    const wb = XLSX.utils.book_new();
+
+    // Marca las columnas indicadas como celdas de fecha nativas de Excel
+    // (tipo 'd') con formato DD-MM-YYYY, para que se vean/editen como fechas.
+    const aplicarFormatoFecha = (ws, columnas) => {
+      if (!ws["!ref"]) return;
+      const rango = XLSX.utils.decode_range(ws["!ref"]);
+      const colsFecha = [];
+      for (let C = rango.s.c; C <= rango.e.c; C++) {
+        const encabezado = ws[XLSX.utils.encode_cell({ r: 0, c: C })];
+        if (encabezado && columnas.includes(encabezado.v)) colsFecha.push(C);
+      }
+      for (const C of colsFecha) {
+        for (let R = 1; R <= rango.e.r; R++) {
+          const celda = ws[XLSX.utils.encode_cell({ r: R, c: C })];
+          if (celda && celda.t === "d") celda.z = "dd-mm-yyyy";
+        }
+      }
+    };
+
+    const wsPlan = XLSX.utils.json_to_sheet(filasPlan, { cellDates: true });
+    wsPlan["!cols"] = [{ wch: 12 }, { wch: 8 }, { wch: 48 }, { wch: 13 }, { wch: 13 }, { wch: 14 }, { wch: 20 }];
+    aplicarFormatoFecha(wsPlan, ["Inicio", "Fin"]);
+    XLSX.utils.book_append_sheet(wb, wsPlan, "PLANIFICACIÓN");
+
+    const wsAv = XLSX.utils.json_to_sheet(filasAv, { cellDates: true });
+    wsAv["!cols"] = [{ wch: 12 }, { wch: 8 }, { wch: 48 }, { wch: 13 }, { wch: 13 }, { wch: 12 }];
+    aplicarFormatoFecha(wsAv, ["Fecha Inicio", "Fecha Fin"]);
+    XLSX.utils.book_append_sheet(wb, wsAv, "AVANCE");
+
+    if (filasQA.length) {
+      const wsQA = XLSX.utils.json_to_sheet(filasQA, { cellDates: true });
+      wsQA["!cols"] = [{ wch: 12 }, { wch: 8 }, { wch: 7 }, { wch: 18 }, { wch: 16 }, { wch: 12 }, { wch: 11 }, { wch: 40 }];
+      aplicarFormatoFecha(wsQA, ["Fecha Entrega a QA", "Fecha Resultado"]);
+      XLSX.utils.book_append_sheet(wb, wsQA, "QA");
+    }
+
+    if (filasVF.length) {
+      const wsVF = XLSX.utils.json_to_sheet(filasVF, { cellDates: true });
+      wsVF["!cols"] = [{ wch: 12 }, { wch: 13 }, { wch: 10 }, { wch: 10 }];
+      aplicarFormatoFecha(wsVF, ["Fecha"]);
+      XLSX.utils.book_append_sheet(wb, wsVF, "VALIDACIÓN FINAL");
+    }
+
+    if (filasProy.length) {
+      const wsProy = XLSX.utils.json_to_sheet(filasProy);
+      wsProy["!cols"] = [{ wch: 12 }, { wch: 30 }, { wch: 24 }, { wch: 14 }, { wch: 14 }];
+      XLSX.utils.book_append_sheet(wb, wsProy, "PROYECTOS");
+    }
+
+    const hoy = new Date();
+    const stamp = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, "0")}-${String(hoy.getDate()).padStart(2, "0")}`;
+    XLSX.writeFile(wb, `base-proyectos-${stamp}.xlsx`);
+  }, [proyectos]);
+
   const descargarTodosZip = useCallback(async () => {
     if (!listaProyectos.length || exportandoZip) return;
     const zip = new JSZip();
@@ -778,6 +912,11 @@ export default function App() {
               {listaProyectos.length > 0 && (
                 <>
                   <div style={{ height: 1, background: tema.borde, margin: "4px 0" }} />
+                  <button onClick={() => { descargarBaseCompleta(); setVerMenu(false); }} style={{
+                    display: "block", width: "100%", textAlign: "left",
+                    background: "transparent", border: "none", borderRadius: 6,
+                    padding: "8px 12px", fontSize: 12, color: tema.textoClaro, cursor: "pointer",
+                  }}>Descargar base (Excel)</button>
                   {proyectoActual && (
                     <button onClick={() => { descargarTablasExcel(); setVerMenu(false); }} style={{
                       display: "block", width: "100%", textAlign: "left",
@@ -828,6 +967,21 @@ export default function App() {
 
       {listaProyectos.length > 0 && (
         <>
+          {/* Toggle: vista general (dashboard) vs detalle por proyecto */}
+          <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
+            {[
+              { k: true, l: "Vista general" },
+              { k: false, l: "Detalle por proyecto" },
+            ].map(opcion => (
+              <button key={String(opcion.k)} onClick={() => setModoGeneral(opcion.k)} style={{
+                background: modoGeneral === opcion.k ? tema.superficieHover : "transparent",
+                color: modoGeneral === opcion.k ? tema.textoClaro : tema.textoMedio,
+                border: `1px solid ${modoGeneral === opcion.k ? tema.bordeHover : tema.borde}`,
+                borderRadius: 8, padding: "7px 16px", fontSize: 13, fontWeight: 500, cursor: "pointer",
+              }}>{opcion.l}</button>
+            ))}
+          </div>
+
           {/* Filtros (estado · desarrollador · contraparte) */}
           {(() => {
             const estiloSelect = {
@@ -876,7 +1030,18 @@ export default function App() {
             );
           })()}
 
-          {/* Layout: lista lateral de proyectos + vista */}
+          {/* Vista general: tabla panorámica de todos los proyectos */}
+          {modoGeneral && (
+            <VistaDashboard
+              resumenes={resumenesVisibles}
+              colorDeEstado={colorDeEstado}
+              onSelect={seleccionarProyecto}
+              tema={tema}
+            />
+          )}
+
+          {/* Layout detalle: lista lateral de proyectos + vista */}
+          {!modoGeneral && (
           <div style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
           {/* Lista lateral de proyectos */}
           <div style={{ width: 240, flexShrink: 0, display: "flex", flexDirection: "column", gap: 6, position: "sticky", top: 20, maxHeight: "calc(100vh - 170px)", overflowY: "auto", paddingRight: 4 }}>
@@ -1063,6 +1228,7 @@ export default function App() {
           )}
           </div>
           </div>
+          )}
 
 
         </>

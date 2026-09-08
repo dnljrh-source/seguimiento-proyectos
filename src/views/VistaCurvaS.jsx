@@ -32,7 +32,8 @@ function TooltipCurvaS({ active, payload, label, tema }) {
 }
 
 // Vista "Curva S": gráfico con curvas planificada/real/proyectada + breakdown
-// de sprints debajo. Incluye el botón "Descargar PNG" y el toggle de zonas.
+// de sprints debajo. Incluye el botón "Descargar PNG" y el toggle
+// "Graficar Planificación de Sprints" (sombreado de sprints, off por defecto).
 export default function VistaCurvaS({
   proyectoSeleccionado,
   versionDatos,
@@ -58,7 +59,7 @@ export default function VistaCurvaS({
             color: mostrarSombrasSprint ? tema.textoClaro : tema.textoMedio,
             border: `1px solid ${mostrarSombrasSprint ? tema.bordeHover : tema.borde}`,
             borderRadius: 5, padding: "3px 10px", fontSize: 10, fontWeight: 500, cursor: "pointer",
-          }}>{mostrarSombrasSprint ? "Zonas activas" : "Zonas ocultas"}</button>
+          }}>Graficar Planificación de Sprints</button>
           <button data-download-btn onClick={descargarGrafico} style={{
             background: tema.superficieHover, color: tema.textoClaro, border: `1px solid ${tema.bordeHover}`,
             borderRadius: 5, padding: "3px 10px", fontSize: 10, fontWeight: 500, cursor: "pointer",
