@@ -98,6 +98,7 @@ export default function VistaCurvaS({
           )}
 
           <Line type="monotone" dataKey="planificado" name="Planificado" stroke={tema.acento} strokeWidth={2.5} dot={false} strokeDasharray="6 3" connectNulls={false} isAnimationActive={false} />
+          {tieneAvances && datoGrafico.tienePlanificadoReal && <Line type="monotone" dataKey="planificadoReal" name="Planificación según inicio real" stroke={tema.turquesa} strokeWidth={2} dot={false} strokeDasharray="2 3" connectNulls={false} isAnimationActive={false} />}
           {tieneAvances && <Line type="monotone" dataKey="real" name="Real" stroke={tema.verde} strokeWidth={3} dot={false} connectNulls isAnimationActive={false} />}
           {tieneAvances && <Line type="monotone" dataKey="proyectado" name="Proyectado" stroke={tema.naranja} strokeWidth={2} dot={false} strokeDasharray="4 2" connectNulls isAnimationActive={false} />}
         </ComposedChart>

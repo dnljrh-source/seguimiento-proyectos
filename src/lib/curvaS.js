@@ -1,7 +1,10 @@
 import { sumarDias, claveFecha, esDiaHabil, diasHabilesEntre, parsearFecha } from "./fechas";
 import { claveHistoria, normalizarTexto } from "./texto";
 
-// Construye los datos para la Curva S: planificado, real, proyectado, resumen por sprint y sombreado.
+// Construye los datos para la Curva S: planificado, planificado según inicio real,
+// real, proyectado, resumen por sprint y sombreado.
+// - planificadoReal: misma forma que la curva planificada pero anclada al día
+//   del primer avance registrado (comienza cuando arrancó el desarrollo real).
 // Función pura — no toca React ni el DOM. Recibe tareas y avances hidratados (con Date objects).
 //
 // Notas:
@@ -34,18 +37,24 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
 
   const planificado = {};
   let acumPlanificado = 0;
+  // Incrementos por día hábil de la curva planificada, en orden. Definen la
+  // "forma" de la curva y se reutilizan para la curva de planificación según
+  // inicio real (misma forma, anclada a la fecha del primer avance).
+  const incrementosHabiles = [];
   planificado[claveFecha(inicioProyecto)] = 0; // arranca explícitamente en 0%
   let diaActual = sumarDias(new Date(inicioProyecto), 1);
   // Acumular solo hasta finProyecto (después las tareas ya terminaron)
   while (diaActual <= finProyecto) {
     const clave = claveFecha(diaActual);
     if (esDiaHabil(diaActual, feriados)) {
+      const antes = acumPlanificado;
       for (const tarea of tareasOrdenadas) {
         if (diaActual >= tarea.start && diaActual <= tarea.end) {
           const diasHabilesReales = diasRealesPorTarea[claveHistoria(tarea.sprint, tarea.task)];
           acumPlanificado += (tarea.workdays / diasHabilesReales / totalDiasHabiles) * 100;
         }
       }
+      incrementosHabiles.push(acumPlanificado - antes);
     }
     planificado[clave] = Math.min(acumPlanificado, 100);
     diaActual = sumarDias(diaActual, 1);
@@ -56,6 +65,38 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
   while (diaActual <= finExtendido) {
     planificado[claveFecha(diaActual)] = 100;
     diaActual = sumarDias(diaActual, 1);
+  }
+
+  // ── Planned curve anclada al inicio real ─────────────────────────
+  // Misma forma que la planificada, pero comenzando el día del primer avance
+  // registrado. Reproduce los mismos incrementos por día hábil desde esa fecha.
+  const planificadoReal = {};
+  let primerAvance = null;
+  for (const avance of avances) {
+    const ref = avance.dateStart || avance.dateEnd;
+    if (!ref) continue;
+    if (!primerAvance || ref < primerAvance) primerAvance = ref;
+  }
+  // Solo tiene sentido si el desarrollo arrancó en un día distinto al inicio
+  // planificado; si coinciden, esta curva sería idéntica a la planificada.
+  const arranqueDistinto = primerAvance && claveFecha(primerAvance) !== claveFecha(inicioProyecto);
+  if (arranqueDistinto && incrementosHabiles.length) {
+    planificadoReal[claveFecha(primerAvance)] = 0;
+    let acumReal = 0;
+    let idx = 0;
+    let diaReal = sumarDias(new Date(primerAvance), 1);
+    let ultimaClavePlanReal = null;
+    while (idx < incrementosHabiles.length) {
+      if (esDiaHabil(diaReal, feriados)) {
+        acumReal += incrementosHabiles[idx];
+        idx++;
+      }
+      ultimaClavePlanReal = claveFecha(diaReal);
+      planificadoReal[ultimaClavePlanReal] = Math.min(acumReal, 100);
+      diaReal = sumarDias(diaReal, 1);
+    }
+    // Cierre exacto en 100% (la convención día-1=0 deja un residual < 100).
+    if (ultimaClavePlanReal) planificadoReal[ultimaClavePlanReal] = 100;
   }
 
   // ── Real curve ───────────────────────────────────────────────────
@@ -102,9 +143,9 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
       pctAcum = pctNuevo;
       if (ganancia <= 0) continue;
 
-      // Clamp start: nunca antes del inicio del proyecto
-      const inicioRaw = avance.dateStart || avance.dateEnd;
-      const fechaInicio = inicioRaw >= inicioProyecto ? inicioRaw : new Date(inicioProyecto);
+      // Se respeta la fecha real del avance, aunque sea anterior al inicio
+      // planificado (el desarrollo puede haber arrancado antes de lo previsto).
+      const fechaInicio = avance.dateStart || avance.dateEnd;
 
       segmentosPorTarea[claveTarea].push({
         inicioMs: fechaInicio.getTime(),
@@ -138,18 +179,22 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     return ultimo;
   };
 
-  // Rango: desde inicioProyecto hasta el último avance (o hoy, lo que sea mayor)
+  // Rango: desde el primer avance registrado hasta el último (o hoy, lo que sea mayor)
   const todasFinMs = Object.values(segmentosPorTarea).flatMap(s => s.map(x => x.finMs));
+  const todasInicioMs = Object.values(segmentosPorTarea).flatMap(s => s.map(x => x.inicioMs));
   const fechaMaxAvance = todasFinMs.length ? new Date(Math.max(...todasFinMs)) : null;
   const fechaHoy = parsearFecha(claveHoy);
 
   const curvaReal = {};
-  curvaReal[claveFecha(inicioProyecto)] = 0;
 
   if (fechaMaxAvance) {
+    // La curva real arranca el día del primer avance registrado, no en el inicio
+    // planificado (evita una línea plana en 0% desde la fecha de planificación).
+    const fechaInicioReal = new Date(Math.min(...todasInicioMs));
+    curvaReal[claveFecha(fechaInicioReal)] = 0;
     // Si la curva no llega a hoy, extender hasta hoy para mostrar la línea plana
     const fechaFinReal = fechaHoy > fechaMaxAvance ? fechaHoy : fechaMaxAvance;
-    let fechaActual = sumarDias(new Date(inicioProyecto), 1);
+    let fechaActual = sumarDias(fechaInicioReal, 1);
     while (fechaActual <= fechaFinReal) {
       const dMs = fechaActual.getTime();
       let total = 0;
@@ -391,15 +436,19 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
   // ── Merge all into chart data ────────────────────────────────────
   const todasLasClaves = [...new Set([
     ...Object.keys(planificado),
+    ...Object.keys(planificadoReal),
     ...Object.keys(curvaReal),
     ...Object.keys(proyectado),
     ...areasSprint.flatMap(areaSprint => [areaSprint.start, areaSprint.end])
   ])].sort();
 
-  // Extender planificado a 100% para cualquier fecha del gráfico que quede
-  // más allá de finExtendido (cuando real o proyectado se prolongan mucho).
+  // Extender planificado a 100% solo hacia adelante: fechas posteriores a
+  // finProyecto que aún no tengan valor (cuando real/proyectado se prolongan).
+  // Las fechas ANTERIORES al inicio planificado se dejan sin valor para que la
+  // curva planificada no se dibuje ahí (el proyecto todavía no había arrancado).
+  const claveFinProyecto = claveFecha(finProyecto);
   for (const clave of todasLasClaves) {
-    if (planificado[clave] === undefined) planificado[clave] = 100;
+    if (planificado[clave] === undefined && clave > claveFinProyecto) planificado[clave] = 100;
   }
 
   // Determinar la fecha de corte: cuando planificado llega al 100%,
@@ -409,14 +458,16 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     let planificadoEn100 = null;
     let realEn100 = null;
     let proyectadoEn100 = null;
+    let planificadoRealEn100 = null;
     for (const clave of todasLasClaves) {
       if (!planificadoEn100 && planificado[clave] !== undefined && planificado[clave] >= 100) planificadoEn100 = clave;
       if (!realEn100 && curvaReal[clave] !== undefined && curvaReal[clave] >= 100) realEn100 = clave;
       if (!proyectadoEn100 && proyectado[clave] !== undefined && proyectado[clave] >= 100) proyectadoEn100 = clave;
+      if (!planificadoRealEn100 && planificadoReal[clave] !== undefined && planificadoReal[clave] >= 100) planificadoRealEn100 = clave;
     }
     if (planificadoEn100) {
-      // El gráfico termina en la última de las tres curvas en llegar al 100%
-      const candidatos = [planificadoEn100, realEn100, proyectadoEn100].filter(Boolean);
+      // El gráfico termina en la última de las curvas en llegar al 100%
+      const candidatos = [planificadoEn100, realEn100, proyectadoEn100, planificadoRealEn100].filter(Boolean);
       claveCierre = candidatos.reduce((max, c) => c > max ? c : max, planificadoEn100);
     }
   }
@@ -426,6 +477,7 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
   let datosCurva = clavesFiltradas.map(clave => {
     const punto = { fecha: clave };
     if (planificado[clave] !== undefined) punto.planificado = Math.round(planificado[clave] * 100) / 100;
+    if (planificadoReal[clave] !== undefined) punto.planificadoReal = Math.round(planificadoReal[clave] * 100) / 100;
     if (curvaReal[clave] !== undefined) punto.real = Math.round(curvaReal[clave] * 100) / 100;
     if (proyectado[clave] !== undefined) punto.proyectado = Math.round(proyectado[clave] * 100) / 100;
     return punto;
@@ -445,5 +497,5 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     );
   }
 
-  return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints };
+  return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints, tienePlanificadoReal: Object.keys(planificadoReal).length > 0 };
 }
