@@ -88,6 +88,9 @@ export default function VistaDashboard({ resumenes, colorDeEstado, onSelect, tem
                         fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em",
                         color: cEstado, background: `${cEstado}18`, padding: "3px 7px", borderRadius: 4, whiteSpace: "nowrap",
                       }}>{r.estado}</span>
+                      {r.pausaComentario && (
+                        <div style={{ fontSize: 10, color: tema.textoMedio, marginTop: 4, maxWidth: 200, lineHeight: 1.3 }}>{r.pausaComentario}</div>
+                      )}
                     </td>
 
                     {/* Desarrollador */}

@@ -124,6 +124,7 @@ export default function App() {
         const hojaQA = buscarHoja(["QA"]);
         const hojaValid = buscarHoja(["VALIDACION FINAL", "VALIDACIONFINAL", "VALIDACION"]);
         const hojaProyectos = buscarHoja(["PROYECTOS"]);
+        const hojaPausas = buscarHoja(["PAUSAS", "PAUSA"]);
         if (!hojaPlantificacion) { setError('Hoja "PLANIFICACIÓN" no encontrada.'); return; }
 
         const filasPlanificacion = XLSX.utils.sheet_to_json(hojaPlantificacion, { defval: "", raw: true });
@@ -131,6 +132,7 @@ export default function App() {
         const filasQA = hojaQA ? XLSX.utils.sheet_to_json(hojaQA, { defval: "", raw: true }) : [];
         const filasValid = hojaValid ? XLSX.utils.sheet_to_json(hojaValid, { defval: "", raw: true }) : [];
         const filasProyectos = hojaProyectos ? XLSX.utils.sheet_to_json(hojaProyectos, { defval: "", raw: true }) : [];
+        const filasPausas = hojaPausas ? XLSX.utils.sheet_to_json(hojaPausas, { defval: "", raw: true }) : [];
         const mapaProyectos = {};
 
         for (const fila of filasPlanificacion) {
@@ -242,6 +244,23 @@ export default function App() {
           mapaProyectos[nombreProyecto].planificacion = { nombre, contraparte, etapa, interfaz };
         }
 
+        // Hoja PAUSAS: rangos de pausa del desarrollo (Fecha Término vacía = vigente).
+        for (const fila of filasPausas) {
+          const colProyecto = buscarColumna(fila, ["proyecto"]);
+          const colInicio = buscarColumna(fila, ["fecha inicio", "inicio"]);
+          const colFin = buscarColumna(fila, ["fecha termino", "termino", "fecha fin", "fin"]);
+          const colComentario = buscarColumna(fila, ["comentario", "comentarios", "observacion", "observaciones", "motivo"]);
+          if (!colProyecto) continue;
+          const nombreProyecto = String(fila[colProyecto]).trim();
+          const inicio = parsearFecha(fila[colInicio]);
+          if (!nombreProyecto || !inicio) continue;
+          const termino = colFin ? parsearFecha(fila[colFin]) : null;
+          const comentario = colComentario ? String(fila[colComentario]).trim() : "";
+          if (!mapaProyectos[nombreProyecto]) mapaProyectos[nombreProyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
+          if (!mapaProyectos[nombreProyecto].pausas) mapaProyectos[nombreProyecto].pausas = [];
+          mapaProyectos[nombreProyecto].pausas.push({ inicio, termino, comentario });
+        }
+
         setProyectos(mapaProyectos);
         // No autoseleccionar: se muestra el prompt "selecciona un proyecto".
         setProyectoSeleccionado(null);
@@ -288,6 +307,7 @@ export default function App() {
     : estado === "EN VALIDACIÓN FINAL" ? tema.acento
     : estado === "En QA" ? tema.verde
     : estado === "En Desarrollo" ? tema.naranja
+    : estado === "Desarrollo Pausado" ? tema.pausa
     : estado === "En Planificación" ? tema.lila
     : tema.textoMedio;
 
@@ -405,7 +425,7 @@ export default function App() {
   // avance vs. planificado y días faltantes/atraso pierden sentido.
   const devCompleto = ["En QA", "EN VALIDACIÓN FINAL", "Finalizado"].includes(estadosPorProyecto[proyectoSeleccionado]);
   const datoGrafico = useMemo(() =>
-    proyectoActual ? construirDatosCurva(proyectoActual.tareas, proyectoActual.avances) : { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null, resumenSprints: [] },
+    proyectoActual ? construirDatosCurva(proyectoActual.tareas, proyectoActual.avances, [], proyectoActual.pausas) : { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null, resumenSprints: [], pausas: [], pausado: false },
     [proyectoActual]
   );
 
@@ -631,6 +651,7 @@ export default function App() {
     const filasQA = [];
     const filasVF = [];
     const filasProy = [];
+    const filasPausas = [];
 
     for (const nombre of nombres) {
       const datos = proyectos[nombre];
@@ -685,6 +706,14 @@ export default function App() {
           "Estado interfaz": datos.planificacion.interfaz || 0,
         });
       }
+      for (const p of datos.pausas || []) {
+        filasPausas.push({
+          Proyecto: nombre,
+          "Fecha Inicio": p.inicio || "",
+          "Fecha Término": p.termino || "",
+          Comentario: p.comentario || "",
+        });
+      }
     }
 
     const wb = XLSX.utils.book_new();
@@ -735,6 +764,13 @@ export default function App() {
       const wsProy = XLSX.utils.json_to_sheet(filasProy);
       wsProy["!cols"] = [{ wch: 12 }, { wch: 30 }, { wch: 24 }, { wch: 14 }, { wch: 14 }];
       XLSX.utils.book_append_sheet(wb, wsProy, "PROYECTOS");
+    }
+
+    if (filasPausas.length) {
+      const wsPausas = XLSX.utils.json_to_sheet(filasPausas, { cellDates: true });
+      wsPausas["!cols"] = [{ wch: 12 }, { wch: 13 }, { wch: 14 }, { wch: 44 }];
+      aplicarFormatoFecha(wsPausas, ["Fecha Inicio", "Fecha Término"]);
+      XLSX.utils.book_append_sheet(wb, wsPausas, "PAUSAS");
     }
 
     const hoy = new Date();
@@ -961,6 +997,8 @@ export default function App() {
             <div>Proyecto | Fecha | Validado (Sí / No) | Ocultar (Sí = ocultar del seguimiento)</div>
             <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>PROYECTOS (opcional · fase de planificación):</div>
             <div>Proyecto | Nombre | Contraparte | Estado (etapa 1-7 · "Finalizada" al terminar) | Estado interfaz (0=Sin interfaz · 1-3)</div>
+            <div style={{ color: tema.naranja, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>PAUSAS (opcional):</div>
+            <div>Proyecto | Fecha Inicio | Fecha Término (vacío = pausa vigente) | Comentario</div>
           </div>
         </div>
       )}
@@ -1124,6 +1162,7 @@ export default function App() {
                 if (estadoProy === "Finalizado") return { l: "Estado", v: "Finalizado", c: tema.verdeExito };
                 if (estadoProy === "EN VALIDACIÓN FINAL") return { l: "Estado", v: "En Val. Final", c: tema.acento };
                 if (estadoProy === "En QA") return { l: "Estado", v: "En QA", c: tema.verde };
+                if (estadoProy === "Desarrollo Pausado") return { l: "Estado", v: "Pausado", c: tema.pausa };
                 if (estadoProy === "En Desarrollo") return { l: "Estado", v: "En Desarrollo", c: desviacion >= 0 ? tema.verde : tema.naranja };
                 return { l: "Estado", v: "Sin Iniciar Dev", c: tema.textoMedio };
               })(),

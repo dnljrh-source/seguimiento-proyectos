@@ -9,6 +9,7 @@ export const tema = {
   texto: "#C8C8D0", textoMedio: "#8E8E98", textoClaro: "#F0F0F0",
   acento: "#E5E5E5", verde: "#0076A8", verdeExito: "#22C55E", naranja: "#FBBF24",
   rojo: "#FB923C", morado: "#C8C8D0", turquesa: "#9A9AA3", lila: "#8E7CC3",
+  pausa: "#FF8800",
 };
 
 // Color asociado a un veredicto de QA. Acepta "Rechazado" (nuevo) y
@@ -30,7 +31,8 @@ export const ORDEN_ESTADOS = {
   "En Planificación": 0,
   "Sin Iniciar desarrollo": 1,
   "En Desarrollo": 2,
-  "En QA": 3,
-  "EN VALIDACIÓN FINAL": 4,
-  "Finalizado": 5,
+  "Desarrollo Pausado": 3,
+  "En QA": 4,
+  "EN VALIDACIÓN FINAL": 5,
+  "Finalizado": 6,
 };

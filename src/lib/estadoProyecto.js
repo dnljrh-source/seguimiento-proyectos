@@ -17,6 +17,18 @@ export const ETAPAS_PLANIFICACION = [
 // "Estado interfaz" de la hoja PROYECTOS (0=Sin interfaz, 1=Low, 2=Mid, 3=High).
 export const ETAPAS_INTERFAZ = ["Sin interfaz", "Low Fid", "Mid Fid", "High Fid"];
 
+// Pausa vigente: aquella cuya fecha de inicio ya pasó (<= hoy) y que no tiene
+// término, o cuyo término aún no llega (>= hoy). Devuelve la pausa o null.
+export function pausaVigente(pausas, hoy = new Date()) {
+  if (!pausas || !pausas.length) return null;
+  const h = new Date(hoy); h.setHours(12, 0, 0, 0);
+  for (const p of pausas) {
+    if (!p.inicio) continue;
+    if (p.inicio <= h && (!p.termino || p.termino >= h)) return p;
+  }
+  return null;
+}
+
 // Devuelve { estado, pruebas, fecha } del sprint según su avance y entradas QA.
 // - Si desarrollo < 100%: estado null (no mostrar badge QA)
 // - Si desarrollo = 100% y no hay pruebas: "En revisión QA"
@@ -75,7 +87,11 @@ export function calcularEstadosProyectos(proyectos) {
     const pct = Math.min(Math.round(total * 100) / 100, 100);
 
     if (pct <= 0) { estados[nombre] = "Sin Iniciar desarrollo"; continue; }
-    if (pct < 99.99) { estados[nombre] = "En Desarrollo"; continue; }
+    // En desarrollo: si hay una pausa vigente, el estado pasa a "Desarrollo Pausado".
+    if (pct < 99.99) {
+      estados[nombre] = pausaVigente(datos.pausas) ? "Desarrollo Pausado" : "En Desarrollo";
+      continue;
+    }
 
     // Desarrollo al 100%: chequear QA por sprint
     const sprintsProyecto = [...new Set(datos.tareas.map(t => t.sprint))];

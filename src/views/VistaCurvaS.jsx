@@ -66,8 +66,36 @@ export default function VistaCurvaS({
           }}>Descargar PNG</button>
         </div>
       </div>
+
+      {/* Detalle de pausas vigentes (sobre el gráfico). Las pausas cerradas se
+          muestran en la vista de Avances para no entorpecer el gráfico. */}
+      {(datoGrafico.pausas || []).some(z => z.vigente) && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16, padding: "0 8px" }}>
+          {datoGrafico.pausas.filter(z => z.vigente).map((zona, i) => (
+            <div key={i} style={{
+              display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap",
+              background: `${tema.pausa}14`, border: `1px solid ${tema.pausa}55`,
+              borderLeft: `4px solid ${tema.pausa}`, borderRadius: 8, padding: "10px 14px", fontSize: 14,
+            }}>
+              <span style={{ width: 26, height: 16, borderRadius: 3, border: `1px solid ${tema.pausa}`, background: `repeating-linear-gradient(45deg, transparent, transparent 3px, ${tema.pausa} 3px, ${tema.pausa} 4px)`, flexShrink: 0 }} />
+              <span style={{ color: tema.pausa, fontWeight: 700, fontSize: 15 }}>Pausa{zona.vigente ? " vigente" : ""}</span>
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", color: tema.textoClaro }}>
+                {formatearFecha(parsearFecha(zona.start))} → {zona.vigente ? "hoy" : formatearFecha(parsearFecha(zona.end))}
+              </span>
+              {zona.comentario && <span style={{ color: tema.texto }}>· {zona.comentario}</span>}
+            </div>
+          ))}
+        </div>
+      )}
+
       <ResponsiveContainer width="100%" height={420}>
         <ComposedChart data={datoGrafico.datos} margin={{ top: 25, right: 20, left: 10, bottom: 40 }}>
+          <defs>
+            {/* Achurado diagonal para las zonas de pausa */}
+            <pattern id="patronPausa" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="7" stroke={tema.pausa} strokeWidth="1.4" strokeOpacity="0.5" />
+            </pattern>
+          </defs>
           <CartesianGrid strokeDasharray="3 3" stroke={tema.borde} />
           <XAxis dataKey="fecha" tick={{ fontSize: 10, fill: tema.textoMedio }}
             tickFormatter={v => { const d = parsearFecha(v); return d ? `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getFullYear()).slice(-2)}` : v; }}
@@ -89,6 +117,20 @@ export default function VistaCurvaS({
               strokeOpacity={0.3}
               strokeDasharray="2 4"
               label={{ value: areaSprint.name, position: "insideTop", fill: tema.morado, fontSize: 9, dy: 4 }}
+            />
+          ))}
+
+          {/* Zonas de pausa (achuradas) */}
+          {(datoGrafico.pausas || []).map((zona, i) => (
+            <ReferenceArea
+              key={`pausa-${i}`}
+              x1={zona.start} x2={zona.end}
+              y1={0} y2={100}
+              fill="url(#patronPausa)"
+              stroke={tema.pausa}
+              strokeOpacity={0.8}
+              strokeDasharray="3 3"
+              label={{ value: zona.vigente ? "Pausa vigente" : "Pausa", position: "insideTop", fill: tema.pausa, fontSize: 13, fontWeight: 700, dy: 8 }}
             />
           ))}
 

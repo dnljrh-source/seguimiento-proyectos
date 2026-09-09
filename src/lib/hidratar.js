@@ -26,6 +26,11 @@ export function hidratarDatos(raw) {
         ...v,
         fecha: v.fecha ? parsearFecha(v.fecha) : null,
       })),
+      pausas: (datos.pausas || []).map(p => ({
+        ...p,
+        inicio: p.inicio ? parsearFecha(p.inicio) : null,
+        termino: p.termino ? parsearFecha(p.termino) : null,
+      })),
       planificacion: datos.planificacion || null,
     };
   }

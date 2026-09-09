@@ -13,17 +13,31 @@ import { claveHistoria, normalizarTexto } from "./texto";
 //   - 730: máximo de días pa simular curva proyectada (~2 años)
 //   - 220 / 180: umbrales de downsampling
 //   - 99.99 / 99.9: tolerancia de redondeo flotante
-export function construirDatosCurva(tareas, avances, feriados = []) {
-  if (!tareas.length) return { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null };
+export function construirDatosCurva(tareas, avances, feriados = [], pausas = []) {
+  if (!tareas.length) return { datos: [], hoy: null, areasSprint: [], inicioProyecto: null, finProyecto: null, pausas: [], pausado: false };
 
   const tareasOrdenadas = [...tareas].sort((a, b) => a.start - b.start);
   const inicioProyecto = tareasOrdenadas[0].start;
   const finProyecto = tareasOrdenadas.reduce((m, tarea) => tarea.end > m ? tarea.end : m, tareasOrdenadas[0].end);
   const totalDiasHabiles = tareasOrdenadas.reduce((s, tarea) => s + (tarea.workdays || 0), 0);
-  if (totalDiasHabiles === 0) return { datos: [], hoy: null, areasSprint: [], inicioProyecto, finProyecto };
+  if (totalDiasHabiles === 0) return { datos: [], hoy: null, areasSprint: [], inicioProyecto, finProyecto, pausas: [], pausado: false };
 
   const finExtendido = sumarDias(finProyecto, 60);
   const claveHoy = claveFecha(new Date());
+
+  // ── Pausas ───────────────────────────────────────────────────────
+  // Zonas achuradas del gráfico. Una pausa sin término se considera vigente y
+  // se extiende hasta hoy; mientras haya una vigente se suspende la proyección.
+  const hoyDate = parsearFecha(claveHoy);
+  const pausasZonas = [];
+  let pausadoActualmente = false;
+  for (const pausa of (pausas || [])) {
+    if (!pausa.inicio) continue;
+    const fin = pausa.termino || hoyDate;
+    const vigente = pausa.inicio <= hoyDate && (!pausa.termino || pausa.termino >= hoyDate);
+    if (vigente) pausadoActualmente = true;
+    pausasZonas.push({ start: claveFecha(pausa.inicio), end: claveFecha(fin), comentario: pausa.comentario || "", vigente });
+  }
 
   // ── Planned curve ────────────────────────────────────────────────
   // Cada tarea aporta exactamente (task.workdays / totalDiasHabiles) * 100 al total,
@@ -81,13 +95,20 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
   // planificado; si coinciden, esta curva sería idéntica a la planificada.
   const arranqueDistinto = primerAvance && claveFecha(primerAvance) !== claveFecha(inicioProyecto);
   if (arranqueDistinto && incrementosHabiles.length) {
+    // Rangos de pausa (Date). Durante una pausa la curva se mantiene constante:
+    // no se consume avance planificado en esos días.
+    const rangosPausa = (pausas || []).filter(p => p.inicio).map(p => ({ ini: p.inicio, fin: p.termino || hoyDate }));
+    const enPausa = (d) => rangosPausa.some(r => d >= r.ini && d <= r.fin);
+
     planificadoReal[claveFecha(primerAvance)] = 0;
     let acumReal = 0;
     let idx = 0;
     let diaReal = sumarDias(new Date(primerAvance), 1);
     let ultimaClavePlanReal = null;
     while (idx < incrementosHabiles.length) {
-      if (esDiaHabil(diaReal, feriados)) {
+      // Pausa vigente: no proyectar más allá de hoy (queda plana, como la real).
+      if (pausadoActualmente && diaReal > hoyDate) break;
+      if (esDiaHabil(diaReal, feriados) && !enPausa(diaReal)) {
         acumReal += incrementosHabiles[idx];
         idx++;
       }
@@ -95,8 +116,9 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
       planificadoReal[ultimaClavePlanReal] = Math.min(acumReal, 100);
       diaReal = sumarDias(diaReal, 1);
     }
-    // Cierre exacto en 100% (la convención día-1=0 deja un residual < 100).
-    if (ultimaClavePlanReal) planificadoReal[ultimaClavePlanReal] = 100;
+    // Cierre exacto en 100% solo si la curva llegó al final (no si se truncó por
+    // una pausa vigente). La convención día-1=0 deja un residual < 100.
+    if (ultimaClavePlanReal && idx >= incrementosHabiles.length) planificadoReal[ultimaClavePlanReal] = 100;
   }
 
   // ── Real curve ───────────────────────────────────────────────────
@@ -243,8 +265,10 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
   // no puede avanzar otra simultáneamente.
   // Los días hábiles que necesita cada tarea se estiman proporcionalmente
   // a su avance restante sobre sus días planificados.
+  // Si el proyecto está pausado ahora, no proyectamos a futuro (no sabemos
+  // cuándo se retoma): la curva real queda plana hasta hoy y sin proyección.
   const proyectado = {};
-  if (ultimaClaveReal && ultimoValorReal < 100) {
+  if (ultimaClaveReal && ultimoValorReal < 100 && !pausadoActualmente) {
     const fechaInicioProyeccion = parsearFecha(ultimaClaveReal);
 
     // Agrupar tareas incompletas por persona asignada
@@ -439,7 +463,8 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     ...Object.keys(planificadoReal),
     ...Object.keys(curvaReal),
     ...Object.keys(proyectado),
-    ...areasSprint.flatMap(areaSprint => [areaSprint.start, areaSprint.end])
+    ...areasSprint.flatMap(areaSprint => [areaSprint.start, areaSprint.end]),
+    ...pausasZonas.flatMap(zona => [zona.start, zona.end])
   ])].sort();
 
   // Extender planificado a 100% solo hacia adelante: fechas posteriores a
@@ -466,8 +491,10 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
       if (!planificadoRealEn100 && planificadoReal[clave] !== undefined && planificadoReal[clave] >= 100) planificadoRealEn100 = clave;
     }
     if (planificadoEn100) {
-      // El gráfico termina en la última de las curvas en llegar al 100%
-      const candidatos = [planificadoEn100, realEn100, proyectadoEn100, planificadoRealEn100].filter(Boolean);
+      // El gráfico termina en la última de las curvas en llegar al 100%.
+      // También se extiende para cubrir el fin de cualquier zona de pausa.
+      const finPausas = pausasZonas.map(z => z.end);
+      const candidatos = [planificadoEn100, realEn100, proyectadoEn100, planificadoRealEn100, ...finPausas].filter(Boolean);
       claveCierre = candidatos.reduce((max, c) => c > max ? c : max, planificadoEn100);
     }
   }
@@ -488,7 +515,8 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     ...Object.keys(curvaReal),
     ...Object.keys(proyectado),
     claveHoy,
-    ...areasSprint.flatMap(areaSprint => [areaSprint.start, areaSprint.end])
+    ...areasSprint.flatMap(areaSprint => [areaSprint.start, areaSprint.end]),
+    ...pausasZonas.flatMap(zona => [zona.start, zona.end])
   ]);
   if (datosCurva.length > 220) {
     const intervalo = Math.max(1, Math.ceil(datosCurva.length / 180));
@@ -497,5 +525,5 @@ export function construirDatosCurva(tareas, avances, feriados = []) {
     );
   }
 
-  return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints, tienePlanificadoReal: Object.keys(planificadoReal).length > 0 };
+  return { datos: datosCurva, hoy: claveHoy, areasSprint, inicioProyecto, finProyecto, resumenSprints, tienePlanificadoReal: Object.keys(planificadoReal).length > 0, pausas: pausasZonas, pausado: pausadoActualmente };
 }

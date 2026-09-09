@@ -164,6 +164,7 @@ const hojaAvances = buscarHoja(libro, ["AVANCE"]);
 const hojaQA = buscarHoja(libro, ["QA"]);
 const hojaValid = buscarHoja(libro, ["VALIDACION FINAL", "VALIDACIONFINAL", "VALIDACION"]);
 const hojaProyectos = buscarHoja(libro, ["PROYECTOS"]);
+const hojaPausas = buscarHoja(libro, ["PAUSAS", "PAUSA"]);
 
 if (!hojaPlan) {
   console.error("[import-excel] Hoja 'PLANIFICACIÓN' no encontrada en el Excel.");
@@ -175,6 +176,7 @@ const filasAv = hojaAvances ? XLSX.utils.sheet_to_json(hojaAvances, { defval: ""
 const filasQA = hojaQA ? XLSX.utils.sheet_to_json(hojaQA, { defval: "", raw: true }) : [];
 const filasValid = hojaValid ? XLSX.utils.sheet_to_json(hojaValid, { defval: "", raw: true }) : [];
 const filasProyectos = hojaProyectos ? XLSX.utils.sheet_to_json(hojaProyectos, { defval: "", raw: true }) : [];
+const filasPausas = hojaPausas ? XLSX.utils.sheet_to_json(hojaPausas, { defval: "", raw: true }) : [];
 
 const mapa = {};
 
@@ -291,6 +293,23 @@ for (const fila of filasProyectos) {
   const interfaz = parsearInterfaz(colInterfaz ? fila[colInterfaz] : "");
   if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
   mapa[proyecto].planificacion = { nombre, contraparte, etapa, interfaz };
+}
+
+// Hoja PAUSAS: rangos de pausa del desarrollo (Fecha Término vacía = vigente).
+for (const fila of filasPausas) {
+  const colProyecto = buscarColumna(fila, ["proyecto"]);
+  const colInicio = buscarColumna(fila, ["fecha inicio", "inicio"]);
+  const colFin = buscarColumna(fila, ["fecha termino", "termino", "fecha fin", "fin"]);
+  const colComentario = buscarColumna(fila, ["comentario", "comentarios", "observacion", "observaciones", "motivo"]);
+  if (!colProyecto) continue;
+  const proyecto = String(fila[colProyecto]).trim();
+  const inicio = parsearFecha(fila[colInicio]);
+  if (!proyecto || !inicio) continue; // sin fecha de inicio no hay pausa
+  const termino = colFin ? parsearFecha(fila[colFin]) : null;
+  const comentario = colComentario ? String(fila[colComentario]).trim() : "";
+  if (!mapa[proyecto]) mapa[proyecto] = { tareas: [], avances: [], qa: [], validacionFinal: [] };
+  if (!mapa[proyecto].pausas) mapa[proyecto].pausas = [];
+  mapa[proyecto].pausas.push({ inicio: fechaAJSON(inicio), termino: fechaAJSON(termino), comentario });
 }
 
 fs.writeFileSync(outputPath, JSON.stringify(mapa, null, 2) + "\n");

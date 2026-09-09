@@ -2,6 +2,7 @@
 // Reutiliza construirDatosCurva (misma lógica que el gráfico) para que las
 // fechas estimadas de término y el % planificado sean coherentes con el detalle.
 import { construirDatosCurva } from "./curvaS";
+import { pausaVigente } from "./estadoProyecto";
 import { claveHistoria } from "./texto";
 
 // Métricas de un solo proyecto ya hidratado.
@@ -30,7 +31,7 @@ export function resumenProyecto(nombre, datos, estado) {
   pctReal = Math.min(Math.round(pctReal * 100) / 100, 100);
 
   // Datos de curva: entrega planificado hoy, inicio/fin real y estimado por sprint
-  const curva = tareas.length ? construirDatosCurva(tareas, avances) : { datos: [], hoy: null, resumenSprints: [] };
+  const curva = tareas.length ? construirDatosCurva(tareas, avances, [], datos.pausas) : { datos: [], hoy: null, resumenSprints: [] };
   const regHoy = curva.datos.find(p => p.fecha === curva.hoy);
   const pctPlanHoy = regHoy?.planificado ?? (pctReal >= 100 ? 100 : 0);
   const desviacion = Math.round((pctReal - pctPlanHoy) * 10) / 10;
@@ -52,6 +53,9 @@ export function resumenProyecto(nombre, datos, estado) {
   const asignados = [...new Set(tareas.map(t => (t.assigned || "").trim()).filter(Boolean))];
   const sprints = [...new Set(tareas.map(t => t.sprint))];
 
+  // Comentario de la pausa vigente (si el proyecto está pausado).
+  const pausa = estado === "Desarrollo Pausado" ? pausaVigente(datos.pausas) : null;
+
   return {
     nombre,
     estado,
@@ -69,6 +73,7 @@ export function resumenProyecto(nombre, datos, estado) {
     inicioReal,
     finEstimado,
     finEsReal,
+    pausaComentario: pausa?.comentario || "",
   };
 }
 
