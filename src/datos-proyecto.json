@@ -2382,6 +2382,24 @@
         "estado": "Aprobado",
         "defectos": 0,
         "observaciones": "Sin comentarios."
+      },
+      {
+        "sprint": "3",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-03",
+        "fecha": "2026-09-04",
+        "estado": "Rechazado",
+        "defectos": 4,
+        "observaciones": "Durante la ronda de pruebas se detectaron cuatro defectos principales. El más relevante afecta el registro de ronda de envío, ya que las ofertas no se asocian a la ronda real en que fueron enviadas, sino a la última ronda agregada por el analista en EMER, afectando la trazabilidad de la información. Asimismo, se identificó un problema de persistencia en el campo \"Indexación (CPI)\", cuyo valor se pierde al guardar borradores, y falencias de validación en los campos de condiciones contractuales (Take or Pay, I-REC y Porcentaje de Sobreconsumo), que no permiten decimales y, en el caso de los porcentajes, tampoco tienen límite superior definido. Por último, los casos de prueba de fechas y cambios de ronda no pudieron ejecutarse por corresponder a funcionalidades del sprint 6, aún no disponibles."
+      },
+      {
+        "sprint": "4",
+        "ciclo": 2,
+        "fechaEntrega": "2026-08-03",
+        "fecha": "2026-09-04",
+        "estado": "Rechazado",
+        "defectos": 1,
+        "observaciones": "Más problemas de testeo por configuración de rondas."
       }
     ],
     "validacionFinal": [],
@@ -2736,6 +2754,15 @@
         "estado": "Aprobado",
         "defectos": 0,
         "observaciones": "Proyecto puede pasar a Producción."
+      },
+      {
+        "sprint": "8",
+        "ciclo": 1,
+        "fechaEntrega": "2026-09-04",
+        "fecha": "2026-09-04",
+        "estado": "Aprobado",
+        "defectos": 0,
+        "observaciones": "Sin comentarios."
       }
     ],
     "validacionFinal": [],
@@ -4697,7 +4724,14 @@
       "contraparte": "GCP",
       "etapa": 0,
       "interfaz": 0
-    }
+    },
+    "pausas": [
+      {
+        "inicio": "2026-07-02",
+        "termino": null,
+        "comentario": "Desarrollo pausado por priorización del proyecto P29. Nuevo motor de cálculo y Reporte de gestión 2.0"
+      }
+    ]
   },
   "P26": {
     "tareas": [
@@ -4870,7 +4904,14 @@
       "contraparte": "GCP",
       "etapa": 0,
       "interfaz": 0
-    }
+    },
+    "pausas": [
+      {
+        "inicio": "2026-08-31",
+        "termino": "2026-09-08",
+        "comentario": "Desarrollo pausado por licencia médica del desarrollador."
+      }
+    ]
   },
   "P18": {
     "tareas": [
@@ -5040,7 +5081,14 @@
       "contraparte": "Trading",
       "etapa": 0,
       "interfaz": 0
-    }
+    },
+    "pausas": [
+      {
+        "inicio": "2026-09-07",
+        "termino": null,
+        "comentario": "Desarrollo pausado por priorización de la mejora a la configuración de horario punta y cálculos asociados."
+      }
+    ]
   },
   "P20": {
     "tareas": [
@@ -5434,31 +5482,6 @@
       "etapa": 0,
       "interfaz": 3
     }
-  },
-  "P04": {
-    "tareas": [],
-    "avances": [],
-    "qa": [
-      {
-        "sprint": "3",
-        "ciclo": 2,
-        "fechaEntrega": "2026-08-03",
-        "fecha": "2026-09-04",
-        "estado": "Rechazado",
-        "defectos": 4,
-        "observaciones": "Durante la ronda de pruebas se detectaron cuatro defectos principales. El más relevante afecta el registro de ronda de envío, ya que las ofertas no se asocian a la ronda real en que fueron enviadas, sino a la última ronda agregada por el analista en EMER, afectando la trazabilidad de la información. Asimismo, se identificó un problema de persistencia en el campo \"Indexación (CPI)\", cuyo valor se pierde al guardar borradores, y falencias de validación en los campos de condiciones contractuales (Take or Pay, I-REC y Porcentaje de Sobreconsumo), que no permiten decimales y, en el caso de los porcentajes, tampoco tienen límite superior definido. Por último, los casos de prueba de fechas y cambios de ronda no pudieron ejecutarse por corresponder a funcionalidades del sprint 6, aún no disponibles."
-      },
-      {
-        "sprint": "4",
-        "ciclo": 2,
-        "fechaEntrega": "2026-08-03",
-        "fecha": "2026-09-04",
-        "estado": "Rechazado",
-        "defectos": 1,
-        "observaciones": "Más problemas de testeo por configuración de rondas."
-      }
-    ],
-    "validacionFinal": []
   },
   "P22": {
     "tareas": [],
